@@ -28,13 +28,13 @@ class TaScrapyPipeline(object):
     def open_spider(self, spider):
 
         logger.warn(' Open file reviews.json')
-        self.file_reviews = open('reviews.json', 'w')
+        self.file_reviews = open(spider.directory + 'reviews.json', 'w')
 
         logger.warn('Open file restaurants.json')
-        self.file_restaurants = open('restaurants.json', 'w')
+        self.file_restaurants = open(spider.directory + 'restaurants.json', 'w')
 
         logger.warn('Open file users.json')
-        self.file_users = open('users.json', 'w')
+        self.file_users = open(spider.directory + 'users.json', 'w')
 
     def close_spider(self, spider):
 

@@ -12,18 +12,20 @@ from TA_scrapy.spiders import get_info          # package where you can write yo
 class RestoReviewSpider(scrapy.Spider):
     name = "RestoReviewSpider"
 
-    def __init__(self, *args, **kwargs): 
+    def __init__(self, directory='', *args, **kwargs): 
         super(RestoReviewSpider, self).__init__(*args, **kwargs)
+        self.directory = directory
 
         # Set logging level
         logzero.loglevel(logging.WARNING)
         # logging.disable(logging.WARNING)
+        logger.warn(' > Output directory ({})'.format(directory))
 
         # To track the evolution of scrapping
         self.main_nb = 0
         self.resto_nb = 0
         self.review_nb = 0
-     #   self.old_id_resto = 0
+        self.restaurants_ids = []
 
     def start_requests(self):
         """ Give the urls to follow to scrapy
@@ -51,15 +53,16 @@ class RestoReviewSpider(scrapy.Spider):
         for restaurant_url in restaurant_urls:
             logger.warn('> New restaurant detected : {}'.format(restaurant_url))
             self.resto_nb += 1
-            yield response.follow(url=restaurant_url, callback=self.parse_resto, cb_kwargs=dict(restaurant_id=self.resto_nb))
+            # yield response.follow(url=restaurant_url, callback=self.parse_resto, cb_kwargs=dict(restaurant_id=self.resto_nb))
             yield response.follow(url=restaurant_url, callback=self.parse_review_page, cb_kwargs=dict(restaurant_id=self.resto_nb))
-            
+           
+        logger.warn('> Out of for loop')
 
         # Get next page information
         next_page, next_page_number = get_info.get_urls_next_list_of_restos(response)
         
         # Follow the page if we decide to
-        if get_info.go_to_next_page(next_page, next_page_number, max_page=1):
+        if get_info.go_to_next_page(next_page, next_page_number, max_page=2):
             yield response.follow(next_page, callback=self.parse)
 
     def parse_resto(self, response, restaurant_id):
@@ -89,12 +92,15 @@ class RestoReviewSpider(scrapy.Spider):
         resto_item['address'] = response.xpath(xpath_address).get()
 
         raw_price = price_cuisine[0]
-        min_price, max_price = raw_price.split(' - ')
+        try:
+            min_price, max_price = raw_price.split(' - ')
+        except ValueError:
+            min_price, max_price = raw_price, raw_price
         resto_item['min_price'] = len(min_price)
         resto_item['max_price'] = len(max_price)
-        logger.warn('resto_item = ', resto_item)
+        logger.warn('resto_item = {}'.format(resto_item))
 
-        yield resto_item
+        return resto_item
 
 
     def parse_review_page(self, response, restaurant_id):
@@ -102,7 +108,10 @@ class RestoReviewSpider(scrapy.Spider):
             - Usually there are 10 reviews per page
         """
         logger.warn(' > PARSING NEW REVIEW PAGE ({})'.format(restaurant_id - 1))
-            
+        if restaurant_id not in self.restaurants_ids:
+            yield self.parse_resto(response, restaurant_id)
+            self.restaurants_ids.append(restaurant_id)
+
         # Get the list of reviews on the page
         urls_review = get_info.get_urls_reviews_in_restaurant_page(response)
 
@@ -144,4 +153,6 @@ class RestoReviewSpider(scrapy.Spider):
         review_item['title'] = response.xpath(xpath_title).get()
         review_item['comment'] = response.xpath(xpath_comment).get()
         
+        logger.warn(' > Yielding review ({})'.format(self.review_nb))
+     
         yield review_item
