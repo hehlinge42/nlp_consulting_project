@@ -1,5 +1,6 @@
 scraped_data/
 .DS_Store
+TA_Scrapy/.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
