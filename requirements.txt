@@ -1,0 +1,10 @@
+selenium
+requests
+scrapy
+pandas
+numpy
+webdriver-manager
+logging
+logzero
+json
+itemadapter
