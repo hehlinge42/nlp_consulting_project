@@ -7,9 +7,9 @@
 def get_urls_resto_in_main_search_page(response):
     return response.xpath('//a[@class="_15_ydu6b"]/@href').getall()
     
-def get_urls_reviews_in_restaurant_page(response):
+def get_urls_reviews_in_review_page(response):
     return response.xpath('//div[@class="quote"]/a/@href').getall()
-
+    
 def get_urls_next_list_of_restos(response):
     xpath = '//*[@id="EATERY_LIST_CONTENTS"]/div/div/a'
     next_page = response.xpath(xpath).css('::attr(href)').extract()[-1]

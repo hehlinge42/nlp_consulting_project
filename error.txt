@@ -1,0 +1,1548 @@
+[W 210128 15:25:38 pipelines:26]  > Init TaScrapyPipeline
+[W 210128 15:25:38 pipelines:30]  Open file reviews.json
+[W 210128 15:25:38 pipelines:33] Open file restaurants.json
+[W 210128 15:25:38 pipelines:36] Open file users.json
+[W 210128 15:25:40 restoSpiderReview_simplified:50]  > PARSING NEW MAIN PAGE OF RESTO (0)
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646049-d3731327-Reviews-Tamara_Lounge-Uxbridge_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g7383687-d20405898-Reviews-Bombaylicious-Coulsdon_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g528818-d2306043-Reviews-La_Dolce_Vita-Teddington_Richmond_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1934185-d15563947-Reviews-The_Orpington-Orpington_Bromley_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d12960882-Reviews-Piate-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646049-d12460152-Reviews-Ottimmo_Bao_Bao-Uxbridge_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g2549055-d6522688-Reviews-Rendez_Vous_Caffe-Beckenham_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d10519837-Reviews-The_Lounge_Cafe-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1934185-d15265576-Reviews-Orpington_Citi_Kitchen-Orpington_Bromley_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g528820-d14766084-Reviews-Taste_Of_Peshawar-Wembley_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g528818-d4554708-Reviews-Sidra-Teddington_Richmond_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646066-d946614-Reviews-Giftos_Lahore_Karahi-Southall_Ealing_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g528819-d10490489-Reviews-Umi-Twickenham_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1752250-d1935808-Reviews-The_French_Table-Surbiton_Kingston_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d12569115-Reviews-Wild_Thyme-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g17478676-d13428223-Reviews-ITJL-Colindale_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g504169-d10292747-Reviews-Mezzet_Lebanese_Restaurant-East_Molesey_Molesey_Surrey_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646066-d2413978-Reviews-Madhu_s-Southall_Ealing_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g190796-d4072239-Reviews-Tony_Parkin_at_The_Tudor_Room-Egham_Surrey_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d13915112-Reviews-Oliveira_Organic_Vegetarian_Kitchen-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646049-d4008280-Reviews-Bella_Italia_Uxbridge-Uxbridge_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g10283565-d3644860-Reviews-Spice_Station-Chingford_Waltham_Forest_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1752250-d13374090-Reviews-Doosra-Surbiton_Kingston_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1646066-d13110428-Reviews-Kulcha_Express-Southall_Ealing_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g191301-d12911877-Reviews-La_Plata_Steakhouse-Richmond_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g504167-d2620286-Reviews-Ponte_Nuovo-Croydon_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d7808892-Reviews-Lentil-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g191301-d4453079-Reviews-Revolution-Richmond_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g12692256-d4071984-Reviews-Haweli_of_Ealing-Ealing_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g191260-d5999531-Reviews-Madhu_s_Heathrow-Hayes_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g186338-d3490463-Reviews-Awesome_Thai_Barnes-London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g504175-d7898161-Reviews-Obon_Sushi_Udon-Kingston_upon_Thames_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g504169-d7221903-Reviews-Mezzet_Dar-East_Molesey_Molesey_Surrey_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g2536732-d14976947-Reviews-4_Locos_Argentine_Steakhouse-Purley_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:58] > New restaurant detected : /Restaurant_Review-g1076982-d4240870-Reviews-Melucci_s-Bexley_Greater_London_England.html
+[W 210128 15:25:40 restoSpiderReview_simplified:63] > Out of for loop
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (25)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '86-88 High Street, Croydon CR0 1NA England',
+     'cuisine': ['Italian', 'Pizza', 'Mediterranean'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Ponte Nuovo',
+     'nb_reviews': '907',
+     'phone_number': '+44 20 8686 1112',
+     'ranking': ' of 336 Restaurants in Croydon',
+     'rating': '4.5',
+     'restaurant_id': 26,
+     'website': 'd1RqX2h0dHA6Ly9wb250ZS1udW92by5jby51ay9ob21lL19IV2U='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (23)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '108 The Green, Southall, Ealing UB2 4BQ England',
+     'cuisine': ['Indian', 'Fast food', 'Asian'],
+     'max_price': 1,
+     'min_price': 1,
+     'name': 'Kulcha Express',
+     'nb_reviews': '36',
+     'phone_number': '+44 20 8843 2226',
+     'ranking': ' of 75 Restaurants in Southall',
+     'rating': '4.5',
+     'restaurant_id': 24,
+     'website': 'YmVaX2h0dHBzOi8va3VsY2hhZXhwcmVzcy5jby51ay9zb3V0aGFsbC9fYXNo'}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (22)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '282 Ewell Road, Surbiton, Kingston upon Thames KT6 7AQ England',
+     'cuisine': ['Indian', 'Vegetarian Friendly', 'Vegan Options'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Doosra',
+     'nb_reviews': '207',
+     'phone_number': '+44 20 3196 7716',
+     'ranking': ' of 87 Restaurants in Surbiton',
+     'rating': '5.0',
+     'restaurant_id': 23,
+     'website': 'SExsX2h0dHA6Ly93d3cuZG9vc3JhLmtpdGNoZW5fWDV5'}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (26)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '185 South Ealing Road, London W5 4RH England',
+     'cuisine': ['Indian', 'Asian', 'Nepalese'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Lentil',
+     'nb_reviews': '345',
+     'phone_number': '+44 20 8560 5900',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '5.0',
+     'restaurant_id': 27,
+     'website': 'dkhkX2h0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MZW50aWwvMTA3NDY4NTc1OTIyNDcyND9zaz10aW1lbGluZV9pb3M='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (0)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': 'Uxbridge Road, Uxbridge UB10 0NA England',
+     'cuisine': ['Indian', 'Asian', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Tamara Lounge',
+     'nb_reviews': '684',
+     'phone_number': '+44 20 8848 1919',
+     'ranking': ' of 102 Restaurants in Uxbridge',
+     'rating': '3.5',
+     'restaurant_id': 1,
+     'website': 'dDNpX2h0dHA6Ly93d3cudGFtYXJhbG91bmdlLmNvbV8wUHM='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (27)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '4 Whittaker Avenue Richmond, Richmond TW9 1EH England',
+     'cuisine': ['Bar', 'Pizza', 'British'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Revolution',
+     'nb_reviews': '1,289',
+     'phone_number': '+44 20 8940 1379',
+     'ranking': ' of 117 Restaurants in Richmond',
+     'rating': '4.5',
+     'restaurant_id': 28,
+     'website': 'dGF6X2h0dHA6Ly93d3cucmV2b2x1dGlvbi1iYXJzLmNvLnVrL2Jhci9sb25kb24tcmljaG1vbmQvX3F1SQ=='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (24)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': 'East Sheen 109 Sheen Lane, Richmond SW14 8AE England',
+     'cuisine': ['Steakhouse', 'Latin', 'Argentinian'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'La Plata Steakhouse',
+     'nb_reviews': '221',
+     'phone_number': '+44 20 8876 7747',
+     'ranking': ' of 117 Restaurants in Richmond',
+     'rating': '5.0',
+     'restaurant_id': 25,
+     'website': 'MVNKX2h0dHA6Ly93d3cubGFwbGF0YXJlc3RhdXJhbnQuY29tL193aTc='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:42 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (28)
+[W 210128 15:25:42 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:42 restoSpiderReview_simplified:106] resto_item = {'address': '127-129 Uxbridge Road West Ealing, Ealing W13 9AU England',
+     'cuisine': ['Indian', 'Asian', 'Balti'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Haweli of Ealing',
+     'nb_reviews': '314',
+     'phone_number': '+44 20 8567 6211',
+     'ranking': ' of 48 Restaurants in Ealing',
+     'rating': '4.5',
+     'restaurant_id': 29,
+     'website': 'VjZyX2h0dHA6Ly93d3cuaGF3ZWxpb2ZlYWxpbmcuY29tL19MdDY='}
+[W 210128 15:25:42 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (18)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:43 restoSpiderReview_simplified:106] resto_item = {'address': 'Great Fosters Stroude Road, Egham TW20 0UR England',
+     'cuisine': ['European', 'British', 'Contemporary'],
+     'max_price': 4,
+     'min_price': 4,
+     'name': 'Tony Parkin at The Tudor Room',
+     'nb_reviews': '472',
+     'phone_number': '+44 1784 433822',
+     'ranking': ' of 33 Restaurants in Egham',
+     'rating': '5.0',
+     'restaurant_id': 19,
+     'website': 'N2E2X2h0dHA6Ly93d3cuZ3JlYXRmb3N0ZXJzLmNvLnVrX05nRw=='}
+[W 210128 15:25:43 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (21)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:43 restoSpiderReview_simplified:106] resto_item = {'address': '140 Station Road, Chingford, Waltham Forest E4 6AN England',
+     'cuisine': ['Indian', 'Asian', 'Balti'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Spice Station',
+     'nb_reviews': '214',
+     'phone_number': '+44 20 8524 0883',
+     'ranking': ' of 42 Restaurants in Chingford',
+     'rating': '4.5',
+     'restaurant_id': 22,
+     'website': 'ZjB5X2h0dHA6Ly93d3cuc3BpY2VzdGF0aW9uYW5kYmFyLmNvLnVrL2NvbnRhY3QuaHRtbF9oTTk='}
+[W 210128 15:25:43 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (15)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:43 restoSpiderReview_simplified:106] resto_item = {'address': '10 Charcot Road, Colindale NW9 5HR England',
+     'cuisine': ['Asian', 'Vegetarian Friendly', 'Vegan Options'],
+     'max_price': 1,
+     'min_price': 1,
+     'name': 'ITJL',
+     'nb_reviews': '254',
+     'phone_number': '+44 20 3952 7517',
+     'ranking': ' of 6 Restaurants in Colindale',
+     'rating': '5.0',
+     'restaurant_id': 16,
+     'website': 'bEZBX2h0dHA6Ly93d3cuaXRqbC5jby51a19EdTA='}
+[W 210128 15:25:43 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (20)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:43 restoSpiderReview_simplified:106] resto_item = {'address': '198-200 High Street Intu Uxbridge, Uxbridge UB8 1LB England',
+     'cuisine': ['Italian', 'Healthy', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Bella Italia Uxbridge',
+     'nb_reviews': '891',
+     'phone_number': '+44 1895 379689',
+     'ranking': ' of 102 Restaurants in Uxbridge',
+     'rating': '4.5',
+     'restaurant_id': 21,
+     'website': 'QVZiX2h0dHBzOi8vd3d3LmJlbGxhaXRhbGlhLmNvLnVrL2l0YWxpYW4tcmVzdGF1cmFudC91eGJyaWRnZS9pbnR1LXV4YnJpZGdlXzRxTg=='}
+[W 210128 15:25:43 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (19)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:43 restoSpiderReview_simplified:106] resto_item = {'address': '469 Upper Richmond Road West, London SW14 7PU England',
+     'cuisine': ['International', 'European', 'Contemporary'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Oliveira Organic Vegetarian Kitchen',
+     'nb_reviews': '195',
+     'phone_number': '+44 20 8255 2462',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '5.0',
+     'restaurant_id': 20,
+     'website': 'cTJvX2h0dHA6Ly93d3cub2xpdmVpcmEtcmVzdGF1cmFudC5jb20vXzVlOQ=='}
+[W 210128 15:25:43 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:43 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (14)
+[W 210128 15:25:43 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:44 restoSpiderReview_simplified:106] resto_item = {'address': '2B Thorpebank Road, London W12 0PQ England',
+     'cuisine': ['Cafe', 'European', 'British'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Wild Thyme',
+     'nb_reviews': '194',
+     'phone_number': '+44 20 8354 9321',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '5.0',
+     'restaurant_id': 15,
+     'website': 'd1pUX2h0dHA6Ly93d3cud2lsZHRoeW1lbG9uZG9uLmNvbV9zd3M='}
+[W 210128 15:25:44 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:44 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (17)
+[W 210128 15:25:44 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:44 restoSpiderReview_simplified:106] resto_item = {'address': '39 South Road, Southall, Ealing UB1 1SW England',
+     'cuisine': ['Indian', 'Asian', 'Grill'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': "Madhu's",
+     'nb_reviews': '528',
+     'phone_number': '+44 20 8574 1897',
+     'ranking': ' of 75 Restaurants in Southall',
+     'rating': '4.0',
+     'restaurant_id': 18,
+     'website': 'cVU4X2h0dHA6Ly93d3cubWFkaHVzLmNvLnVrL19CVFc='}
+[W 210128 15:25:44 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:44 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (16)
+[W 210128 15:25:44 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:44 restoSpiderReview_simplified:106] resto_item = {'address': '43 Bridge Road, East Molesey KT8 9ER England',
+     'cuisine': ['Lebanese', 'Mediterranean', 'Middle Eastern'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Mezzet Lebanese Restaurant',
+     'nb_reviews': '1,249',
+     'phone_number': '+44 20 8979 4088',
+     'ranking': ' of 37 Restaurants in East Molesey',
+     'rating': '4.5',
+     'restaurant_id': 17,
+     'website': 'TTJHX2h0dHA6Ly93d3cubWV6emV0LmNvLnVrL19yZHg='}
+[W 210128 15:25:44 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:44 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (0)
+[W 210128 15:25:44 restoSpiderReview_simplified:162]  > Yielding review (1)
+[W 210128 15:25:44 pipelines:72] Write line to review.json
+[W 210128 15:25:44 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (1)
+[W 210128 15:25:44 restoSpiderReview_simplified:162]  > Yielding review (2)
+[W 210128 15:25:44 pipelines:72] Write line to review.json
+[W 210128 15:25:44 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (33)
+[W 210128 15:25:44 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:44 restoSpiderReview_simplified:106] resto_item = {'address': '6-8 Tudor Court- Russell Hill Road, Purley CR8 2LA England',
+     'cuisine': ['Steakhouse', 'Argentinian', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': '4 Locos Argentine Steakhouse',
+     'nb_reviews': '139',
+     'phone_number': '+44 20 8660 5200',
+     'ranking': ' of 32 Restaurants in Purley',
+     'rating': '5.0',
+     'restaurant_id': 34,
+     'website': 'cGZmX2h0dHA6Ly93d3cuNExvY29zLmNvLnVrX2dUTw=='}
+[W 210128 15:25:44 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:44 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (34)
+[W 210128 15:25:44 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:44 restoSpiderReview_simplified:106] resto_item = {'address': '55 Bexley High Street, Bexley DA5 1AB England',
+     'cuisine': ['Italian', 'Deli', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': "Melucci's",
+     'nb_reviews': '277',
+     'phone_number': '+44 1322 558640',
+     'ranking': ' of 36 Restaurants in Bexley',
+     'rating': '5.0',
+     'restaurant_id': 35,
+     'website': 'TElTX2h0dHA6Ly9tZWx1Y2Npcy5jby51ay9fTnNJ'}
+[W 210128 15:25:44 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:45 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (32)
+[W 210128 15:25:45 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:25:45 restoSpiderReview_simplified:106] resto_item = {'address': '39 Bridge Road Hampton Court, East Molesey KT8 9ER England',
+     'cuisine': ['Lebanese', 'Mediterranean', 'Spanish'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Mezzet Dar',
+     'nb_reviews': '430',
+     'phone_number': '+44 20 8783 0149',
+     'ranking': ' of 37 Restaurants in East Molesey',
+     'rating': '5.0',
+     'restaurant_id': 33,
+     'website': 'aTFjX2h0dHA6Ly93d3cubWV6emV0ZGFyLmNvLnVrXzFuWA=='}
+[W 210128 15:25:45 pipelines:65] Write line to restaurants.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (2)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (3)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (3)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (4)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (4)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (5)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (5)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (6)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (6)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (7)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (7)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (8)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (8)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (9)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (9)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (10)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:45 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (10)
+[W 210128 15:25:45 restoSpiderReview_simplified:162]  > Yielding review (11)
+[W 210128 15:25:45 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (11)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (12)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (12)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (13)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (13)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (14)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (14)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (15)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (15)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (16)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (16)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (17)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (17)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (18)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (18)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (19)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:46 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (19)
+[W 210128 15:25:46 restoSpiderReview_simplified:162]  > Yielding review (20)
+[W 210128 15:25:46 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (20)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (21)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (21)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (22)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (22)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (23)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (23)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (24)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (24)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (25)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (25)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (26)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:47 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (26)
+[W 210128 15:25:47 restoSpiderReview_simplified:162]  > Yielding review (27)
+[W 210128 15:25:47 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (27)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (28)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (28)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (29)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (29)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (30)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (30)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (31)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (31)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (32)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (32)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (33)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (33)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (34)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (34)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (35)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (35)
+[W 210128 15:25:48 restoSpiderReview_simplified:162]  > Yielding review (36)
+[W 210128 15:25:48 pipelines:72] Write line to review.json
+[W 210128 15:25:48 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (36)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (37)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (37)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (38)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (38)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (39)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (39)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (40)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (40)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (41)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (41)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (42)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (42)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (43)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (43)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (44)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (44)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (45)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (45)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (46)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (46)
+[W 210128 15:25:49 restoSpiderReview_simplified:162]  > Yielding review (47)
+[W 210128 15:25:49 pipelines:72] Write line to review.json
+[W 210128 15:25:49 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (47)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (48)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (48)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (49)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (49)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (50)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (50)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (51)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (51)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (52)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (52)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (53)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (53)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (54)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (54)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (55)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (55)
+[W 210128 15:25:50 restoSpiderReview_simplified:162]  > Yielding review (56)
+[W 210128 15:25:50 pipelines:72] Write line to review.json
+[W 210128 15:25:50 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (56)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (57)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (57)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (58)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (58)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (59)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (59)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (60)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (60)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (61)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (61)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (62)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (62)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (63)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:51 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (63)
+[W 210128 15:25:51 restoSpiderReview_simplified:162]  > Yielding review (64)
+[W 210128 15:25:51 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (64)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (65)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (65)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (66)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (66)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (67)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (67)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (68)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (68)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (69)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (69)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (70)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:52 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (70)
+[W 210128 15:25:52 restoSpiderReview_simplified:162]  > Yielding review (71)
+[W 210128 15:25:52 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (71)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (72)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (72)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (73)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (73)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (74)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (74)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (75)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (75)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (76)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (76)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (77)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (77)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (78)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:53 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (78)
+[W 210128 15:25:53 restoSpiderReview_simplified:162]  > Yielding review (79)
+[W 210128 15:25:53 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (79)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (80)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (80)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (81)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (81)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (82)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (82)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (83)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (83)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (84)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (84)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (85)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (85)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (86)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (86)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (87)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:54 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (87)
+[W 210128 15:25:54 restoSpiderReview_simplified:162]  > Yielding review (88)
+[W 210128 15:25:54 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (88)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (89)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (89)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (90)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (90)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (91)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (91)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (92)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (92)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (93)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (93)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (94)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (94)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (95)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (95)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (96)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:55 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (96)
+[W 210128 15:25:55 restoSpiderReview_simplified:162]  > Yielding review (97)
+[W 210128 15:25:55 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (97)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (98)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (98)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (99)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (99)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (100)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (100)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (101)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (101)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (102)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (102)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (103)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (103)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (104)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (104)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (105)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (105)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (106)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:56 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (106)
+[W 210128 15:25:56 restoSpiderReview_simplified:162]  > Yielding review (107)
+[W 210128 15:25:56 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (107)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (108)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (108)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (109)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (109)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (110)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (110)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (111)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (111)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (112)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (112)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (113)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (113)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (114)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (114)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (115)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:57 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (115)
+[W 210128 15:25:57 restoSpiderReview_simplified:162]  > Yielding review (116)
+[W 210128 15:25:57 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (116)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (117)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (117)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (118)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (118)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (119)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (119)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (120)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (120)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (121)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (121)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (122)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (122)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (123)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:58 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (123)
+[W 210128 15:25:58 restoSpiderReview_simplified:162]  > Yielding review (124)
+[W 210128 15:25:58 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (124)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (125)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (125)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (126)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (126)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (127)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (127)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (128)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (128)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (129)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (129)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (130)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (130)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (131)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:25:59 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (131)
+[W 210128 15:25:59 restoSpiderReview_simplified:162]  > Yielding review (132)
+[W 210128 15:25:59 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (132)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (133)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (133)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (134)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (134)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (135)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (135)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (136)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (136)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (137)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (137)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (138)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (138)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (139)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (139)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (140)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (140)
+[W 210128 15:26:00 restoSpiderReview_simplified:162]  > Yielding review (141)
+[W 210128 15:26:00 pipelines:72] Write line to review.json
+[W 210128 15:26:00 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (141)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (142)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (142)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (143)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (143)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (144)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (144)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (145)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (145)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (146)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (146)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (147)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (147)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (148)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (148)
+[W 210128 15:26:01 restoSpiderReview_simplified:162]  > Yielding review (149)
+[W 210128 15:26:01 pipelines:72] Write line to review.json
+[W 210128 15:26:01 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (149)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (150)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (150)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (151)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (151)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (152)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (152)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (153)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (153)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (154)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (154)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (155)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:02 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (155)
+[W 210128 15:26:02 restoSpiderReview_simplified:162]  > Yielding review (156)
+[W 210128 15:26:02 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (156)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (157)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (157)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (158)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (158)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (159)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (159)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (160)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (160)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (161)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (161)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (162)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (162)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (163)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:03 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (163)
+[W 210128 15:26:03 restoSpiderReview_simplified:162]  > Yielding review (164)
+[W 210128 15:26:03 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (164)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (165)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (165)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (166)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (166)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (167)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (167)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (168)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (168)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (169)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (169)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (170)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (170)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (171)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (171)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (172)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (172)
+[W 210128 15:26:04 restoSpiderReview_simplified:162]  > Yielding review (173)
+[W 210128 15:26:04 pipelines:72] Write line to review.json
+[W 210128 15:26:04 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (173)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (174)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (174)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (175)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (175)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (176)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (176)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (177)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (177)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (178)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (178)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (179)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (179)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (180)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (180)
+[W 210128 15:26:05 restoSpiderReview_simplified:162]  > Yielding review (181)
+[W 210128 15:26:05 pipelines:72] Write line to review.json
+[W 210128 15:26:05 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (181)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (182)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (182)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (183)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (183)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (184)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (184)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (185)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (185)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (186)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (186)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (187)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (187)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (188)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:06 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (188)
+[W 210128 15:26:06 restoSpiderReview_simplified:162]  > Yielding review (189)
+[W 210128 15:26:06 pipelines:72] Write line to review.json
+[W 210128 15:26:07 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (13)
+[W 210128 15:26:07 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:07 restoSpiderReview_simplified:106] resto_item = {'address': '85 Maple Road, Surbiton, Kingston upon Thames KT6 4AW England',
+     'cuisine': ['French', 'European', 'Vegetarian Friendly'],
+     'max_price': 4,
+     'min_price': 4,
+     'name': 'The French Table',
+     'nb_reviews': '1,213',
+     'phone_number': '+44 20 8399 2365',
+     'ranking': ' of 87 Restaurants in Surbiton',
+     'rating': '4.5',
+     'restaurant_id': 14,
+     'website': 'R0NEX2h0dHA6Ly93d3cudGhlZnJlbmNodGFibGUuY28udWtfZW81'}
+[W 210128 15:26:07 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:07 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (31)
+[W 210128 15:26:07 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:07 restoSpiderReview_simplified:106] resto_item = {'address': '42 Richmond Road, Kingston upon Thames KT2 5EE England',
+     'cuisine': ['Japanese', 'Vegetarian Friendly', 'Gluten Free Options'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Obon Sushi & Udon',
+     'nb_reviews': '206',
+     'phone_number': '+44 20 8546 5452',
+     'ranking': ' of 168 Restaurants in Kingston upon Thames',
+     'rating': '5.0',
+     'restaurant_id': 32,
+     'website': 'N0tGX2h0dHA6Ly93d3cuZmFjZWJvb2suY29tL09ib25raW5nc3Rvbl9nWm8='}
+[W 210128 15:26:07 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:07 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (12)
+[W 210128 15:26:07 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:07 restoSpiderReview_simplified:106] resto_item = {'address': '30 York Street, Twickenham TW1 3LJ England',
+     'cuisine': ['Japanese', 'Sushi', 'Asian'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Umi',
+     'nb_reviews': '417',
+     'phone_number': '+44 20 8892 2976',
+     'ranking': ' of 138 Restaurants in Twickenham',
+     'rating': '5.0',
+     'restaurant_id': 13,
+     'website': None}
+[W 210128 15:26:07 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:07 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (30)
+[W 210128 15:26:07 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:07 restoSpiderReview_simplified:106] resto_item = {'address': '68 Church Road Barnes, London SW13 0DQ England',
+     'cuisine': ['Asian', 'Thai', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Awesome Thai #Barnes',
+     'nb_reviews': '656',
+     'phone_number': '+44 20 8563 7027',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '4.5',
+     'restaurant_id': 31,
+     'website': 'Mjg4X2h0dHA6Ly93d3cuYXdlc29tZXRoYWkuY28udWtfTmRB'}
+[W 210128 15:26:07 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:07 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (29)
+[W 210128 15:26:07 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:07 restoSpiderReview_simplified:106] resto_item = {'address': 'Bath Road Sheraton Skyline Hotel London Heathrow, Hayes UB3 5BP '
+                'England',
+     'cuisine': ['Indian', 'Asian', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': "Madhu's Heathrow",
+     'nb_reviews': '637',
+     'phone_number': '+44 20 8564 3380',
+     'ranking': ' of 83 Restaurants in Hayes',
+     'rating': '4.5',
+     'restaurant_id': 30,
+     'website': 'cTZ2X2h0dHA6Ly93d3cubWFkaHVzaGVhdGhyb3cuY29tX05HYg=='}
+[W 210128 15:26:07 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (10)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '5 Church Road, Teddington, Richmond TW11 8PF England',
+     'cuisine': ['Lebanese', 'Cafe', 'Mediterranean'],
+     'max_price': 1,
+     'min_price': 1,
+     'name': 'Sidra',
+     'nb_reviews': '140',
+     'phone_number': '+44 20 8977 2725',
+     'ranking': ' of 51 Restaurants in Teddington',
+     'rating': '5.0',
+     'restaurant_id': 11,
+     'website': 'OW9PX2h0dHA6Ly93d3cuc2lkcmF0ZWRkaW5ndG9uLmNvLnVrL19pRWQ='}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (9)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '62 Harrow Road, Wembley HA9 6PL England',
+     'cuisine': ['Grill', 'Pakistani', 'Afghani'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Taste Of Peshawar',
+     'nb_reviews': '171',
+     'phone_number': '+44 20 3015 4133',
+     'ranking': ' of 155 Restaurants in Wembley',
+     'rating': '5.0',
+     'restaurant_id': 10,
+     'website': 'MnhxX2h0dHA6Ly93d3cuZmFjZWJvb2suY29tL1Rhc3RlLU9mLVBlc2hhd2FyLTEzNTU3OTk0NzA2NzYzMC9fU1Yz'}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (11)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '162-164 The Broadway, Southall, Ealing UB1 1NN England',
+     'cuisine': ['Indian', 'Asian', 'Pakistani'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Giftos Lahore Karahi',
+     'nb_reviews': '647',
+     'phone_number': '+44 20 8813 8669',
+     'ranking': ' of 75 Restaurants in Southall',
+     'rating': '4.0',
+     'restaurant_id': 12,
+     'website': 'RnMxX2h0dHA6Ly93d3cuZ2lmdG8uY29tX1Judg=='}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (8)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '82 Cotmandene Crescent, Orpington, Bromley BR5 2RG England',
+     'cuisine': ['Indian', 'Asian', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Orpington Citi Kitchen',
+     'nb_reviews': '139',
+     'phone_number': '+44 20 8302 2222',
+     'ranking': ' of 120 Restaurants in Orpington',
+     'rating': '5.0',
+     'restaurant_id': 9,
+     'website': 'b2pEX2h0dHBzOi8vd3d3LmNoZWZvbmxpbmUuY28udWsvb3JwaW5ndG9uLWNpdGkta2l0Y2hlbi1vcnBpbmd0b24tYnJvbWxleS1icjUvbWVudV9aWjY='}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (5)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '45 Windsor Street, Uxbridge UB8 1AB England',
+     'cuisine': ['Japanese', 'Asian', 'Vegetarian Friendly'],
+     'max_price': 1,
+     'min_price': 1,
+     'name': 'Ottimmo Bao Bao',
+     'nb_reviews': '113',
+     'phone_number': '+44 1895 253049',
+     'ranking': ' of 102 Restaurants in Uxbridge',
+     'rating': '5.0',
+     'restaurant_id': 6,
+     'website': 'UWdTX2h0dHA6Ly9vdHRpbW1vLWJhby1iYW8uYnVzaW5lc3Muc2l0ZV9CYlY='}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (6)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '94 High Street, Beckenham BR3 1ED England',
+     'cuisine': ['Cafe', 'International', 'British'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Rendez Vous Caffe',
+     'nb_reviews': '275',
+     'phone_number': '+44 20 8650 0480',
+     'ranking': ' of 88 Restaurants in Beckenham',
+     'rating': '5.0',
+     'restaurant_id': 7,
+     'website': 'U0l6X2h0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9yZW5kZXp2b3VzY2FmZmUxL190NUQ='}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:08 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (3)
+[W 210128 15:26:08 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:08 restoSpiderReview_simplified:106] resto_item = {'address': '161 High Street Next door to Iceland, Orpington, Bromley BR6 0LW '
+                'England',
+     'cuisine': ['International', 'European', 'British'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'the Orpington',
+     'nb_reviews': '173',
+     'phone_number': '+44 1689 666900',
+     'ranking': ' of 120 Restaurants in Orpington',
+     'rating': '5.0',
+     'restaurant_id': 4,
+     'website': 'ZGhNX2h0dHA6Ly90aGVvcnBpbmd0b24uY28udWtfWEc5'}
+[W 210128 15:26:08 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:09 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (7)
+[W 210128 15:26:09 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:09 restoSpiderReview_simplified:106] resto_item = {'address': 'Welford Centre 113 Chalkhill Road The Welford Centre, London HA9 '
+                '9FX England',
+     'cuisine': ['British', 'Vegetarian Friendly', 'Vegan Options'],
+     'max_price': 1,
+     'min_price': 1,
+     'name': 'The Lounge Cafe',
+     'nb_reviews': '231',
+     'phone_number': '+44 7771 730946',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '5.0',
+     'restaurant_id': 8,
+     'website': 'bk4xX2h0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9sb3VuZ2VjYWZld2VtYmxleS9fMEpN'}
+[W 210128 15:26:09 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:09 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (4)
+[W 210128 15:26:09 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:09 restoSpiderReview_simplified:106] resto_item = {'address': '300 King Street Ravenscourt Park, London W6 0RR England',
+     'cuisine': ['Mediterranean', 'European', 'Vegetarian Friendly'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Piate',
+     'nb_reviews': '102',
+     'phone_number': '+44 20 8617 1092',
+     'ranking': ' of 16,988 Restaurants in London',
+     'rating': '5.0',
+     'restaurant_id': 5,
+     'website': 'NnVNX2h0dHA6Ly93d3cucGlhdGUuY28udWtfY1FJ'}
+[W 210128 15:26:09 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:09 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (1)
+[W 210128 15:26:09 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:09 restoSpiderReview_simplified:106] resto_item = {'address': '145 Brighton Road, Coulsdon CR5 2NJ England',
+     'cuisine': ['Indian', 'Asian', 'Grill'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'Bombaylicious',
+     'nb_reviews': '74',
+     'phone_number': '+44 20 8660 8915',
+     'ranking': ' of 35 Restaurants in Coulsdon',
+     'rating': '5.0',
+     'restaurant_id': 2,
+     'website': 'QlBFX2h0dHA6Ly93d3cuYm9tYmF5bGljaW91cy5jby51a19nSEE='}
+[W 210128 15:26:09 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:09 restoSpiderReview_simplified:115]  > PARSING NEW REVIEW PAGE (2)
+[W 210128 15:26:09 restoSpiderReview_simplified:75] Entering parse_resto = 
+[W 210128 15:26:09 restoSpiderReview_simplified:106] resto_item = {'address': '195 Waldegrave Road, Teddington, Richmond TW11 8LX England',
+     'cuisine': ['Italian', 'Pizza', 'Mediterranean'],
+     'max_price': 3,
+     'min_price': 2,
+     'name': 'La Dolce Vita',
+     'nb_reviews': '1,118',
+     'phone_number': '+44 20 8977 8779',
+     'ranking': ' of 51 Restaurants in Teddington',
+     'rating': '5.0',
+     'restaurant_id': 3,
+     'website': 'VVc0X2h0dHA6Ly93d3cubGEtZG9sY2Utdml0YS10ZWRkaW5ndG9uLmNvLnVrL19QcEY='}
+[W 210128 15:26:09 pipelines:65] Write line to restaurants.json
+[W 210128 15:26:09 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (189)
+[W 210128 15:26:09 restoSpiderReview_simplified:162]  > Yielding review (190)
+[W 210128 15:26:09 pipelines:72] Write line to review.json
+[W 210128 15:26:09 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (190)
+[W 210128 15:26:09 restoSpiderReview_simplified:162]  > Yielding review (191)
+[W 210128 15:26:09 pipelines:72] Write line to review.json
+[W 210128 15:26:09 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (191)
+[W 210128 15:26:09 restoSpiderReview_simplified:162]  > Yielding review (192)
+[W 210128 15:26:09 pipelines:72] Write line to review.json
+[W 210128 15:26:09 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (192)
+[W 210128 15:26:09 restoSpiderReview_simplified:162]  > Yielding review (193)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (193)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (194)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (194)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (195)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (195)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (196)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (196)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (197)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (197)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (198)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (198)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (199)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (199)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (200)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:10 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (200)
+[W 210128 15:26:10 restoSpiderReview_simplified:162]  > Yielding review (201)
+[W 210128 15:26:10 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (201)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (202)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (202)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (203)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (203)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (204)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (204)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (205)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (205)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (206)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (206)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (207)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (207)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (208)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:11 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (208)
+[W 210128 15:26:11 restoSpiderReview_simplified:162]  > Yielding review (209)
+[W 210128 15:26:11 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (209)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (210)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (210)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (211)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (211)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (212)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (212)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (213)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (213)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (214)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (214)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (215)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (215)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (216)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (216)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (217)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:12 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (217)
+[W 210128 15:26:12 restoSpiderReview_simplified:162]  > Yielding review (218)
+[W 210128 15:26:12 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (218)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (219)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (219)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (220)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (220)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (221)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (221)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (222)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (222)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (223)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (223)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (224)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (224)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (225)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (225)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (226)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (226)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (227)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:13 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (227)
+[W 210128 15:26:13 restoSpiderReview_simplified:162]  > Yielding review (228)
+[W 210128 15:26:13 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (228)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (229)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (229)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (230)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (230)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (231)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (231)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (232)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (232)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (233)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (233)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (234)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:14 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (234)
+[W 210128 15:26:14 restoSpiderReview_simplified:162]  > Yielding review (235)
+[W 210128 15:26:14 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (235)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (236)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (236)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (237)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (237)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (238)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (238)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (239)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (239)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (240)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (240)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (241)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (241)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (242)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (242)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (243)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:15 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (243)
+[W 210128 15:26:15 restoSpiderReview_simplified:162]  > Yielding review (244)
+[W 210128 15:26:15 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (244)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (245)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (245)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (246)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (246)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (247)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (247)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (248)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (248)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (249)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (249)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (250)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (250)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (251)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (251)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (252)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:16 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (252)
+[W 210128 15:26:16 restoSpiderReview_simplified:162]  > Yielding review (253)
+[W 210128 15:26:16 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (253)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (254)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (254)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (255)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (255)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (256)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (256)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (257)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (257)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (258)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (258)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (259)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (259)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (260)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (260)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (261)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (261)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (262)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:17 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (262)
+[W 210128 15:26:17 restoSpiderReview_simplified:162]  > Yielding review (263)
+[W 210128 15:26:17 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (263)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (264)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (264)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (265)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (265)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (266)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (266)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (267)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (267)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (268)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (268)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (269)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (269)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (270)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (270)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (271)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (271)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (272)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:18 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (272)
+[W 210128 15:26:18 restoSpiderReview_simplified:162]  > Yielding review (273)
+[W 210128 15:26:18 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (273)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (274)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (274)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (275)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (275)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (276)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (276)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (277)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (277)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (278)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (278)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (279)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (279)
+[W 210128 15:26:19 restoSpiderReview_simplified:162]  > Yielding review (280)
+[W 210128 15:26:19 pipelines:72] Write line to review.json
+[W 210128 15:26:19 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (280)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (281)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (281)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (282)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (282)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (283)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (283)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (284)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (284)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (285)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (285)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (286)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (286)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (287)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (287)
+[W 210128 15:26:20 restoSpiderReview_simplified:162]  > Yielding review (288)
+[W 210128 15:26:20 pipelines:72] Write line to review.json
+[W 210128 15:26:20 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (288)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (289)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (289)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (290)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (290)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (291)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (291)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (292)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (292)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (293)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (293)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (294)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (294)
+[W 210128 15:26:21 restoSpiderReview_simplified:162]  > Yielding review (295)
+[W 210128 15:26:21 pipelines:72] Write line to review.json
+[W 210128 15:26:21 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (295)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (296)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (296)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (297)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (297)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (298)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (298)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (299)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (299)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (300)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (300)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (301)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (301)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (302)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (302)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (303)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:22 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (303)
+[W 210128 15:26:22 restoSpiderReview_simplified:162]  > Yielding review (304)
+[W 210128 15:26:22 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (304)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (305)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (305)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (306)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (306)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (307)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (307)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (308)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (308)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (309)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (309)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (310)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (310)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (311)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:23 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (311)
+[W 210128 15:26:23 restoSpiderReview_simplified:162]  > Yielding review (312)
+[W 210128 15:26:23 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (312)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (313)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (313)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (314)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (314)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (315)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (315)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (316)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (316)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (317)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (317)
+[W 210128 15:26:24 restoSpiderReview_simplified:162]  > Yielding review (318)
+[W 210128 15:26:24 pipelines:72] Write line to review.json
+[W 210128 15:26:24 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (318)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (319)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (319)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (320)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (320)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (321)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (321)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (322)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (322)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (323)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (323)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (324)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (324)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (325)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (325)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (326)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (326)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (327)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (327)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (328)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:25 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (328)
+[W 210128 15:26:25 restoSpiderReview_simplified:162]  > Yielding review (329)
+[W 210128 15:26:25 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (329)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (330)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (330)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (331)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (331)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (332)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (332)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (333)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (333)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (334)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (334)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (335)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (335)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (336)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 restoSpiderReview_simplified:140]  > PARSING NEW REVIEW (336)
+[W 210128 15:26:26 restoSpiderReview_simplified:162]  > Yielding review (337)
+[W 210128 15:26:26 pipelines:72] Write line to review.json
+[W 210128 15:26:26 pipelines:42] Close file reviews.json
+[W 210128 15:26:26 pipelines:45] Close file restaurants.json
+[W 210128 15:26:26 pipelines:48] Close file users.json

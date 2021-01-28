@@ -37,6 +37,7 @@ class RestoItem(scrapy.Item):
 class UserItem(scrapy.Item):
 
     username = scrapy.Field()
+    fullname = scrapy.Field()
     date_joined = scrapy.Field()
     nb_contributions = scrapy.Field()
     nb_followers = scrapy.Field()

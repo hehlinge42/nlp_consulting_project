@@ -33,8 +33,9 @@ class TaScrapyPipeline(object):
         logger.warn('Open file restaurants.json')
         self.file_restaurants = open(spider.directory + 'restaurants.json', 'w')
 
-        logger.warn('Open file users.json')
-        self.file_users = open(spider.directory + 'users.json', 'w')
+        if spider.scrap_user != 0:
+            logger.warn('Open file users.json')
+            self.file_users = open(spider.directory + 'users.json', 'w')
 
     def close_spider(self, spider):
 
@@ -44,8 +45,9 @@ class TaScrapyPipeline(object):
         self.file_restaurants.close()
         logger.warn('Close file restaurants.json')
 
-        self.file_users.close()
-        logger.warn('Close file users.json')
+        if spider.scrap_user != 0:
+            self.file_users.close()
+            logger.warn('Close file users.json')
 
     def process_item(self, item, spider):
 
