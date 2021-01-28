@@ -13,15 +13,16 @@ pip install -r requirements.txt
 # Run from Command Line
 
 ```
-scrapy crawl RestoReviewSpider -a directory='./scrapped_data/' -a debug=0 -a maxpage_resto=3 -a maxpage_reviews=50
+scrapy crawl RestoReviewSpider -a directory='./scrapped_data/' -a root_url='user_chosen_url' -a debug=0 -a maxpage_resto=3 -a maxpage_reviews=50 -a scrap_user=0
 ```
 
 -a option allows for command line input arguments with scrapy command
 * directory: directory of user defined data folder for scrapped reviews, restaurants and users information
 * debug: 0 or 1, for no debug information or with debug information respectively
-// url: root url for list of restaurants (URL of city)
+* root_url: root url for list of restaurants (URL of city chosen by user)
 * maxpage_resto: number of pages of restaurants to parse from base URL (1 page = ~35 restaurants)
 * maxpage_reviews: number of pages of reviews to parse for given restaurant (1 page = 10 reviews)
+* scrap_user: 0 or 1, for not returning user information (quicker) or returning user information respectively.
 
 # Data Collected (JSON format)
 
