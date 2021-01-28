@@ -24,7 +24,7 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 class RestoReviewSpider(scrapy.Spider):
     name = "RestoReviewSpider"
 
-    def __init__(self, directory='./scrapped_data/', 
+    def __init__(self, directory='./scraped_data/', 
                 root_url='https://www.tripadvisor.co.uk/Restaurants-g191259-Greater_London_England.html', debug=0,
                 maxpage_resto=3, maxpage_reviews=50, scrap_user=1, *args, **kwargs): 
         
