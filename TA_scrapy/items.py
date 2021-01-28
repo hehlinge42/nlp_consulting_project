@@ -31,6 +31,7 @@ class RestoItem(scrapy.Item):
     address = scrapy.Field()
     phone_number = scrapy.Field()
     website = scrapy.Field()
+    menu = scrapy.Field()
     ranking = scrapy.Field()
     rating = scrapy.Field()
 

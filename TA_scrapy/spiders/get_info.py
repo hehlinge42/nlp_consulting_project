@@ -21,12 +21,6 @@ def get_urls_next_list_of_reviews(response):
     next_page_number = response.xpath('//*[@id="taplc_location_reviews_list_resp_rr_resp_0"]/div/div/div/div/a[2]/@data-page-number').get()
     return next_page, next_page_number
 
-def get_urls_next_list_of_reviews_test(response):
-    xpath = '//*[@id="taplc_location_reviews_list_resp_rr_resp_0"]/div/div/div/div/a[2]'
-    next_page = response.xpath(xpath).css('::attr(href)').extract()
-    next_page_number = response.xpath(xpath).css('::attr(data-page-number)').extract_first()
-    return next_page, next_page_number
-
 def go_to_next_page(next_page, next_page_number=None, max_page=10, printing=False):
     """ According to next_page, and number of pages to scrap, tells if we should go on or stop.
     returns a boolean value : True (you should follow taht url) / False (you should stop scrapping)
