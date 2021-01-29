@@ -64,19 +64,16 @@ class TaScrapyPipeline(object):
     def handle_resto_item(self, item, spider):
         line = json.dumps(ItemAdapter(item).asdict()) + "\n"
         self.file_restaurants.write(line)
-        logger.warn('Write line to restaurants.json')
         return item
 
 
     def handle_review_item(self, item, spider):
         line = json.dumps(ItemAdapter(item).asdict()) + "\n"
         self.file_reviews.write(line)
-        logger.warn('Write line to review.json')
         return item
 
     
     def handle_user_item(self, item, spider):
         line = json.dumps(ItemAdapter(item).asdict()) + "\n"
         self.file_users.write(line)
-        logger.warn('Write line to users.json')
         return item

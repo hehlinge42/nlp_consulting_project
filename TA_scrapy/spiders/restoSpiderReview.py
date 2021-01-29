@@ -238,9 +238,9 @@ class RestoReviewSpider(scrapy.Spider):
             nb_followers = response.xpath(xpath_nb_followers).get()
             if nb_followers is None:
                 user_item['nb_followers'] = int(all_infos[1].replace(',',''))
-                user_item['nb_following'] = int(response.xpath(xpath_nb_following).get().replace(',',''))
+                user_item['nb_following'] = 0
             else:
-                user_item['nb_followers'] = int(response.xpath(xpath_nb_followers).get().replace(',',''))
+                user_item['nb_followers'] = 0
                 user_item['nb_following'] = int(all_infos[1].replace(',',''))
         elif len(all_infos) == 1:
             user_item['nb_contributions'] = int(all_infos[0].replace(',',''))
