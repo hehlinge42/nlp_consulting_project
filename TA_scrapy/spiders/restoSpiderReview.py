@@ -23,7 +23,7 @@ class RestoReviewSpider(scrapy.Spider):
 
     def __init__(self, directory='./scraped_data/', 
                 root_url='https://www.tripadvisor.co.uk/Restaurants-g191259-Greater_London_England.html', 
-                debug=0, maxpage_resto=3, maxpage_reviews=50, 
+                debug=0, maxpage_resto=2, maxpage_reviews=50, 
                 scrap_user=1, scrap_website_menu=0, *args, **kwargs): 
         
         super(RestoReviewSpider, self).__init__(*args, **kwargs)
