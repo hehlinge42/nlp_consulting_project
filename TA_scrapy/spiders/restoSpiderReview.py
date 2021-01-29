@@ -189,7 +189,7 @@ class RestoReviewSpider(scrapy.Spider):
         xpath_date_of_visit = '//div[@class="prw_rup prw_reviews_stay_date_hsx"]/text()'
         xpath_rating = '//div[@class="rating reviewItemInline"]/span[1]/@class'
         xpath_title = '//div[@class="quote"]/a/span/text()'
-        xpath_comment = '//div[@class="entry"]//p/text()'
+        xpath_comment = '(//p[@class="partial_entry"])[1]/text()'
         
         review_item = ReviewRestoItem()
         review_item['review_id'] = self.review_nb
