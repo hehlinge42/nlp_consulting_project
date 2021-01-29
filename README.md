@@ -45,3 +45,6 @@ Make sure to create a directory `scraped_data` at the root of the directory to s
 
 Data scraped on 29/01/2021 can be found in scraped_data.zip file.
 It contains the data for the first 124 restaurants (maxpage_resto = 2) and their associated reviews capped at 500 per restaurant (maxpage_reviews=50).
+
+# Contributors
+Project realized by @elalamik, @erraya, @hehlinge42, @louistransfer and @MaximeRedstone
