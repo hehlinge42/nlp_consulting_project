@@ -7,7 +7,8 @@ if __name__ == "__main__":
     filename = '../scraper/scraped_data/reviews.json'
     cleaner = Cleaner()
     cleaner.set_file(filename)
-    cleaner.clean(ngram=1)
+    cleaner.clean(ngram=2)
     cleaner.get_word_count_by_restaurant()
-    print(cleaner.df_word_frequency[20].head())
-    cleaner.write_file()
+    cleaner.write_tokenized_reviews()
+    cleaner.write_tfidfs()
+    cleaner.save_wordclouds()
