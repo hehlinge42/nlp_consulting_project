@@ -6,3 +6,6 @@ numpy
 webdriver-manager
 logzero
 itemadapter
+nltk
+wordcloud
+sklearn
