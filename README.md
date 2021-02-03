@@ -16,6 +16,9 @@ pip install -r requirements.txt
 scrapy crawl RestoReviewSpider -a directory='./scraped_data/' -a root_url='user_chosen_url' -a debug=0 -a maxpage_resto=2 -a maxpage_reviews=50 -a scrap_user=1 -a scrap_website_menu=0
 ```
 
+Make sure to create a directory `scraped_data` at the root of the directory to store the data (default setting)
+`mkdir scraped_data`
+
 -a option allows for command line input arguments with scrapy command
 * directory (string, default='./scraped_data/'):
   user-designated folder where scraped reviews, restaurants and users information will be stored
@@ -41,4 +44,7 @@ scrapy crawl RestoReviewSpider -a directory='./scraped_data/' -a root_url='user_
 # Data Available on Git
 
 Data scraped on 29/01/2021 can be found in scraped_data.zip file.
-It contains the data for the first 155 restaurants (maxpage_resto = 3) and their associated reviews capped at 500 per restaurant (maxpage_reviews=50).
+It contains the data for the first 124 restaurants (maxpage_resto = 2) and their associated reviews capped at 500 per restaurant (maxpage_reviews=50).
+
+# Contributors
+Project realized by @elalamik, @erraya, @hehlinge42, @louistransfer and @MaximeRedstone
