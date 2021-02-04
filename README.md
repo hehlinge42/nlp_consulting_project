@@ -1,5 +1,7 @@
 # NLP consulting project: defining a data-driven strategy for the Londonese restaurant Bokan 37
 
+Global introduction of the project @elalamik
+
 ## Setup
 
 ```
