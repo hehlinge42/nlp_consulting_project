@@ -34,3 +34,7 @@ Running the above command will overwrite the files ``` scraped_data/reviews.json
 
 Data scraped on 29/01/2021 can be found in the folder ``` scraped_data/* ``` and in the ```scraped_data.zip``` file.
 It contains the data for the first 124 restaurants (maxpage_resto=2), their associated reviews capped at 500 per restaurant (maxpage_reviews=50) and data regarding the authors of these reviews.
+
+## Business Analysis
+
+An 'As-is To-be' analysis is available in the file ``` As-is and To-be analysis.pdf ```
