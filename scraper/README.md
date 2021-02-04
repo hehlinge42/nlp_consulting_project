@@ -1,5 +1,7 @@
 # TripAdvisor scraper
 
+First step of the project is to scrap TripAdvisor to gather data regarding Londonese restaurants.
+
 ## Run from Command Line
 
 ```
