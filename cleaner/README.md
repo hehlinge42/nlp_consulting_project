@@ -2,10 +2,18 @@
 
 After scrapping data from TripAdvisor, it is time to clean and tokenize the raw text of the reviews in order to use this data in an NLP algorithm.
 
+## Architecture
+
+The cleaner has the following subfolders:
+* ``` src ``` : contains all the ```.py``` files
+* ``` assets ```: contains resources to enrich the stop words library, removing common contracted words and adding a masking to the word clouds
+* ``` cleaned_data ```: contains the tokenized reviews, word frequency dataframes and word clouds.
+* ```notebooks ```: contains Jupyter notebooks to conduct Exploratory Data Analysis
+
 ## Run from Command Line
 
 ```
-python3 main.py --files [filenames as int] --debug --early_stop max_reviews as int
+python3 src/main.py --files [filenames as int] --debug --early_stop max_reviews as int
 ```
 
 Usage:
@@ -15,7 +23,7 @@ Usage:
 
 ## Run Exploratory Data Analysis from Jupyter Notebook
 
-On Jupyter Notebook, execute the cells in the file ``` EDA.ipynb ```
+On Jupyter Notebook, execute the cells in the file ``` notebooks/EDA.ipynb ```
 
 
 ## Data Available in the repository
