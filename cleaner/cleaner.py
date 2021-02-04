@@ -5,8 +5,9 @@ import json
 import os
 import logging
 from logzero import logger
+import logzero
 
-from helpers import unicode_remover, punctuation_remover, character_transformer, contraction_transformer, lemmatize_and_delete_stop_words
+from helpers import unicode_remover, punctuation_remover, character_transformer, contraction_transformer, lemmatize
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import wordnet
@@ -18,9 +19,9 @@ from PIL import Image
 
 class Cleaner():
 
-    def __init__(self, stop_words_filename='custom_stop_words.txt', contraction_filename='contractions.json'):
+    def __init__(self, stop_words_filename='custom_stop_words.txt', debug=0):
         self.init_stop_words(stop_words_filename)
-        self.contraction_filename = contraction_filename
+        self.contraction_filename = 'contractions.json'
         self.tag_dict = {
             "J": wordnet.ADJ,
             "N": wordnet.NOUN,
@@ -28,8 +29,14 @@ class Cleaner():
             "R": wordnet.ADV
         }
 
+        # Set logging level
+        logzero.loglevel(logging.WARNING)
+        if int(debug) == 0 :
+            logging.disable(logging.WARNING)
 
-    def init_stop_words(self, stop_words_filename='custom_stop_words.txt'):
+
+    def init_stop_words(self, stop_words_filename):
+        """ Sets custom stop words list """
 
         delete_from_stop_words = ['more', 'most', 'very',  'no', 'nor', 'not']
         self.stop_words = nltk.corpus.stopwords.words("english")
@@ -37,13 +44,12 @@ class Cleaner():
         with open(stop_words_filename) as stop_words_file:
             lines = [line.rstrip() for line in stop_words_file]
         self.stop_words += lines
-        logger.warn(' NB STOP WORDS ({})'.format(len(self.stop_words)))
 
 
     def set_file(self, filename, index_col='review_id', content_col='comment'):
-        
-        """ Sets a new file to be cleaned:
-            - self.tokenized_corpus: dict{int: review_id, list[str]: tokenized review (cleaned + split)}\
+        """ 
+        Sets a new file to be cleaned:
+            - self.tokenized_corpus: dict{int: review_id, list[str]: tokenized review (cleaned + split)}
             - self.tokenized_corpus_ngram: dict{int: review_id, list[tuple(n * str)]: tokenized review (cleaned + split)}
             - self.tokenized_corpus_sentences = dict{int: restaurant_id, str: tokenized review sentence}
             - self.word_count = dict{int: review_id, dict{str: word, int: count}}
@@ -61,8 +67,8 @@ class Cleaner():
             self.df = json
             self.index_col = index_col
             self.content_col = content_col
-            self.tokenized_corpus_ngram = {}
             self.tokenized_corpus = {}
+            self.tokenized_corpus_ngram = {}
             self.tokenized_corpus_sentences = {}
             self.word_count = {}
             self.word_count_by_restaurant = {}
@@ -72,53 +78,68 @@ class Cleaner():
 
         self.corpus = dict(zip(self.df.index, self.df[self.content_col]))
 
+    def clean(self, document):
+        """ Cleans document (lower char, removes contractions, accents, punctuations, unicode) """
     
-    def tokenize_on_steroids(self, document, ngram=1):
+        cleaned_document = document.lower()
+        cleaned_document = contraction_transformer(cleaned_document, self.contraction_filename)
+        cleaned_document = character_transformer(cleaned_document)
+        cleaned_document = unicode_remover(cleaned_document)
+        cleaned_document = punctuation_remover(cleaned_document)
+        return cleaned_document
 
-        if not isinstance(ngram, int):
-            raise TypeError("ngram argument must be int")
-        if ngram >= 1:
-            tokenized_document = nltk.word_tokenize(document)
-            tokenized_document, word_count = lemmatize_and_delete_stop_words(tokenized_document, self.stop_words, self.tag_dict)
-            if ngram > 1:
-                tokenized_ngram = list(nltk.ngrams(tokenized_document, n=ngram))
-        else:
-            raise ValueError("ngram argument must be strictly positive")
-        return tokenized_document, word_count, tokenized_ngram
-
-    def clean(self, ngram=1, early_stop=False):
+    def tokenize(self, document, ngram=1):
+        """ 
+        Tokenizes one document from corpus
         
-        logger.warn(f' > STARTING CLEAN')
+        Returns: 
+                - unigram 
+                - word count
+                - opt: ngram (if greater than 1)
+        """
+
+        tokenized_document = nltk.word_tokenize(document)
+        tokenized_document = lemmatize(tokenized_document, self.stop_words, self.tag_dict)
+        word_count = Counter(tokenized_document)
+        if ngram > 1:
+            tokenized_ngram = list(nltk.ngrams(tokenized_document, n=ngram))
+            return tokenized_document, word_count, tokenized_ngram
+        else:
+            return tokenized_document, word_count
+
+    def preprocessing(self, ngram=1, early_stop=False):
+        """ Prepocesses corpus of documents (lower case + removes word contractions, accents, unicode char, and punctuation) """
+
+        logger.warn(f' > STARTING PREPROCESSING')
+
+        if not isinstance(ngram, int) or ngram < 1:
+            raise ValueError("ngram argument must be strictly positive integer")
+
         for idx, review in self.corpus.items():
 
             if idx % 1000 == 0:
-                logger.warn(f' > TOKENAZING REVIEW ({idx})')
+                logger.warn(f' > CLEANING AND TOKENAZING REVIEW ({idx})')
 
-            cleaned_review = review.lower()
-            cleaned_review = contraction_transformer(cleaned_review, self.contraction_filename)
-            cleaned_review = character_transformer(cleaned_review)
-            cleaned_review = unicode_remover(cleaned_review)
-            cleaned_review = punctuation_remover(cleaned_review)
-            
-            self.tokenized_corpus[idx], self.word_count[idx], self.tokenized_corpus_ngram[idx] = self.tokenize_on_steroids(cleaned_review, ngram)
+            cleaned_review = self.clean(review)
+            if ngram > 1:
+                self.tokenized_corpus[idx], self.word_count[idx], self.tokenized_corpus_ngram[idx] = self.tokenize(cleaned_review, ngram)
+            else:
+                self.tokenized_corpus[idx], self.word_count[idx] = self.tokenize(cleaned_review, ngram)
 
             if early_stop and idx >= 100:
                 break
+             
+    def preprocess_new_file(self, filename, index_col='review_id', content_col='comment', ngram=1):
+        """ Resets cleaner object attributes and preprocesses new file """
         
-
-    def clean_new_file(self, filename, index_col='review_id', 
-                    content_col='comment', contraction_filename='contractions.json'):
-
-        self.set_file_info(filename, index_col, 
-                    content_col, contraction_filename)
-        self.clean()
+        self.set_file(filename, index_col, content_col)
+        self.preprocessing(ngram)
 
     def group_by_restaurant(self, restaurant_id):
-                
+        """ Groups """
         review_ids = self.df[self.df['restaurant_id'] == restaurant_id].index.values
         restaurant_counter = Counter()
-        restaurant_corpus = []
-        reviews_id_to_ret = []
+        restaurant_corpus, reviews_id_to_ret = [], []
         for review_id in review_ids:
             try:
                 restaurant_counter.update(self.word_count[review_id])
@@ -145,14 +166,13 @@ class Cleaner():
                 pass 
             
 
-    def write_tokenized_reviews(self):
-        
-        with open('tokenized_reviews.json', 'w') as tokenized_reviews:
+    def save_tokenized_corpus(self, directory):
+        """ Saves tokenized corpus in json file """
+        with open(directory + 'tokenized' + self.filename, 'w') as tokenized_reviews:
             logger.warn(f' > Writing tokenized_reviews.json')
             json.dump(self.tokenized_corpus, tokenized_reviews)
 
-
-    def save_wordclouds(self, restaurant_ids='all', directory='./restaurant_wordclouds/'):
+    def save_wordclouds(self, restaurant_ids='all', directory='./cleaned_data/restaurant_wordclouds/'):
 
         def save_wordcloud(df_tfidf, restaurant_id, directory, capgemini_mask):
             filename = directory + "restaurant_" + str(restaurant_id) + "_word_cloud.png"
@@ -184,7 +204,7 @@ class Cleaner():
                 save_wordcloud(df_tfidf, restaurant_id, directory, capgemini_mask)
 
 
-    def write_tfidfs(self, restaurant_ids='all', directory='./restaurant_word_frequencies/'):
+    def write_tfidfs(self, restaurant_ids='all', directory='./cleaned_data/restaurant_word_frequencies/'):
         
         def write_tfidf(df_tfidf, restaurant_id, directory):
             filename = directory + "restaurant_" + str(restaurant_id) + "_word_freq.csv"

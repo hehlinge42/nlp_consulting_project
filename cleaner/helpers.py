@@ -34,7 +34,7 @@ def contraction_transformer(document, filename):
                 document = document.replace(word, contractions[word])
     return document
 
-def lemmatize_and_delete_stop_words(tokenized_document, stop_words, tag_dict):
+def lemmatize(tokenized_document, stop_words, tag_dict):
     lemmatizer = nltk.WordNetLemmatizer()
     tokens_with_tags = nltk.pos_tag(tokenized_document)
     lemmatized = []
@@ -42,4 +42,4 @@ def lemmatize_and_delete_stop_words(tokenized_document, stop_words, tag_dict):
         if token not in stop_words:
             convert_tag = tag_dict.get(tag[0], "n")
             lemmatized.append(lemmatizer.lemmatize(token, convert_tag))
-    return lemmatized, Counter(lemmatized)
+    return lemmatized
