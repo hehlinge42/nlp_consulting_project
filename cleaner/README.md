@@ -18,7 +18,7 @@ Usage:
 On Jupyter Notebook, execute the cells in the file ``` EDA.ipynb ```
 
 
-## Data Available on Git
+## Data Available in the repository
 
 The folder ``` cleaned_data ``` contains the output computed from running ``` python3 main.py ``` on raw data available in the folder ``` ../scraper ```.
 * The sub-folder ``` cleaned_data/restaurant_word_frequencies ``` contains files named ``` restaurant_ + restaurant_id + _word_freq.csv ``` according to the restaurant ids defined in the ```restaurant.json``` table from the ``` ../scraper ``` folder. These files contain dataframes formatted as follows:
