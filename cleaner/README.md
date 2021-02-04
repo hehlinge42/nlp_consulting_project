@@ -3,8 +3,13 @@
 ## Run from Command Line
 
 ```
-python3 main.py
+python3 main.py --files [filenames] --debug --early_stop int
 ```
+
+Usage:
+* --files [filenames]: provide the paths to all the files to be processed
+* --debug: displays intermediary logs
+* --early_stop int: stops the cleaning process after reaching the given review_id
 
 ## Run Exploratory Data Analysis from Jupyter Notebook
 
