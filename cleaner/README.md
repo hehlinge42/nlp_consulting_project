@@ -1,5 +1,7 @@
 # TripAdvisor reviews cleaner
 
+After scrapping data from TripAdvisor, it is time to clean and tokenize the raw text of the reviews in order to use this data in an NLP algorithm.
+
 ## Run from Command Line
 
 ```
