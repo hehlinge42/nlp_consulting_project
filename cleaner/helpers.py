@@ -30,8 +30,8 @@ def punctuation_remover(document):
 def contraction_transformer(document, filename):
     with open(filename) as contractions:
         for word in document.split():
-            if word.lower() in contractions:
-                document =document.replace(word, contractions[word])
+            if word in contractions:
+                document = document.replace(word, contractions[word])
     return document
 
 def lemmatize_and_delete_stop_words(tokenized_document, stop_words, tag_dict):

@@ -31,7 +31,7 @@ class Cleaner():
 
     def init_stop_words(self, stop_words_filename='custom_stop_words.txt'):
 
-        delete_from_stop_words = ['more', 'most', 'very',  'no', 'nor', 'not', "didn't"]
+        delete_from_stop_words = ['more', 'most', 'very',  'no', 'nor', 'not']
         self.stop_words = nltk.corpus.stopwords.words("english")
         self.stop_words = list(set(self.stop_words) - set(delete_from_stop_words))
         with open(stop_words_filename) as stop_words_file:
