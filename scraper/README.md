@@ -1,6 +1,9 @@
-# Run from Command Line
+# TripAdvisor scraper
+
+## Run from Command Line
 
 ```
+mkdir scraped_data
 scrapy crawl RestoReviewSpider -a directory='./scraped_data/' -a root_url='user_chosen_url' -a debug=0 -a maxpage_resto=2 -a maxpage_reviews=50 -a scrap_user=1 -a scrap_website_menu=0
 ```
 
@@ -23,13 +26,13 @@ Make sure to create a directory `scraped_data` at the root of the directory to s
 * scrap_website_menu (int, default=0):
   0 or 1 – for not scraping restaurants' website and menu or scraping them respectively
 
-# Data Collected (JSON format)
+## Data Collected (JSON format)
 
 * Review Information: ID (unique), restaurant ID, username, date of visit, rating, title, comment
 * Restaurant Information: ID (unique), name, number of reviews, price, cuisine type, address, phone number, website, menu, ranking, rating
 * User Information: username (unique), fullname, date joined, number of contributions, number of followers, number of followings
 
-# Data Available on Git
+## Data Available on Git
 
 Data scraped on 29/01/2021 can be found in scraped_data.zip file.
 It contains the data for the first 124 restaurants (maxpage_resto = 2) and their associated reviews capped at 500 per restaurant (maxpage_reviews=50).
