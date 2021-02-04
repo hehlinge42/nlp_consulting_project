@@ -5,7 +5,7 @@ After scrapping data from TripAdvisor, it is time to clean and tokenize the raw 
 ## Run from Command Line
 
 ```
-python3 main.py --files [filenames] --debug --early_stop int
+python3 main.py --files [filenames as int] --debug --early_stop max_reviews as int
 ```
 
 Usage:
