@@ -8,7 +8,7 @@ python3 main.py
 
 ## Run Exploratory Data Analysis from Jupyter Notebook
 
-On Jupyter Notebook, execute file ``` EDA.ipynb ```
+On Jupyter Notebook, execute the cells in the file ``` EDA.ipynb ```
 
 
 ## Data Available on Git
