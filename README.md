@@ -1,6 +1,11 @@
 # NLP consulting project: defining a data-driven strategy for the Londonese restaurant Bokan 37
 
-Global introduction of the project @elalamik
+This project has four main steps:
+
+* Ensuring the restaurant's business during lockdown and preparing for its future opening to attract a larger scale of customers.
+* Providing suggestions for branding and menu content.
+* Using data to make the right choices for the rebranding of the space.
+* Estimating the costs, benefits, and breakeven point.
 
 ## Setup
 
