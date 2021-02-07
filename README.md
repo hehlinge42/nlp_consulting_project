@@ -1,6 +1,12 @@
 # NLP consulting project: defining a data-driven strategy for the Londonese restaurant Bokan 37
 
-Global introduction of the project @elalamik
+This project has five main steps:
+
+* Data Collection
+* Data Cleaning
+* Word Embedding
+* Topic Extraction
+* Sentiment Analysis
 
 ## Setup
 
@@ -14,15 +20,15 @@ pip install -r requirements.txt
 
 ### Session 1: TripAdvisor scraper
 
-* Tool to scrap Trip Advisor UK website (https://www.tripadvisor.co.uk/) for restaurants and their associated reviews made by different users.
+* Tool to scrap TripAdvisor's UK website (https://www.tripadvisor.co.uk/) for restaurants and their associated reviews made by different users.
 * ``` cd scraper ```
-* See dedicated README in the folder
+* See dedicated README in the folder.
 
 ### Session 2: Data cleaner
 
-* Tool to clean and tokenize the reviews scraped from TripAdvisor
+* Tool to clean and tokenize the reviews scraped from TripAdvisor.
 * ``` cd cleaner ```
-* See dedicated README in the folder
+* See dedicated README in the folder.
 
 
 ## Contributors
