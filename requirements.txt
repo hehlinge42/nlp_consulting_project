@@ -5,4 +5,8 @@ pandas
 numpy
 webdriver-manager
 logzero
+logging
 itemadapter
+nltk
+wordcloud
+sklearn
