@@ -15,6 +15,7 @@ class ReviewRestoItem(scrapy.Item):
     restaurant_id = scrapy.Field()
     username = scrapy.Field()
     date_of_visit = scrapy.Field()
+    date_of_review = scrapy.Field()
     rating = scrapy.Field()
     title = scrapy.Field()
     comment = scrapy.Field()
@@ -23,6 +24,7 @@ class ReviewRestoItem(scrapy.Item):
 class RestoItem(scrapy.Item):
         
     restaurant_id = scrapy.Field()
+    resto_TA_url = scrapy.Field()
     name = scrapy.Field()
     nb_reviews = scrapy.Field()
     min_price = scrapy.Field()
@@ -40,6 +42,7 @@ class UserItem(scrapy.Item):
     username = scrapy.Field()
     fullname = scrapy.Field()
     date_joined = scrapy.Field()
+    location = scrapy.Field()
     nb_contributions = scrapy.Field()
     nb_followers = scrapy.Field()
     nb_following = scrapy.Field()

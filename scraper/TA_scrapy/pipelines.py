@@ -22,32 +22,35 @@ class TaScrapyPipeline(object):
 
     def __init__(self):
         
-        logzero.loglevel(logging.WARNING)
-        logger.warn(' > Init TaScrapyPipeline')
+        self.restaurants_folder = 'restaurants/'
+        self.reviews_folder = 'reviews/'
+        self.users_folder = 'users/'
+        
+        logger.info(' > Init TaScrapyPipeline')
 
     def open_spider(self, spider):
 
-        logger.warn(' Open file reviews.json')
-        self.file_reviews = open(spider.directory + 'reviews.json', 'w')
+        self.file_reviews = open(spider.directory +  self.reviews_folder + 'reviews_' + str(spider.next_file_id) + '.json', 'w+')
+        logger.info(' Open file reviews.json')
 
-        logger.warn('Open file restaurants.json')
-        self.file_restaurants = open(spider.directory + 'restaurants.json', 'w')
+        self.file_restaurants = open(spider.directory + self.restaurants_folder + 'restaurants_' + str(spider.next_file_id) + '.json', 'w+')
+        logger.info('Open file restaurants.json')
 
         if spider.scrap_user != 0:
-            logger.warn('Open file users.json')
-            self.file_users = open(spider.directory + 'users.json', 'w')
+            self.file_users = open(spider.directory + self.users_folder + 'users_' + str(spider.next_file_id) + '.json', 'w+')
+            logger.info('Open file users.json')
 
     def close_spider(self, spider):
 
         self.file_reviews.close()
-        logger.warn('Close file reviews.json')
+        logger.info('Close file reviews.json')
 
         self.file_restaurants.close()
-        logger.warn('Close file restaurants.json')
+        logger.info('Close file restaurants.json')
 
         if spider.scrap_user != 0:
             self.file_users.close()
-            logger.warn('Close file users.json')
+            logger.info('Close file users.json')
 
     def process_item(self, item, spider):
 

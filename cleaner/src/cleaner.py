@@ -139,7 +139,7 @@ class Cleaner():
 
     def group_by_restaurant(self, restaurant_id):
         """ Sets tokenized corpus per restaurant and computes associated word count """
-        
+
         review_ids = self.df[self.df['restaurant_id'] == restaurant_id].index.values
         restaurant_counter = Counter()
         restaurant_corpus, tokenized_reviews = [], []

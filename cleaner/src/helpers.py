@@ -68,4 +68,4 @@ def save_tfidf(df, restaurant_id, directory, mask):
     filename = directory + str(restaurant_id) + "_word_freq.csv"
     logger.warn(f' > WRITING {filename}')
 
-    df.to_csv(filename)
+    df.to_csv(filename, index_label='review_id')
