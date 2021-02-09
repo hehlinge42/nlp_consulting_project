@@ -1,4 +1,9 @@
 .DS_Store
+restaurants_tfidf.csv
+scraped_data/reviews.json
+lsi_embed/
+word2vec_embed/
+cleaned_data/tokenized_reviews.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

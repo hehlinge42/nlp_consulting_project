@@ -10,3 +10,5 @@ itemadapter
 nltk
 wordcloud
 sklearn
+gensim
+fasttext

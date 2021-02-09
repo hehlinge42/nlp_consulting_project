@@ -6,6 +6,7 @@ import os
 import logging
 import logzero
 from logzero import logger
+import itertools
 
 from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
 
@@ -136,6 +137,8 @@ class Cleaner():
                 break
 
         self.compute_restaurant_tfidf()
+        self.compute_global_tfidf()
+
 
     def group_by_restaurant(self, restaurant_id):
         """ Sets tokenized corpus per restaurant and computes associated word count """
@@ -151,7 +154,9 @@ class Cleaner():
                 tokenized_reviews.append(review_id)
             except:
                 pass
-        return restaurant_counter, restaurant_corpus, tokenized_reviews
+        
+        restaurant_corpus_dict = dict(zip(tokenized_reviews, restaurant_corpus))
+        return restaurant_counter, restaurant_corpus_dict, tokenized_reviews
 
 
     def compute_restaurant_tfidf(self, col='restaurant_id'):
@@ -168,9 +173,24 @@ class Cleaner():
                 self.df_word_frequency[restaurant_idx] = pd.DataFrame(data=vect_corpus.todense(), index=tokenized_reviews, columns=feature_names)
             except:
                 pass
-            
 
-    def save_tokenized_corpus(self, directory):
+    def compute_global_tfidf(self, col='restaurant_id'):
+
+        corpus_sentences = []
+        review_ids = []
+        corpus_sentences_dict = self.tokenized_corpus_sentences.values()
+        for restaurant_dict in corpus_sentences_dict:
+            review_ids.append(restaurant_dict.keys())
+            corpus_sentences.append(restaurant_dict.values())
+        review_ids = list(itertools.chain.from_iterable(review_ids))
+        corpus_sentences = list(itertools.chain.from_iterable(corpus_sentences))
+
+        vectorizer = TfidfVectorizer(stop_words='english')
+        vect_corpus = vectorizer.fit_transform(corpus_sentences)
+        feature_names = np.array(vectorizer.get_feature_names())
+        self.corpus_tfidf = pd.DataFrame(data=vect_corpus.todense(), index=review_ids, columns=feature_names)
+
+    def save_tokenized_corpus(self, directory, filename, data, file_type=''):
         """ Saves tokenized corpus in json file """
         
         try:
@@ -178,9 +198,13 @@ class Cleaner():
         except OSError:
             logger.warn("OSError: directory already exists")
             
-        with open((directory + 'tokenized_' + self.filename), 'w') as tokenized_reviews:
-            logger.warn(f' > Writing tokenized_{self.filename}')
-            json.dump(self.tokenized_corpus, tokenized_reviews)
+        if file_type == 'csv':
+            logger.warn(f' > Writing tokenized_{filename} CSV')
+            data.to_csv(directory + filename, index_label='review_id')
+        else:
+            with open((directory + filename), 'w') as tokenized_reviews:
+                logger.warn(f' > Writing tokenized_{filename} JSON')
+                json.dump(data, tokenized_reviews)
 
 
     def save_files(self, directory, callable_name, restaurant_ids='all', mask_path=None):
