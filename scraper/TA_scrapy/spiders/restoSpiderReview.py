@@ -1,5 +1,6 @@
 
 from logzero import logger
+import logzero
 import glob
 import pandas as pd
 
