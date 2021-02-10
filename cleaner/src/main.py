@@ -21,6 +21,7 @@ if __name__ == "__main__":
         cleaner.set_file(file)
         cleaner.preprocessing(ngram=2)
 
-        cleaner.save_tokenized_corpus('./cleaned_data/')
+        cleaner.save_tokenized_corpus('./cleaned_data/', 'tokenized_corpus.json', cleaner.tokenized_corpus)
         cleaner.save_files('./cleaned_data/restaurant_wordclouds/', save_wordcloud, mask_path='assets/capgemini.jpg')
         cleaner.save_files('./cleaned_data/restaurant_word_frequencies/', save_tfidf)
+        cleaner.save_tokenized_corpus('./cleaned_data/', 'restaurants_tfidf.csv', cleaner.corpus_tfidf, file_type='csv')
