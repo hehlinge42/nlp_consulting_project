@@ -30,14 +30,14 @@ class TaScrapyPipeline(object):
 
     def open_spider(self, spider):
 
-        self.file_reviews = open(spider.directory +  self.reviews_folder + 'reviews_' + str(spider.next_file_id) + '.json', 'w+')
+        self.file_reviews = open(spider.directory +  self.reviews_folder + 'reviews_run_' + str(spider.next_file_id) + '.json', 'w+')
         logger.info(' Open file reviews.json')
 
-        self.file_restaurants = open(spider.directory + self.restaurants_folder + 'restaurants_' + str(spider.next_file_id) + '.json', 'w+')
+        self.file_restaurants = open(spider.directory + self.restaurants_folder + 'restaurants_run_' + str(spider.next_file_id) + '.json', 'w+')
         logger.info('Open file restaurants.json')
 
         if spider.scrap_user != 0:
-            self.file_users = open(spider.directory + self.users_folder + 'users_' + str(spider.next_file_id) + '.json', 'w+')
+            self.file_users = open(spider.directory + self.users_folder + 'users_run_' + str(spider.next_file_id) + '.json', 'w+')
             logger.info('Open file users.json')
 
     def close_spider(self, spider):

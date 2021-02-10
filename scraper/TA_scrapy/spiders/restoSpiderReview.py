@@ -55,10 +55,27 @@ class RestoReviewSpider(scrapy.Spider):
         self.nb_resto = int(nb_resto)
 
         # To track the evolution of scrapping
+        self.resto_offset = len(self.already_scraped_restaurants)
+        self.review_offset = self.get_review_offset()
         self.main_nb = 0
         self.resto_nb = 0
         self.review_nb = 0
         self.restaurants_ids = []
+
+        logger.warn(f"FINDING {self.resto_offset} EXISTING RESTAURANTS")
+        logger.warn(f"FINDING {self.review_offset} EXISTING REVIEWS")
+
+
+    def get_review_offset(self):
+        
+        review_offset = 0
+        existing_reviews = glob.glob("./scraped_data/reviews/*.json")
+        for json in existing_reviews:
+            with open(json, "r") as child_file:
+                for line in child_file:
+                    review_offset += 1
+        return review_offset
+        
 
     def start_requests(self):
         """ Give the urls to follow to scrapy
@@ -143,7 +160,7 @@ class RestoReviewSpider(scrapy.Spider):
         xpath_address = '//span[@class="_13OzAOXO _2VxaSjVD"]/span[1]/a/text()'
         
         resto_item = RestoItem()
-        resto_item['restaurant_id'] = restaurant_id
+        resto_item['restaurant_id'] = restaurant_id + self.resto_offset
         resto_item['name'] = response.xpath(xpath_name).get()
         resto_item['resto_TA_url'] = response.url
         resto_item['nb_reviews'] = response.xpath(xpath_nb_reviews).get()
@@ -220,8 +237,8 @@ class RestoReviewSpider(scrapy.Spider):
            
         
         review_item = ReviewRestoItem()
-        review_item['review_id'] = self.review_nb
-        review_item['restaurant_id'] = restaurant_id
+        review_item['review_id'] = self.review_nb + self.review_offset
+        review_item['restaurant_id'] = restaurant_id + self.resto_offset
         username = response.xpath(xpath_username).get()
         review_item['username'] = username
         review_item['date_of_visit'] = response.xpath(xpath_date_of_visit).get()
