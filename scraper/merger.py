@@ -3,7 +3,7 @@ import json
 from logzero import logger
 import logzero
 import pandas as pd
-
+import os 
 def offset_ids():
 
     existing_restaurants = glob.glob("./scraped_data/restaurants/*.json")

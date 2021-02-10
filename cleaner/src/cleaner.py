@@ -8,7 +8,9 @@ import logzero
 from logzero import logger
 import itertools
 
+from scipy.sparse import save_npz
 from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+from datetime import datetime
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import wordnet
@@ -123,7 +125,7 @@ class Cleaner():
 
         for idx, review in self.corpus.items():
             if idx % 1000 == 0:
-                logger.warn(f' > CLEANING AND TOKENAZING REVIEW ({idx})')
+                logger.info(f' > CLEANING AND TOKENAZING REVIEW ({idx})')
 
             cleaned_review = self.clean(review)
             
@@ -186,9 +188,9 @@ class Cleaner():
         corpus_sentences = list(itertools.chain.from_iterable(corpus_sentences))
 
         vectorizer = TfidfVectorizer(stop_words='english')
-        vect_corpus = vectorizer.fit_transform(corpus_sentences)
+        self.corpus_tfidf_sparse = vectorizer.fit_transform(corpus_sentences)
         feature_names = np.array(vectorizer.get_feature_names())
-        self.corpus_tfidf = pd.DataFrame(data=vect_corpus.todense(), index=review_ids, columns=feature_names)
+        self.corpus_tfidf = pd.DataFrame(data=self.corpus_tfidf_sparse.todense(), index=review_ids, columns=feature_names)
 
     def save_tokenized_corpus(self, directory, filename, data, file_type=''):
         """ Saves tokenized corpus in json file """
@@ -199,12 +201,25 @@ class Cleaner():
             logger.warn("OSError: directory already exists")
             
         if file_type == 'csv':
-            logger.warn(f' > Writing tokenized_{filename} CSV')
+            logger.warn(f' > Writing {directory + filename} CSV')
             data.to_csv(directory + filename, index_label='review_id')
         else:
             with open((directory + filename), 'w') as tokenized_reviews:
-                logger.warn(f' > Writing tokenized_{filename} JSON')
+                logger.warn(f' > Writing {directory + filename} JSON')
                 json.dump(data, tokenized_reviews)
+
+
+    def save_sparse_matrix(self, npz_filepath, review_ids_filepath, colnames_filepath):
+
+        logger.info(f"Writing sparse matrix {npz_filepath}")
+        save_npz(npz_filepath, self.corpus_tfidf_sparse)
+        
+        review_ids = pd.DataFrame(self.corpus_tfidf.index.values, columns=['review_id'])
+        review_ids.set_index(['review_id'], inplace=True)
+        review_ids.to_csv(review_ids_filepath)
+        colnames = pd.Series(self.corpus_tfidf.columns, name='colnames')
+        colnames.to_csv(colnames_filepath)
+        
 
 
     def save_files(self, directory, callable_name, restaurant_ids='all', mask_path=None):
