@@ -65,7 +65,12 @@ def merge_files(directory, output_file):
                     merged_file.write(line)
 
 
+try:
+    os.mkdir("./scraped_data/merged_data")
+except OSError:
+    logger.warn("OSError: directory already exists")
+
 # offset_ids()
-# merge_files("./scraped_data/restaurants/", "./scraped_data/merged_restaurants.json")
-# merge_files("./scraped_data/reviews/", "./scraped_data/merged_reviews.json")
-merge_files("./scraped_data/users/", "./scraped_data/merged_users.json")
+merge_files("./scraped_data/restaurants/", "./scraped_data/merged_data/merged_restaurants.json")
+merge_files("./scraped_data/reviews/", "./scraped_data/merged_data/merged_reviews.json")
+merge_files("./scraped_data/users/", "./scraped_data/merged_data/merged_users.json")
