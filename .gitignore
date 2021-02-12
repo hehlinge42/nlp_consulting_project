@@ -1,5 +1,6 @@
 .DS_Store
 scraper/scraped_data/merged_data/
+embedder/embedded_data/
 restaurants_tfidf.csv
 scraped_data/reviews.json
 lsi_embed/

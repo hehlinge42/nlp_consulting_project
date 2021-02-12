@@ -9,6 +9,7 @@ from logzero import logger
 import itertools
 
 from scipy.sparse import save_npz
+# from .helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
 from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
 from datetime import datetime
 
@@ -21,9 +22,8 @@ from PIL import Image
 
 class Cleaner():
 
-    def __init__(self, stop_words_filename='custom_stop_words.txt', debug=False, early_stop=None):
+    def __init__(self, stop_words_filename='custom_stop_words.txt', assets_directory='./assets/', debug=1, early_stop=None):
         
-        assets_directory = 'assets/'
         self.init_stop_words(assets_directory + stop_words_filename)
         self.contraction_filename = assets_directory + 'contractions.json'
         self.early_stop = early_stop
@@ -34,10 +34,7 @@ class Cleaner():
             "R": wordnet.ADV
         }
 
-        # Set logging level
-        logzero.loglevel(logging.WARNING)
-        if debug is False :
-            logging.disable(logging.WARNING)
+        logzero.loglevel(debug)
 
 
     def init_stop_words(self, stop_words_filename):
@@ -51,7 +48,7 @@ class Cleaner():
         self.stop_words += lines
 
 
-    def set_file(self, filepath, index_col='review_id', content_col='comment'):
+    def set_file(self, filepath, index_col='review_id', content_col='comment', filetype='csv'):
         """ 
         Sets a new file to be cleaned:
             - self.tokenized_corpus: dict{int: review_id, list[str]: tokenized review (cleaned + split)}
@@ -67,9 +64,15 @@ class Cleaner():
 
         if isinstance(filepath, str):
             self.filename = filepath.split('/')[-1]
-            json = pd.read_json(filepath, lines=True)
-            json.set_index(index_col, inplace = True)
-            self.df = json
+            print(filepath)
+            if filetype == 'csv':
+                self.df = pd.read_csv(filepath, sep='#', index_col=[index_col])
+            elif filetype == 'json':
+                json = pd.read_json(filepath, lines=True)
+                json.set_index(index_col, inplace = True)
+                self.df = json
+            else:
+                raise InputError("Filetype must be 'csv' or 'json'")
             self.index_col = index_col
             self.content_col = content_col
             self.tokenized_corpus = {}
@@ -123,9 +126,9 @@ class Cleaner():
         if not isinstance(ngram, int) or ngram < 1:
             raise ValueError("ngram argument must be strictly positive integer")
 
-        for idx, review in self.corpus.items():
-            if idx % 1000 == 0:
-                logger.info(f' > CLEANING AND TOKENAZING REVIEW ({idx})')
+        for index, (idx, review) in enumerate(self.corpus.items()):
+            if index % 1000 == 0:
+                logger.info(f' > CLEANING AND TOKENAZING REVIEW ({index})')
 
             cleaned_review = self.clean(review)
             
@@ -134,8 +137,8 @@ class Cleaner():
             else:
                 self.tokenized_corpus[idx], self.word_count[idx] = self.tokenize(cleaned_review, ngram)
 
-            if self.early_stop is not None and idx >= self.early_stop:
-                logger.warn(f' > EARLY STOPPING AT IDX ({idx})')
+            if self.early_stop is not None and index >= self.early_stop:
+                logger.warn(f' > EARLY STOPPING AT IDX ({index})')
                 break
 
         self.compute_restaurant_tfidf()
@@ -192,7 +195,7 @@ class Cleaner():
         feature_names = np.array(vectorizer.get_feature_names())
         self.corpus_tfidf = pd.DataFrame(data=self.corpus_tfidf_sparse.todense(), index=review_ids, columns=feature_names)
 
-    def save_tokenized_corpus(self, directory, filename, data, file_type=''):
+    def save_tokenized_corpus(self, directory, filename, file_type=''):
         """ Saves tokenized corpus in json file """
         
         try:
@@ -202,14 +205,14 @@ class Cleaner():
             
         if file_type == 'csv':
             logger.warn(f' > Writing {directory + filename} CSV')
-            data.to_csv(directory + filename, index_label='review_id')
+            self.tokenized_corpus.to_csv(directory + filename, index_label='review_id')
         else:
             with open((directory + filename), 'w') as tokenized_reviews:
                 logger.warn(f' > Writing {directory + filename} JSON')
-                json.dump(data, tokenized_reviews)
+                json.dump(self.tokenized_corpus, tokenized_reviews)
 
 
-    def save_sparse_matrix(self, npz_filepath, review_ids_filepath, colnames_filepath):
+    def save_sparse_matrix(self, npz_filepath, review_ids_filepath, colnames_filepath, txt_filepath):
 
         logger.info(f"Writing sparse matrix {npz_filepath}")
         save_npz(npz_filepath, self.corpus_tfidf_sparse)
@@ -219,6 +222,11 @@ class Cleaner():
         review_ids.to_csv(review_ids_filepath)
         colnames = pd.Series(self.corpus_tfidf.columns, name='colnames')
         colnames.to_csv(colnames_filepath)
+
+        self.corpus_tfidf_sparse.maxprint = self.corpus_tfidf_sparse.shape[0]
+        with open(txt_filepath,"w+") as file:
+            file.write(str(self.corpus_tfidf_sparse)) 
+            file.close() 
         
 
 

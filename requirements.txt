@@ -12,3 +12,4 @@ wordcloud
 sklearn
 gensim
 fasttext
+tensorflow

@@ -3,7 +3,8 @@ import json
 from logzero import logger
 import logzero
 import pandas as pd
-import os 
+import os
+
 def offset_ids():
 
     existing_restaurants = glob.glob("./scraped_data/restaurants/*.json")
@@ -33,7 +34,8 @@ def offset_ids():
     
         for line in file_resto:
             data = json.loads(line)
-            data["restaurant_id"] += resto_offset
+            data["restaurant_id"
+    ] += resto_offset
             json.dump(data, modified_file_resto)
             modified_file_resto.write("\n")
             nb_lines_file_resto += 1
@@ -65,12 +67,12 @@ def merge_files(directory, output_file):
                     merged_file.write(line)
 
 
-try:
-    os.mkdir("./scraped_data/merged_data")
-except OSError:
-    logger.warn("OSError: directory already exists")
+# try:
+#     os.mkdir("./scraped_data/merged_data")
+# except OSError:
+#     logger.warn("OSError: directory already exists")
 
-# offset_ids()
-merge_files("./scraped_data/restaurants/", "./scraped_data/merged_data/merged_restaurants.json")
-merge_files("./scraped_data/reviews/", "./scraped_data/merged_data/merged_reviews.json")
-merge_files("./scraped_data/users/", "./scraped_data/merged_data/merged_users.json")
+# # offset_ids()
+# merge_files("./scraped_data/restaurants/", "./scraped_data/merged_data/merged_restaurants.json")
+# merge_files("./scraped_data/reviews/", "./scraped_data/merged_data/merged_reviews.json")
+# merge_files("./scraped_data/users/", "./scraped_data/merged_data/merged_users.json")
