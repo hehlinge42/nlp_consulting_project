@@ -9,8 +9,8 @@ from logzero import logger
 import itertools
 
 from scipy.sparse import save_npz
-# from .helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
-from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+from .helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+# from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
 from datetime import datetime
 
 from nltk.tokenize import word_tokenize

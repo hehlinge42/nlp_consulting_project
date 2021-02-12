@@ -16,8 +16,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Cleaner and tokenizer of raw text stored as json file")
     parser.add_argument('-w', '--wordcloud_per_restaurant', default=False, type=bool, help="save wordclouds per restaurant")
     parser.add_argument('-t', '--tfidf_per_restaurant', default=False, type=bool, help='save tfidf matrix per restaurant')
+    parser.add_argument('-e', '--embedding_technique', default="word2vec", type=str, help='chooses embedding technique')
     args = parser.parse_args()
 
+    # Check input args
+    if args.embedding_technique not in ['word2vec', 'lsi', 'fasttext']:
+        InputError(f"Embedding techniques supported (word2vec, lsi, fasttext), found {args.embedding_technique}")
+        
     # Merge scraping data from different runs
     try:
         os.mkdir("./scraper/scraped_data/merged_data")
@@ -49,7 +54,8 @@ if __name__ == "__main__":
 
     cleaner.save_sparse_matrix('./cleaner/cleaned_data/restaurant_tfidf_sparse.npz', 
                                './cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
-                               './cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv')
+                               './cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv',
+                               './cleaner/cleaned_data/restaurant_tfidf_sparse.txt')
 
     # Embed balanced dataset of reviews
     embedder = Embedder()
@@ -64,8 +70,6 @@ if __name__ == "__main__":
 
     embedder.embed('fastText', filepath='./cleaner/cleaned_data/tokenized_corpus.json')
     embedder.write_files('./embedder/embedded_data/')
-
-    # ML
     
 
 
