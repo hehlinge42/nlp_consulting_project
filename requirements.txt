@@ -12,3 +12,6 @@ wordcloud
 sklearn
 gensim
 fasttext
+xgboost
+lightgbm
+tensorflow

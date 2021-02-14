@@ -27,4 +27,5 @@ if __name__ == "__main__":
         # cleaner.save_tokenized_corpus('./cleaned_data/', 'restaurants_tfidf.csv', cleaner.corpus_tfidf, file_type='csv')
         cleaner.save_sparse_matrix('./cleaned_data/restaurant_tfidf_sparse.npz', 
                                     './cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
-                                    './cleaned_data/restaurant_tfidf_sparse_colnames.csv')
+                                    './cleaned_data/restaurant_tfidf_sparse_colnames.csv',
+                                    './cleaned_data/restaurant_tfidf_sparse.txt')
