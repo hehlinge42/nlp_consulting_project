@@ -30,6 +30,24 @@ pip install -r requirements.txt
 * ``` cd cleaner ```
 * See dedicated README in the folder.
 
+### Session 3: Feature Embedder
+
+* Tool to embed tokenized reviews into numerical vector.
+* ``` cd embedder ```
+* See dedicated README in the folder.
+
+## Run from Command Line
+
+```
+python3 run_all.py --embedding_technique word2vec --wordcloud_per_restaurant False --tfidf_per_restaurant False
+```
+
+Usage:
+* --embedding_technique [str]: define embedding technique (lsi, word2vec, fasttext) supported.
+* --wordcloud_per_restaurant [bool]: option to create wordclouds per restaurants.
+* --tfidf_per_restaurant [bool]: option to create TFIDF embedding per restaurants.
+
+Script to merge data from multiple scrapping runs, create a balanced dataset of reviews (ratings 1-5), clean selected reviews and embed words into vectors depending on user defined embedding technique (lsi, word2vec and fasttext supported).
 
 ## Contributors
 Project realized by @elalamik, @erraya, @hehlinge42, @louistransfer and @MaximeRedstone

@@ -1,3 +1,18 @@
+from tensorboard.plugins.hparams import api as hp
+import tensorflow as tf
+import datetime
+import numpy as np
+import pandas as pd
+import itertools as it
+
+DEFAULT_PARAMS = {
+    "epochs": hp.HParam('epochs', hp.Discrete([10])),
+    'batch_size': hp.HParam('batch_size', hp.Discrete([16, 32, 64])),
+    'batch_normalization': hp.HParam('batch_normalization', hp.Discrete([False], dtype=bool)),
+    'dropout': hp.HParam('dropout', hp.Discrete([0])),
+    'optimizer': hp.HParam('optimizer', hp.Discrete(['SGD']))
+}
+
 DEFAULT_PARAMS = {
     "epochs": hp.HParam('epochs', hp.Discrete([10])),
     'batch_size': hp.HParam('batch_size', hp.Discrete([16, 32, 64])),
@@ -66,10 +81,11 @@ class UniversalHPOptimizer():
           images.]
         """
         
-        session_num = 0
+        # !rm -rf ./logs/
+        session_num = 1
         with tf.summary.create_file_writer('logs/hparam_tuning').as_default():
             hp.hparams_config(
-                hparams=[self.HP_BATCH_SIZE, self.HP_DROPOUT, self.HP_OPTIMIZER, self.HP_NUM_UNITS,
+                hparams=[self.HP_BATCH_SIZE, self.HP_DROPOUT, self.HP_OPTIMIZER,
                          self.HP_BATCH_NORMALIZATION, self.HP_EPOCHS],
                          metrics=[hp.Metric(self.METRIC_ACCURACY, display_name='Accuracy')])
 
@@ -78,7 +94,6 @@ class UniversalHPOptimizer():
         all_params['epochs'] = self.HP_EPOCHS.domain.values
         all_params['batch_size'] = self.HP_BATCH_SIZE.domain.values
         all_params['optimizer'] = self.HP_OPTIMIZER.domain.values
-        all_params['num_units'] = self.HP_NUM_UNITS.domain.values
         all_params['batch_normalization'] = self.HP_BATCH_NORMALIZATION.domain.values
 
         keys, values = zip(*all_params.items())
@@ -126,9 +141,9 @@ class UniversalHPOptimizer():
         tensorboard_callback = [tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1),
                                 hp.KerasCallback(log_dir, params_callback)]
 
-        model.fit(x_train_norm, y_train_encoded, batch_size=hparams["batch_size"], epochs=hparams["epochs"],
-                  callbacks=[tensorboard_callback], validation_data=(x_test_norm, y_test_encoded)) 
-        _, accuracy = model.evaluate(x_test_norm, y_test_encoded)
+        model.fit(x_train, y_train, batch_size=hparams["batch_size"], epochs=hparams["epochs"],
+                  callbacks=[tensorboard_callback], validation_data=(x_test, y_test)) 
+        _, accuracy = model.evaluate(x_test, y_test)
 
         if self.best_accuracy is None or accuracy > self.best_accuracy:
             self.best_accuracy = accuracy
