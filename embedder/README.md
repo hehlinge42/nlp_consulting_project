@@ -4,22 +4,29 @@ This session aims at embedding the words resulting from the tokenization of the 
 
 ## Architecture
 
-The cleaner has the following subfolders:
+The embedder has the following subfolders:
 * ``` src ``` : contains all the ```.py``` files.
-* ``` assets ```: contains resources to enrich the stop words library, remove common contracted words, and add a mask to the word clouds.
-* ``` cleaned_data ```: contains the tokenized reviews, word frequency dataframes (TF-IDF) and word clouds.
-* ```notebooks ```: contains Jupyter notebooks to conduct Exploratory Data Analysis.
+* ```notebooks ```: contains Jupyter notebooks to provide some visualisation and a Spark implementation of the lsi embedding in order to perform it with large datasets. 
+* ``` trained_models ```: contains the ```.h5``` files to import the pretrained models without needing to run the heavy training optimization process.
+* ``` embedded_data ```: contains the embedded reviews and their associated rating vectors.
 
 ## Run from Command Line
 
+From the ```src``` folder:
 ```
-python3 src/main.py --files [filenames as str] --debug --early_stop max_reviews as int
+python3 main.py --embed=True --classify=True
 ```
 
 Usage:
-* --files [str]: provides the paths to all the files to process.
-* --debug: displays intermediary logs.
-* --early_stop int: stops the cleaning process after the review_id reaches the given max_reviews.
+* --embed [bool]: If set to True, the words embedding will be conducted using the lsi, word2vec and fasttext techniques. /!\ These processes are time and RAM consuming. See the **Spark implementation** section below. If set to False, the files will be read from the ```../embedded_data``` folder.
+* --classify [bool]: If set to True, Deep Neural Networks will be trained in order to predict the rating of the review from its embedding version. Ignored if set to False
+
+
+## Spark implementation
+
+In order to avoid the RAM issue of conducting embedding techniques on large datasets, we implemented a Spark version of the lsi embedding. If ran on a distributed cluster, this code enables to parallelize the RAM consuming operation (TruncatedSVD) on several machines. 
+This code is accessible in the ```notebooks/svd_spark.ipynb ``` notebook
+
 
 ## Run Exploratory Data Analysis from Jupyter Notebook
 
