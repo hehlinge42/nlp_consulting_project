@@ -33,12 +33,18 @@ class RatingPredictor(tf.keras.Model):
             self.reviews = reviews['rating']
 
         root_path = os.path.join('..', 'embedded_data')
+        review_id_path = os.path.join('..', '..', 'cleaner', 'cleaned_data')
         if input == 'lsi':
             X = pd.read_csv(os.path.join(root_path, 'lsi.csv'), index_col=['review_id'])
         elif input == 'word2vec':
-             X = pd.read_csv(os.path.join(root_path, 'word2vec.csv'), index_col=['review_id'])
+            X = pd.read_csv(os.path.join(root_path, 'word2vec.csv'), index_col=['review_id'])
         elif input == 'fasttext':
             X = pd.read_csv(os.path.join(root_path, 'fastText.csv'), index_col=['review_id'])
+        elif input == 'spark_lsi':
+            review_ids = pd.read_csv(os.path.join(review_id_path, 'restaurant_tfidf_sparse_review_ids.csv'), index_col=['review_id'])
+            X = pd.read_csv(os.path.join(root_path, 'spark_lsi.csv'))
+            X['review_id'] = review_ids.index.values
+            X.set_index(['review_id'], inplace=True)
         else:
             logger.critical(f"Tried set_Xy_train with input {input}")
             raise NotImplementedError("Input must be 'lsi', 'word2vec' or 'fasttext'")

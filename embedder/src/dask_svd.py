@@ -52,6 +52,7 @@ if __name__ == '__main__':
     logger.info(f"Converting sparse into dense matrix")
     dense_matrix = document_term_sparse_matrix.todense()
     dense_matrix = np.array(dense_matrix)
+    logger.info(f"Shape is {dense_matrix.shape}")
 
     logger.info(f"Converting into dask array")
     da_dense_matrix = da.from_array(dense_matrix, chunks=({0: -1, 1: 'auto'}))

@@ -223,10 +223,17 @@ class Cleaner():
         colnames = pd.Series(self.corpus_tfidf.columns, name='colnames')
         colnames.to_csv(colnames_filepath)
 
-        self.corpus_tfidf_sparse.maxprint = self.corpus_tfidf_sparse.shape[0]
-        with open(txt_filepath,"w+") as file:
-            file.write(str(self.corpus_tfidf_sparse)) 
-            file.close() 
+        
+        with open(txt_filepath,'w+') as file:
+            for i in range(self.corpus_tfidf_sparse.shape[0]):
+                for j in self.corpus_tfidf_sparse[i].nonzero()[1]:
+                    file.write(str(i)+' ' +str(j)+' '+str(self.corpus_tfidf_sparse[i,j])+'\n')
+
+
+        # self.corpus_tfidf_sparse.maxprint = self.corpus_tfidf_sparse.shape[0]
+        # with open(txt_filepath,"w+") as file:
+        #     file.write(str(self.corpus_tfidf_sparse)) 
+        #     file.close() 
         
 
 

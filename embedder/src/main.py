@@ -32,7 +32,8 @@ def embed():
 def classify():
 
     rating_predictor = RatingPredictor()
-    embedders = ['lsi', 'word2vec', 'fasttext']
+    # embedders = ['lsi', 'word2vec', 'fasttext']
+    embedders = ['spark_lsi']
     for embedder in embedders:
         rating_predictor.set_Xy_train(input=embedder)
         rating_predictor.generate_model()
