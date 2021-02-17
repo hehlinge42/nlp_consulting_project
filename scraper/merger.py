@@ -5,6 +5,15 @@ import logzero
 import pandas as pd
 import os
 
+logger.info(f"In merger.py, pwd returns {os.getcwd()}")
+
+path_list = os.getcwd().split(os.sep)
+target_index = path_list.index('nlp_consulting_project')
+path_list = path_list[:target_index + 1]
+os.chdir(os.path.join(os.sep, *path_list))
+
+logger.info(f"In merger.py, changing working directory to {os.getcwd()}")
+
 def offset_ids():
 
     existing_restaurants = glob.glob("./scraped_data/restaurants/*.json")
@@ -58,7 +67,9 @@ def offset_ids():
 
 def merge_files(directory, output_file):
     
-    existing_files = glob.glob(directory + "*.json")
+    existing_files = glob.glob(directory + "/*.json")
+    logger.info(f"Merging existing_files {existing_files}")
+    logger.info(f"Output file is {output_file}")
 
     with open(output_file, "w+") as merged_file:
         for existing_file in existing_files:
@@ -73,6 +84,19 @@ def merge_files(directory, output_file):
 #     logger.warn("OSError: directory already exists")
 
 # # offset_ids()
-# merge_files("./scraped_data/restaurants/", "./scraped_data/merged_data/merged_restaurants.json")
-# merge_files("./scraped_data/reviews/", "./scraped_data/merged_data/merged_reviews.json")
-# merge_files("./scraped_data/users/", "./scraped_data/merged_data/merged_users.json")
+
+scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
+merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
+
+if not os.path.exists(merged_data_dir):
+    logger.warn(f"Creating directory {merged_data_dir}")
+    os.makedirs(merged_data_dir)
+
+logger.info("Merging restaurant files")
+merge_files(os.path.join(scraped_data_dir, 'restaurants'), os.path.join(merged_data_dir, "merged_restaurants.json"))
+
+logger.info("Merging reviews files")
+merge_files(os.path.join(scraped_data_dir, 'reviews'), os.path.join(merged_data_dir, "merged_reviews.json"))
+
+logger.info("Merging users files")
+merge_files(os.path.join(scraped_data_dir, 'users'), os.path.join(merged_data_dir, "merged_users.json"))

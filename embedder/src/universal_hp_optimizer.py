@@ -4,6 +4,7 @@ import datetime
 import numpy as np
 import pandas as pd
 import itertools as it
+import os
 
 
 DEFAULT_PARAMS = {
@@ -21,7 +22,7 @@ class UniversalHPOptimizer():
     
     """
 
-    def __init__(self, dict_params, create_model, print_summary=False):
+    def __init__(self, dict_params, create_model, log_dir="logs/fit/", print_summary=False):
         """
 
         Args:
@@ -37,6 +38,7 @@ class UniversalHPOptimizer():
         self.best_model = None
         self.best_accuracy = None
         self.METRIC_ACCURACY = 'accuracy'
+        self.log_dir = log_dir
 
         self.HP_BATCH_NORMALIZATION = self.generate_hp_dict('batch_normalization', dict_params)
         self.HP_EPOCHS = self.generate_hp_dict("epochs", dict_params)
@@ -121,7 +123,7 @@ class UniversalHPOptimizer():
             [float]: [Returns the scalar test loss of the test.]
         """
         model = self.create_model(hparams, self.print_summary)
-        log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        log_dir = os.path.join(self.log_dir, datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
 
         x_train = x_train.iloc[:, 0:hparams['nb_columns']]
         x_test = x_test.iloc[:, 0:hparams['nb_columns']]

@@ -1,11 +1,5 @@
 .DS_Store
-scraper/scraped_data/merged_data/
-embedder/embedded_data/
-restaurants_tfidf.csv
-scraped_data/reviews.json
-lsi_embed/
-word2vec_embed/
-cleaned_data/tokenized_reviews.json
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -136,3 +130,21 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom removals
+scraper/scraped_data/merged_data/
+embedder/embedded_data/fasttext/
+embedder/embedded_data/lsi/
+embedder/embedded_data/word2vec/
+embedder/embedded_data/spark_lsi/
+
+# Large files
+./embedder/embedded_data/word2vec/X_train_word2vec.csv
+./embedder/embedded_data/word2vec/word2vec.csv
+./embedder/embedded_data/spark_lsi/spark_lsi_517.csv
+./embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
+./embedder/embedded_data/spark_lsi/spark_lsi.csv
+./embedder/embedded_data/fasttext/X_train_fasttext.csv
+./embedder/embedded_data/fasttext/fastText.csv
+./embedder/embedded_data/lsi/lsi.csv
+./embedder/embedded_data/lsi/X_train_lsi.csv
