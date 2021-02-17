@@ -4,6 +4,7 @@ import datetime
 import numpy as np
 import pandas as pd
 import itertools as it
+import os
 
 
 DEFAULT_PARAMS = {
@@ -122,7 +123,7 @@ class UniversalHPOptimizer():
             [float]: [Returns the scalar test loss of the test.]
         """
         model = self.create_model(hparams, self.print_summary)
-        log_dir = self.log_dir + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        log_dir = os.path.join(self.log_dir, datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
 
         x_train = x_train.iloc[:, 0:hparams['nb_columns']]
         x_test = x_test.iloc[:, 0:hparams['nb_columns']]
