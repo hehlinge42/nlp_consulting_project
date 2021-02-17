@@ -88,6 +88,10 @@ def merge_files(directory, output_file):
 scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
 merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
 
+if not os.path.exists(merged_data_dir):
+    logger.warn(f"Creating directory {merged_data_dir}")
+    os.makedirs(merged_data_dir)
+
 logger.info("Merging restaurant files")
 merge_files(os.path.join(scraped_data_dir, 'restaurants'), os.path.join(merged_data_dir, "merged_restaurants.json"))
 
