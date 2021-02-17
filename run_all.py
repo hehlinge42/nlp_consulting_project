@@ -2,6 +2,7 @@
 from scraper.merger import merge_files
 from cleaner.src.cleaner import Cleaner
 from embedder.src.embedder import Embedder
+from cleaner.src.helpers import save_wordcloud, save_tfidf
 
 import os
 import argparse
@@ -16,13 +17,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Cleaner and tokenizer of raw text stored as json file")
     parser.add_argument('-w', '--wordcloud_per_restaurant', default=False, type=bool, help="save wordclouds per restaurant")
     parser.add_argument('-t', '--tfidf_per_restaurant', default=False, type=bool, help='save tfidf matrix per restaurant')
-    parser.add_argument('-e', '--embedding_technique', default="word2vec", type=str, help='chooses embedding technique')
+    parser.add_argument('-e', '--embedding_technique', default="all", type=str, help='chooses embedding technique')
     args = parser.parse_args()
 
     # Check input args
-    if args.embedding_technique not in ['word2vec', 'lsi', 'fasttext']:
-        InputError(f"Embedding techniques supported (word2vec, lsi, fasttext), found {args.embedding_technique}")
-        
+    embedding_techniques = []
+    if args.embedding_technique not in ['word2vec', 'lsi', 'fasttext', 'all']:
+        logger.error(f"Embedding techniques supported (word2vec, lsi, fasttext), found {args.embedding_technique}")
+    else:
+        if args.embedding_technique == 'all':
+            embedding_techniques = ['word2vec', 'lsi', 'fasttext']
+        else:
+            embedding_techniques = [args.embedding_technique]
+
+    
     # Merge scraping data from different runs
     try:
         os.mkdir("./scraper/scraped_data/merged_data")
@@ -59,18 +67,17 @@ if __name__ == "__main__":
 
     # Embed balanced dataset of reviews
     embedder = Embedder()
-    
-    embedder.embed("lsi", filepath='./cleaner/cleaned_data/restaurant_tfidf_sparse.npz',
-                            review_id_fp='./cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
-                            colnames_fp='./cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv')
-    embedder.write_files("./embedder/embedded_data/")
 
-    embedder.embed('word2vec', filepath='./cleaner/cleaned_data/tokenized_corpus.json')
-    embedder.write_files('./embedder/embedded_data/')
+    if "lsi" in embedding_techniques:    
+        embedder.embed("lsi", filepath='./cleaner/cleaned_data/restaurant_tfidf_sparse.npz',
+                                review_id_fp='./cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
+                                colnames_fp='./cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv')
+        embedder.write_files("./embedder/embedded_data/")
 
-    embedder.embed('fastText', filepath='./cleaner/cleaned_data/tokenized_corpus.json')
-    embedder.write_files('./embedder/embedded_data/')
-    
+    if "word2vec" in embedding_techniques: 
+        embedder.embed('word2vec', filepath='./cleaner/cleaned_data/tokenized_corpus.json')
+        embedder.write_files('./embedder/embedded_data/')
 
-
-
+    if "fastText" in embedding_techniques:
+        embedder.embed('fastText', filepath='./cleaner/cleaned_data/tokenized_corpus.json')
+        embedder.write_files('./embedder/embedded_data/')
