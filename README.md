@@ -39,11 +39,12 @@ pip install -r requirements.txt
 ## Run from Command Line
 
 ```
-python3 run_all.py --embedding_technique all --wordcloud_per_restaurant --tfidf_per_restaurant
+python3 run_all.py --embedding_technique all --re_embed False --wordcloud_per_restaurant --tfidf_per_restaurant
 ```
 
 Usage:
 * --embedding_technique [str]: define embedding technique (lsi, word2vec, fasttext) supported.
+* --re_embed [bool]: option to rerun embedding, otherwise uses zip files provided in ./embedded_data/zip
 * --wordcloud_per_restaurant [bool]: option to create wordclouds per restaurants.
 * --tfidf_per_restaurant [bool]: option to create TFIDF embedding per restaurants.
 
