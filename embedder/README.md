@@ -33,7 +33,7 @@ This code is accessible in the ```notebooks/svd_spark.ipynb ``` notebook and in 
 
 ## Visualize the outcome of ML Techniques performed on the different embedding techniques
 
-Notebooks are provided in the ```notebooks``` folder to show some vizualization of the Deep Neural Networks trained on the embedded data.
+Notebooks are provided in the ```notebooks``` folder to show some vizualization of the Machine Learning algorithms trained on the embedded data.
 * The notebook ```embedding_performance_comparison.ipynb``` does hyperparameter tuning on each embedding technique and implements TensorBoard to vizualize the outcomes. This notebook is designed to be run on Google Colab's GPU to optimize performances
 * The notebook ```tensorboard_monitor.ipynb``` loads Tensorboard with the logs provided in the folder ```tensorboard_logs``` to avoid running the hyperparameters optimization
 * The notebook ```lgbm_xgb_comparison.ipynb``` implements RandomForestClassifiers to predict the rating of the reviews based on the embedding matrix and presents the results.
