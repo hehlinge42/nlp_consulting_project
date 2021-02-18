@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ## Run from Command Line
 
 ```
-python3 run_all.py --embedding_technique all --wordcloud_per_restaurant False --tfidf_per_restaurant False
+python3 run_all.py --embedding_technique all --wordcloud_per_restaurant --tfidf_per_restaurant
 ```
 
 Usage:
