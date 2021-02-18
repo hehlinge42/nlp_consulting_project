@@ -52,9 +52,11 @@ The folder ``` embedded_data/zip``` contains compressed embedded data to avoid p
 
 Each subfolder contains the 5 files. For example, the ```embedded_data/spark_lsi ```:
 * ```spark_lsi.csv```
+
 A training set corresponding to 80% of the reviews from the ```spark_lsi.csv``` file. The different labels (corresponding to ratings from 1 to 5) are equally balanced. The target is one-hot-encoded as vectors of size 5. 
 * ```X_train_spark_lsi.csv```
 * ```y_train_spark_lsi.npy```
+
 A testing set corresponding to 20% of the reviews from the ```spark_lsi.csv``` file. The different labels (corresponding to ratings from 1 to 5) are equally balanced. The target is one-hot-encoded as vectors of size 5.
 * ```X_test_spark_lsi.csv```
 * ```y_test_lsi.npy``` 
