@@ -32,7 +32,7 @@ class Embedder():
         logzero.loglevel(logging.DEBUG)
         
 
-    def get_best_nb_component(self, var_threshold=0.5, max_components=1000):
+    def get_best_nb_component(self, var_threshold=0.5, max_components=518):
 
         total_variance = 0.0
         n_components = 0
