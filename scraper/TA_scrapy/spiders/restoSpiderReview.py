@@ -26,7 +26,8 @@ class RestoReviewSpider(scrapy.Spider):
     def __init__(self, directory='./scraped_data/', 
                 root_url='https://www.tripadvisor.co.uk/Restaurants-g191259-Greater_London_England.html', 
                 debug=0, nb_resto=100, maxpage_reviews=50, 
-                scrap_user=1, scrap_website_menu=0, *args, **kwargs):
+                scrap_user=1, scrap_website_menu=0, 
+                only_bokan = False, *args, **kwargs):
         
         super(RestoReviewSpider, self).__init__(*args, **kwargs)
 
@@ -54,6 +55,7 @@ class RestoReviewSpider(scrapy.Spider):
         self.scrap_user = int(scrap_user)
         self.scrap_website_menu = int(scrap_website_menu)
         self.nb_resto = int(nb_resto)
+        self.only_bokan = only_bokan
 
         # To track the evolution of scrapping
         self.resto_offset = len(self.already_scraped_restaurants)
@@ -106,8 +108,9 @@ class RestoReviewSpider(scrapy.Spider):
             self.resto_nb += 1
             if self.resto_nb > self.nb_resto:
                 return None
-            yield response.follow(url=restaurant_url, callback=self.parse_review_page, 
-                                  cb_kwargs=dict(restaurant_id=self.resto_nb))
+            if self.only_bokan is False or "bokan" in restaurant_url.lower():
+                yield response.follow(url=restaurant_url, callback=self.parse_review_page, 
+                                    cb_kwargs=dict(restaurant_id=self.resto_nb))
 
         # Get next page information
         next_page, next_page_number = get_info.get_urls_next_list_of_restos(response)
@@ -121,6 +124,12 @@ class RestoReviewSpider(scrapy.Spider):
         """ SECOND PARSING : Given a review page, gets each review url and get to parse it
             - Usually there are 10 reviews per page
         """
+
+        try:
+            if "bokan" in response.url:
+                logger.critical(f"FOUND BOKAN IN URL {response.url}")
+        except:
+            pass
 
         logger.info(' > PARSING NEW REVIEW PAGE')
 

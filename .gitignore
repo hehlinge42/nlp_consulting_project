@@ -137,6 +137,8 @@ embedder/embedded_data/fasttext/
 embedder/embedded_data/lsi/
 embedder/embedded_data/word2vec/
 embedder/embedded_data/spark_lsi/
+cleaner/cleaned_data/restaurants_wordclouds/
+cleaner/cleaned_data/restaurants_tfidf/
 
 # Large files
-./cleaner/cleaned_data/restaurants_tfidf.csv
+cleaner/cleaned_data/restaurant_tfidf_sparse.txt

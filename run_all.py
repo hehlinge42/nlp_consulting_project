@@ -56,9 +56,9 @@ if __name__ == "__main__":
     cleaner.save_tokenized_corpus('./cleaner/cleaned_data/', 'tokenized_corpus.json')
 
     if args.wordcloud_per_restaurant:
-        cleaner.save_files('./cleaner/cleaned_data/restaurant_wordclouds/', save_wordcloud, mask_path='./cleaner/assets/capgemini.jpg')
+        cleaner.save_files('./cleaner/cleaned_data/restaurants_wordclouds/', save_wordcloud, mask_path='./cleaner/assets/capgemini.jpg')
     if args.tfidf_per_restaurant:
-        cleaner.save_files('./cleaner/cleaned_data/restaurant_word_frequencies/', save_tfidf)
+        cleaner.save_files('./cleaner/cleaned_data/restaurants_tfidf/', save_tfidf)
 
     cleaner.save_sparse_matrix('./cleaner/cleaned_data/restaurant_tfidf_sparse.npz', 
                                './cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',

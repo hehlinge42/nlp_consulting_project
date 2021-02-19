@@ -9,8 +9,13 @@ from logzero import logger
 import itertools
 
 from scipy.sparse import save_npz
-from .helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
-# from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+
+try:
+    from .helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+except:
+    from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
+
+
 from datetime import datetime
 
 from nltk.tokenize import word_tokenize
@@ -22,7 +27,7 @@ from PIL import Image
 
 class Cleaner():
 
-    def __init__(self, stop_words_filename='custom_stop_words.txt', assets_directory='./assets/', debug=1, early_stop=None):
+    def __init__(self, stop_words_filename='custom_stop_words.txt', assets_directory='./cleaner/assets/', debug=1, early_stop=None):
         
         self.init_stop_words(assets_directory + stop_words_filename)
         self.contraction_filename = assets_directory + 'contractions.json'
@@ -153,12 +158,12 @@ class Cleaner():
         restaurant_corpus, tokenized_reviews = [], []
 
         for review_id in review_ids:
-            try:
-                restaurant_counter.update(self.word_count[review_id])
-                restaurant_corpus.append(" ".join(self.tokenized_corpus[review_id]))
-                tokenized_reviews.append(review_id)
-            except:
-                pass
+            # try:
+            restaurant_counter.update(self.word_count[review_id])
+            restaurant_corpus.append(" ".join(self.tokenized_corpus[review_id]))
+            tokenized_reviews.append(review_id)
+            # except:
+            #     pass
         
         restaurant_corpus_dict = dict(zip(tokenized_reviews, restaurant_corpus))
         return restaurant_counter, restaurant_corpus_dict, tokenized_reviews
@@ -168,16 +173,19 @@ class Cleaner():
         """ Computes TF-IDF Matrix of reviews per restaurant """
 
         restaurant_list = [int(element) for element in self.df[col].unique()]
+        logger.info(f"Finding all restaurants {restaurant_list}")
         
         for restaurant_idx in restaurant_list:
-            try:
-                self.word_count_by_restaurant[restaurant_idx], self.tokenized_corpus_sentences[restaurant_idx], tokenized_reviews = self.group_by_restaurant(restaurant_idx)
-                vectorizer = TfidfVectorizer(stop_words='english')
-                vect_corpus = vectorizer.fit_transform(self.tokenized_corpus_sentences[restaurant_idx])
-                feature_names = np.array(vectorizer.get_feature_names())
-                self.df_word_frequency[restaurant_idx] = pd.DataFrame(data=vect_corpus.todense(), index=tokenized_reviews, columns=feature_names)
-            except:
-                pass
+            # try:
+            # logger.info(f"Computing restaurant tfidf for id {restaurant_idx}")
+
+            self.word_count_by_restaurant[restaurant_idx], self.tokenized_corpus_sentences[restaurant_idx], tokenized_reviews = self.group_by_restaurant(restaurant_idx)
+            vectorizer = TfidfVectorizer(stop_words='english')
+            vect_corpus = vectorizer.fit_transform(self.tokenized_corpus_sentences[restaurant_idx].values())
+            feature_names = np.array(vectorizer.get_feature_names())
+            self.df_word_frequency[restaurant_idx] = pd.DataFrame(data=vect_corpus.todense(), index=tokenized_reviews, columns=feature_names)
+            # except:
+            #     pass
 
     def compute_global_tfidf(self, col='restaurant_id'):
 
@@ -240,7 +248,7 @@ class Cleaner():
     def save_files(self, directory, callable_name, restaurant_ids='all', mask_path=None):
         """ Saves files (Wordclouds or TF-IDF) for corpora """
         
-        logger.warn(f' > SAVING {callable_name.__name__[5:]} FILES ')
+        logger.info(f' > SAVING {callable_name.__name__[5:]} FILES ')
 
         try:
             os.mkdir(directory)
@@ -252,10 +260,13 @@ class Cleaner():
         except:
             mask = None
 
+        logger.info(f"self.df_word_frequency has len {len(self.df_word_frequency)}")
         if restaurant_ids == 'all':
             for restaurant_id, df in self.df_word_frequency.items():
+                logger.info(f"Launching {callable_name.__name__[5:]} with restaurant_id {restaurant_id}")
                 callable_name(df, restaurant_id, directory, mask)
         else:
             for restaurant_id in list(restaurant_ids):
                 df = self.df_word_frequency[restaurant_id]
+                logger.info(f"Launching {callable_name.__name__[5:]} with restaurant_id {restaurant_id}")
                 callable_name(df, restaurant_id, directory, mask)
