@@ -2,6 +2,7 @@ import pandas as pd
 from logzero import logger
 import logzero
 import os
+import argparse
 
 if __name__ == "__main__":
 
@@ -14,9 +15,16 @@ if __name__ == "__main__":
 
     logger.info(f"In generate_balanced_dataset.py, changing working directory to {os.getcwd()}")
 
+
+    parser = argparse.ArgumentParser(description="Generator of reviews sample with equally balanced ratings")
+    parser.add_argument('-s', '--size', type=int, default=18000, help='Caps the number of reviews to be processed')
+    args = parser.parse_args()
+
     reviews = pd.read_json(os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data', 'merged_reviews.json'), lines=True)
     by_rating = reviews.groupby(by=['rating']).count()
-    min_count = min(by_rating['review_id'])
+    logger.critical(by_rating)
+    min_count = min(args.size // 5, min(by_rating['review_id']))
     balanced_reviews = reviews.groupby("rating").sample(n=min_count, random_state=0)
     balanced_reviews.set_index(['review_id'], inplace=True)
+    logger.critical(len(balanced_reviews))
     balanced_reviews.to_csv(os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data', 'balanced_reviews.csv'), sep='#', index_label='review_id')

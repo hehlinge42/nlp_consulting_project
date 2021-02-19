@@ -177,15 +177,29 @@ class RestoReviewSpider(scrapy.Spider):
         price_cuisine = response.xpath(xpath_price_cuisine).getall()
 
         # Retrieve price in the right format
-        raw_price = price_cuisine[0]
+        raw_price = -1
         try:
-            min_price, max_price = raw_price.split(' - ')
-        except ValueError:
-            min_price, max_price = raw_price, raw_price
-
-        resto_item['min_price'] = len(min_price)
-        resto_item['max_price'] = len(max_price)
-        resto_item['cuisine'] = price_cuisine[1:]
+            raw_price = price_cuisine[0]
+        except:
+            resto_item['min_price'] = None
+            resto_item['max_price'] = None
+            resto_item['cuisine'] = []
+        else:
+            try:
+                min_price, max_price = raw_price.split(' - ')
+                resto_item['min_price'] = len(min_price)
+                resto_item['max_price'] = len(max_price)
+                resto_item['cuisine'] = price_cuisine[1:]
+            except ValueError:
+                if raw_price == len(raw_price) * self.currency:
+                    resto_item['min_price'] = len(raw_price)
+                    resto_item['max_price'] = len(raw_price)
+                    resto_item['cuisine'] = price_cuisine[1:]
+                else:
+                    resto_item['min_price'] = None
+                    resto_item['max_price'] = None
+                    resto_item['cuisine'] = price_cuisine
+                    
         resto_item['address'] = response.xpath(xpath_address).get()
         resto_item['phone_number'] = response.xpath(xpath_phone_number).get()
 
