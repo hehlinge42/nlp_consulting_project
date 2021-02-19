@@ -139,12 +139,4 @@ embedder/embedded_data/word2vec/
 embedder/embedded_data/spark_lsi/
 
 # Large files
-./embedder/embedded_data/word2vec/X_train_word2vec.csv
-./embedder/embedded_data/word2vec/word2vec.csv
-./embedder/embedded_data/spark_lsi/spark_lsi_1000.csv
-./embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
-./embedder/embedded_data/spark_lsi/spark_lsi.csv
-./embedder/embedded_data/fasttext/X_train_fasttext.csv
-./embedder/embedded_data/fasttext/fasttext.csv
-./embedder/embedded_data/lsi/lsi.csv
-./embedder/embedded_data/lsi/X_train_lsi.csv
+./cleaner/cleaned_data/restaurants_tfidf.csv
