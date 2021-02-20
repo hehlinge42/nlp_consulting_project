@@ -155,4 +155,4 @@ class Embedder():
         except OSError:
             logger.warn("OSError: directory already exists")
 
-        self.embedded_document.to_csv(directory + str(self.type) + '.csv', index_label='review_id')
+        self.embedded_document.to_csv(os.path.join(directory, str(self.type) + '.csv'), index_label='review_id')

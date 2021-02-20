@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
     if args.embed:
         logger.info(' > Embedding reviews.')
-        embed(args.cleaned_data_dir, args,embedded_data_dir)
+        embed(args.cleaned_data_dir, args.embedded_data_dir)
     if args.model:
         logger.info(' > Classifying reviews.')
         merged_reviews_fp = './scraper/scraped_data/merged_data/balanced_reviews.csv'

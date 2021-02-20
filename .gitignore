@@ -145,4 +145,4 @@ embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
 embedder/embedded_data/spark_lsi/spark_lsi.csv
 embedder/embedded_data/lsi.csv
 embedder/embedded_data/word2vec.csv
-embedder/embedded_data/fasttext.csv
+embedder/embedded_data/fastText.csv
