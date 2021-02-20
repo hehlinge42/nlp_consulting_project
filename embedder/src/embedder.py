@@ -53,8 +53,7 @@ class Embedder():
         # Return the number of components
         return n_components
 
-    def embed(self, embedding_type, filepath, review_id_fp='../cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
-              colnames_fp='../cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv', **kwargs):
+    def embed(self, embedding_type, filepath, review_id_fp, colnames_fp, **kwargs):
         
         self.type = embedding_type
         if self.best_nb_component is None and self.type != 'lsi':

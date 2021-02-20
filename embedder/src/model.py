@@ -14,10 +14,10 @@ import numpy as np
 
 class RatingPredictor(tf.keras.Model):
 
-    def __init__(self, path_to_reviews='../../scraper/scraped_data/merged_data/balanced_reviews.csv'):
+    def __init__(self, merged_reviews):
         
         super(RatingPredictor, self).__init__()
-        self.path_to_reviews = path_to_reviews
+        self.path_to_merged_reviews = merged_reviews
         self.reviews = None
 
 
@@ -27,13 +27,15 @@ class RatingPredictor(tf.keras.Model):
     
     def set_Xy_train(self, input='lsi'):
 
+        print("CWD == ", os.getcwd())
+
         if self.reviews is None:
-            logger.info(f"Reads review file {self.path_to_reviews}")
-            reviews = pd.read_csv(self.path_to_reviews, sep='#', index_col=['review_id'])
+            logger.info(f"Reads review file {self.path_to_merged_reviews}")
+            reviews = pd.read_csv(self.path_to_merged_reviews, sep='#', index_col=['review_id'])
             self.reviews = reviews['rating']
 
-        root_path = os.path.join('..', 'embedded_data', input)
-        review_id_path = os.path.join('..', '..', 'cleaner', 'cleaned_data')
+        root_path = os.path.join('embedder', 'embedded_data', input)
+        review_id_path = os.path.join('cleaner', 'cleaned_data')
         if input == 'lsi':
             X = pd.read_csv(os.path.join(root_path, 'lsi.csv'), index_col=['review_id'])
         elif input == 'word2vec':
@@ -63,11 +65,11 @@ class RatingPredictor(tf.keras.Model):
         self.y_test = tf.keras.utils.to_categorical(self.y_test, num_classes=None)
         self.input_size = len(list(self.X_train.columns))
 
-        self.X_train.to_csv(root_path + '/X_train_' + input + '.csv')
-        self.X_test.to_csv(root_path + '/X_test_' + input + '.csv')
-        with open(root_path + '/y_train_' + input + '.npy', 'wb+') as f:
+        self.X_train.to_csv(os.path.join(root_path, 'X_train_' + input + '.csv'))
+        self.X_test.to_csv(os.path.join(root_path, 'X_test_' + input + '.csv'))
+        with open(os.path.join(root_path, 'y_train_' + input + '.npy'), 'wb+') as f:
             np.save(f, self.y_train)
-        with open(root_path + '/y_test_' + input + '.npy', 'wb+') as f:
+        with open(os.path.join(root_path, 'y_test_' + input + '.npy', 'wb+')) as f:
             np.save(f, self.y_test)
 
 

@@ -15,15 +15,17 @@ The embedder has the following subfolders:
 
 ## Run from Command Line
 
-From the ```src``` folder:
+From the root of ```embedder``` folder:
 ```
-python3 main.py --embed=True --classify=True
+python3 src/main.py --embed=True --cleaned_data_dir --embedded_data_dir --model=True --trained_models_dir
 ```
 
 Usage:
-* --embed [bool]: If set to True, the words embedding will be conducted using the lsi, word2vec and fasttext techniques. /!\ These processes are time and RAM consuming. See the **Spark implementation** section below. If set to False, the files will be read from the ```../embedded_data``` folder. False by default.
-* --classify [bool]: If set to True, Deep Neural Networks will be trained in order to predict the rating of the review from its embedding version. Ignored if set to False. False by default.
-
+* --embed [bool]: If set to True, the words embedding will be conducted using the lsi, word2vec and fasttext techniques. /!\ These processes are time and RAM consuming. See the **Spark implementation** section below. If set to False, the files will be read from the ```./embedder/embedded_data``` folder. False by default.
+* --cleaned_data_dir [str]: Directory containing cleaned data (path relative to root of git)
+* --embedded_data_dir [str]: Directory to save embedded data (path relative to root of git)
+* --model [bool]: If set to True, Deep Neural Networks will be trained in order to predict the rating of the review from its embedding version. Ignored if set to False. False by default.
+* --trained_models_dir [str]: Directory to save classification models
 
 ## Spark implementation
 

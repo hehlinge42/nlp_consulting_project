@@ -3,7 +3,7 @@ from cleaner import Cleaner
 from helpers import save_wordcloud, save_tfidf, convert_filepaths
 import os
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
@@ -11,10 +11,10 @@ if __name__ == "__main__":
     path_list = path_list[:target_index + 1]
     os.chdir(os.path.join(os.sep, *path_list))
 
-    parser = argparse.ArgumentParser(description="Cleaner and tokenizer of raw text stored as json file")
-    parser.add_argument('-f', '--files', nargs="*", type=str, help='path to the files to be cleaned')
+    parser = argparse.ArgumentParser(description='Cleaner and tokenizer of raw text stored as json file')
+    parser.add_argument('-f', '--files', nargs='*', type=str, help='path to the files to be cleaned')
     parser.add_argument('-s', '--saving_dir', type=str, help='path to the saved directory for cleaned files')
-    parser.add_argument('-d', '--debug', help="prints intermediary logs", action="store_true")
+    parser.add_argument('-d', '--debug', help='prints intermediary logs", action="store_true')
     parser.add_argument('-e', '--early_stop', type=int, default=-1, help='Caps the number of reviews to be processed')
     args = parser.parse_args()
 

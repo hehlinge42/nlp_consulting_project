@@ -45,4 +45,4 @@ def spark_lsi(input, output):
 
 if __name__ == 'main':
 
-    spark_lsi('../../cleaner/cleaned_data/restaurant_tfidf_sparse.txt', '../embedded_data/spark_lsi_py.csv')
+    spark_lsi('./cleaner/cleaned_data/restaurant_tfidf_sparse.txt', './embedder/embedded_data/spark_lsi_py.csv')

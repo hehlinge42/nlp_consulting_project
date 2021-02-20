@@ -8,30 +8,33 @@ import logging
 from datetime import datetime
 import os
 
-def embed():
+def embed(cleaned_data_dir, embedded_data_dir):
+    # ./cleaner/cleaned_data
+    # './embedder/embedded_data/'
 
     start = datetime.now()
-    logger.critical(f"Launching embedder at {start}")
+    logger.critical(f'Launching embedder at {start}')
 
     embedder = Embedder()
-    embedder.embed("lsi", filepath='../../cleaner/cleaned_data/restaurant_tfidf_sparse.npz',
-                            review_id_fp='../../cleaner/cleaned_data/restaurant_tfidf_sparse_review_ids.csv',
-                            colnames_fp='../../cleaner/cleaned_data/restaurant_tfidf_sparse_colnames.csv')
-    embedder.write_files("../embedded_data/")
+    
+    embedder.embed('lsi', filepath=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.npz'),
+                            review_id_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_review_ids.csv'),
+                            colnames_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_colnames.csv'))
+    embedder.write_files(embedded_data_dir)
 
-    embedder.embed('word2vec', filepath='../../cleaner/cleaned_data/tokenized_corpus.json')
-    embedder.write_files('../embedded_data/')
+    embedder.embed('word2vec', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
+    embedder.write_files(embedded_data_dir)
 
-    embedder.embed('fastText', filepath='../../cleaner/cleaned_data/tokenized_corpus.json')
-    embedder.write_files('../embedded_data/')
+    embedder.embed('fastText', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
+    embedder.write_files(embedded_data_dir)
 
     end = datetime.now()
-    logger.critical(f"Ending embedder at {end}")
-    logger.critical(f"Embedder took {end - start}")
+    logger.critical(f'Ending embedder at {end}')
+    logger.critical(f'Embedder took {end - start}')
 
-def classify():
-
-    rating_predictor = RatingPredictor()
+def classify(reviews_fp, trained_models_dir):
+    
+    rating_predictor = RatingPredictor(reviews_fp)
     # embedders = ['lsi', 'word2vec', 'fasttext']
     embedders = ['spark_lsi']
     for embedder in embedders:
@@ -39,17 +42,28 @@ def classify():
         rating_predictor.generate_model()
         print(str(rating_predictor))
         rating_predictor.train_test_model(epochs=30, batch_size=32, validation_split=0.2, early_stopping_monitor=None)
-        rating_predictor.save_model(os.path.join('..', 'trained_models'), filename=embedder + '.h5')
+        rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description="Embeds tokenized reviews and feeds them to a Neural Network")
-    parser.add_argument('-e', '--embed', nargs="*", type=bool, default=False, help='Embeds tokenized reviews')
-    parser.add_argument('-c', '--classify', type=bool, default=False, help="Predict rating from embedded reviews")
+    path_list = os.getcwd().split(os.sep)
+    target_index = path_list.index('nlp_consulting_project')
+    running_dir = os.path.join('.', path_list[target_index + 1])
+    path_list = path_list[:target_index + 1]
+    os.chdir(os.path.join(os.sep, *path_list))
+
+    parser = argparse.ArgumentParser(description='Embeds tokenized reviews and feeds them to a Neural Network')
+    parser.add_argument('-e', '--embed', nargs='*', type=bool, default=False, help='Embeds tokenized reviews')
+    parser.add_argument('-c', '--cleaned_data_dir', type=str, help='Directory to find cleaned data')
+    parser.add_argument('-d', '--embedded_data_dir', type=str, help='Directory to save embedded data')
+    parser.add_argument('-m', '--model', type=bool, default=False, help='Predict rating from embedded reviews')
+    parser.add_argument('-t', '--trained_models_dir', type=str, help='Directory to save trained classification models')
     args = parser.parse_args()
 
     if args.embed:
-        embed()
-    if args.classify:
-        classify()
+        print("Into embedding")
+        embed(args.cleaned_data_dir, args,embedded_data_dir)
+    if args.model:
+        merged_reviews_fp = './scraper/scraped_data/merged_data/balanced_reviews.csv'
+        classify(merged_reviews_fp, args.trained_models_dir)
