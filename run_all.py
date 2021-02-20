@@ -55,7 +55,7 @@ if __name__ == "__main__":
     reviews = pd.read_json(os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'), lines=True)
     by_rating = reviews.groupby(by=['rating']).count()
     min_count = min(by_rating['review_id'])
-    balanced_reviews = reviews.groupby("rating").sample(n=min_count, random_state=0)
+    balanced_reviews = (reviews.groupby("rating")).sample(n=min_count, random_state=0)
     balanced_reviews.set_index(['review_id'], inplace=True)
     balanced_reviews.to_csv(os.path.join(scraped_data_dir, 'merged_data', 'balanced_reviews.csv'), sep='#', index_label='review_id')
     
@@ -75,7 +75,7 @@ if __name__ == "__main__":
                                os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_colnames.csv'),
                                os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.txt'))
 
-   # Embed balanced dataset of reviews
+
     logger.info(' > Embedding reviews.')
     embedder = Embedder()
 
@@ -91,6 +91,10 @@ if __name__ == "__main__":
 
     if "fasttext" in embedding_techniques:
         embedder.embed('fastText', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'), review_id_fp=None, colnames_fp=None)
+        embedder.write_files(embedded_data_dir)
+
+    if "fastText" in embedding_techniques:
+        embedder.embed('fastText', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
         embedder.write_files(embedded_data_dir)
 
     # Classify
