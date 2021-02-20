@@ -55,7 +55,7 @@ if __name__ == "__main__":
     reviews = pd.read_json(os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'), lines=True)
     by_rating = reviews.groupby(by=['rating']).count()
     min_count = min(by_rating['review_id'])
-    balanced_reviews = reviews.groupby("rating").sample(n=min_count, random_state=0)
+    balanced_reviews = (reviews.groupby("rating")).sample(n=min_count, random_state=0)
     balanced_reviews.set_index(['review_id'], inplace=True)
     balanced_reviews.to_csv(os.path.join(scraped_data_dir, 'merged_data', 'balanced_reviews.csv'), sep='#', index_label='review_id')
     
@@ -76,31 +76,32 @@ if __name__ == "__main__":
                                os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.txt'))
 
     # Embed balanced dataset of reviews
-    # embedder = Embedder()
+    logger.info(' > Embedding reviews.')
+    embedder = Embedder()
 
-    # if "lsi" in embedding_techniques:    
-    #     embedder.embed("lsi", filepath=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.npz'),
-    #                         review_id_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_review_ids.csv'),
-    #                         colnames_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_colnames.csv'))
-    #     embedder.write_files(embedded_data_dir)
+    if "lsi" in embedding_techniques:    
+        embedder.embed("lsi", filepath=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.npz'),
+                            review_id_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_review_ids.csv'),
+                            colnames_fp=os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse_colnames.csv'))
+        embedder.write_files(embedded_data_dir)
 
-    # if "word2vec" in embedding_techniques: 
-    #     embedder.embed('word2vec', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
-    #     embedder.write_files(embedded_data_dir)
+    if "word2vec" in embedding_techniques: 
+        embedder.embed('word2vec', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
+        embedder.write_files(embedded_data_dir)
 
-    # if "fastText" in embedding_techniques:
-    #     embedder.embed('fastText', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
-    #     embedder.write_files(embedded_data_dir)
+    if "fastText" in embedding_techniques:
+        embedder.embed('fastText', filepath=os.path.join(cleaned_data_dir, 'tokenized_corpus.json'))
+        embedder.write_files(embedded_data_dir)
 
     # Classify
-    reviews_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'balanced_reviews.csv')
+    logger.info(' > Classifying reviews.')
 
-    rating_predictor = RatingPredictor(reviews_fp)
-    # embedders = ['lsi', 'word2vec', 'fasttext']
-    embedders = ['spark_lsi']
-    for embedder in embedders:
-        rating_predictor.set_Xy_train(best_params_fp, input=embedder)
-        rating_predictor.generate_model()
-        print(str(rating_predictor))
-        rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
-        rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')
+    reviews_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'balanced_reviews.csv')
+    embed_type = 'spark_lsi'
+    best_params_fp = os.path.join('embedder', 'trained_models', str(embed_type) + '_params.json')
+
+    rating_predictor = RatingPredictor(reviews_fp) 
+    rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
+    rating_predictor.generate_model()
+    rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
+    rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
