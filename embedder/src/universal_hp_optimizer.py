@@ -72,11 +72,6 @@ class UniversalHPOptimizer():
         
         # !rm -rf ./logs/
         session_num = 1
-        # with tf.summary.create_file_writer('logs/hparam_tuning').as_default():
-        #     hp.hparams_config(
-        #         hparams=[self.HP_BATCH_SIZE, self.HP_DROPOUT, self.HP_OPTIMIZER,
-        #                  self.HP_BATCH_NORMALIZATION, self.HP_EPOCHS, self.HP_EARLY_STOPPING, self.HP_NB_COLUMNS],
-        #                  metrics=[hp.Metric(self.METRIC_ACCURACY, display_name='Accuracy')])
 
         all_params = {}
         all_params['dropout'] = self.HP_DROPOUT.domain.values
@@ -144,6 +139,7 @@ class UniversalHPOptimizer():
         if self.best_accuracy is None or accuracy > self.best_accuracy:
             self.best_accuracy = accuracy
             self.best_model = model
+            self.best_params = hparams
 
         return accuracy
 
