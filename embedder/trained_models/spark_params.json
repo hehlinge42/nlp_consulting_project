@@ -1,0 +1,1 @@
+{"dropout": 0.8, "epochs": 20, "batch_size": 64, "optimizer": "SGD", "batch_normalization": false, "early_stopping": 3, "nb_columns": 450}
