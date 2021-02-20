@@ -13,7 +13,8 @@ DEFAULT_PARAMS = {
     'batch_normalization': hp.HParam('batch_normalization', hp.Discrete([False], dtype=bool)),
     'dropout': hp.HParam('dropout', hp.Discrete([0])),
     'optimizer': hp.HParam('optimizer', hp.Discrete(['SGD'])),
-    'early_stopping': hp.HParam('early_stopping', hp.Discrete([3]))
+    'early_stopping': hp.HParam('early_stopping', hp.Discrete([3]),
+    'nb_columns': hp.HParam('nb_columns', hp.Discrete([250]))
 }
 
 class UniversalHPOptimizer():
