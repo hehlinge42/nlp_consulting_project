@@ -2,15 +2,13 @@ import argparse
 from embedder import Embedder
 from model import RatingPredictor
 
-from logzero import logger
 import logzero
+from logzero import logger
 import logging 
 from datetime import datetime
 import os
 
 def embed(cleaned_data_dir, embedded_data_dir):
-    # ./cleaner/cleaned_data
-    # './embedder/embedded_data/'
 
     start = datetime.now()
     logger.critical(f'Launching embedder at {start}')
@@ -38,9 +36,8 @@ def classify(reviews_fp, embed_type, best_params_fp, trained_models_dir):
  
     rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
     rating_predictor.generate_model()
-    print(str(rating_predictor))
     rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
-    rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')
+    rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
 
 
 if __name__ == '__main__':
@@ -60,9 +57,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.embed:
+        logger.info(' > Embedding reviews.')
         embed(args.cleaned_data_dir, args,embedded_data_dir)
     if args.model:
+        logger.info(' > Classifying reviews.')
         merged_reviews_fp = './scraper/scraped_data/merged_data/balanced_reviews.csv'
-        best_params_fp = './embedder/trained_models/' + str(embed_type) + '_params.json'
         embed_type = 'spark_lsi'
+        best_params_fp = './embedder/trained_models/' + str(embed_type) + '_params.json'
         classify(merged_reviews_fp, embed_type, best_params_fp, args.trained_models_dir)

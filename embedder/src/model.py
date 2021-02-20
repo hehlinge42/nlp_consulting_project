@@ -28,8 +28,6 @@ class RatingPredictor(tf.keras.Model):
     
     def set_Xy_train(self, best_params_fp, input='lsi'):
 
-        print("CWD == ", os.getcwd())
-
         if self.reviews is None:
             logger.info(f"Reads review file {self.path_to_merged_reviews}")
             reviews = pd.read_csv(self.path_to_merged_reviews, sep='#', index_col=['review_id'])
@@ -74,23 +72,22 @@ class RatingPredictor(tf.keras.Model):
         self.X_test.to_csv(os.path.join(root_path, 'X_test_' + input + '.csv'))
         with open(os.path.join(root_path, 'y_train_' + input + '.npy'), 'wb+') as f:
             np.save(f, self.y_train)
-        with open(os.path.join(root_path, 'y_test_' + input + '.npy', 'wb+')) as f:
+        with open(os.path.join(root_path, 'y_test_' + input + '.npy'), 'wb+') as f:
             np.save(f, self.y_test)
 
 
     def generate_model(self):
 
-        model = tf.keras.models.Sequential()
-        model.add(Input(shape=(self.params.get('nb_columns'),)))
-        model.add(Dense(128, activation=tf.nn.relu))
+        self.model = tf.keras.models.Sequential()
+        self.model.add(Input(shape=(self.params.get('nb_columns'),)))
+        self.model.add(Dense(128, activation=tf.nn.relu))
         if self.params.get('batch_normalization') is True:
-            model.add(tf.keras.layers.BatchNormalization())
-        model.add(Dropout(rate=self.params.get('dropout')))
-        model.add(Dense(64, activation=tf.nn.relu))
-        model.add(Dense(5, activation=tf.nn.softmax))
-        model.compile(loss='categorical_crossentropy', metrics='accuracy', optimizer='adam')
-        return model
-        
+            self.model.add(tf.keras.layers.BatchNormalization())
+        self.model.add(Dropout(rate=self.params.get('dropout')))
+        self.model.add(Dense(64, activation=tf.nn.relu))
+        self.model.add(Dense(5, activation=tf.nn.softmax))
+        self.model.compile(loss='categorical_crossentropy', metrics='accuracy', optimizer='adam')
+
 
     def train_test_model(self, validation_split=0.2, 
                          early_stopping_monitor=None, **kwargs):
@@ -109,13 +106,13 @@ class RatingPredictor(tf.keras.Model):
         epochs = self.params.get('epochs')
         batch_size = self.params.get('batch_size')
 
-        history = self.model.fit(self.X_train, self.y_train, epochs=epochs, 
+        history = self.model.fit(self.X_train.iloc[:, 0:self.params.get('nb_columns')], self.y_train, epochs=epochs, 
                     batch_size=batch_size, validation_split=validation_split, 
                     callbacks=early_stopping_monitor)
         print('Evaluating train accuracy:')
-        _, acc_train = self.model.evaluate(self.X_train, self.y_train)
+        _, acc_train = self.model.evaluate(self.X_train.iloc[:, 0:self.params.get('nb_columns')], self.y_train)
         print('Evaluating test accuracy:')
-        _, acc_test = self.model.evaluate(self.X_test, self.y_test)
+        _, acc_test = self.model.evaluate(self.X_test.iloc[:, 0:self.params.get('nb_columns')], self.y_test)
             
         return history, acc_train, acc_test
 
