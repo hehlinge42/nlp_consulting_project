@@ -29,8 +29,8 @@ class Cleaner():
 
     def __init__(self, stop_words_filename='custom_stop_words.txt', assets_directory='./cleaner/assets/', debug=1, early_stop=None):
         
-        self.init_stop_words(assets_directory + stop_words_filename)
-        self.contraction_filename = assets_directory + 'contractions.json'
+        self.init_stop_words(os.path.join(assets_directory, stop_words_filename))
+        self.contraction_filename = os.path.join(assets_directory, 'contractions.json')
         self.early_stop = early_stop
         self.tag_dict = {
             "J": wordnet.ADJ,

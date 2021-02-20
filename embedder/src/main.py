@@ -62,7 +62,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.embed:
-        print("Into embedding")
         embed(args.cleaned_data_dir, args,embedded_data_dir)
     if args.model:
         merged_reviews_fp = './scraper/scraped_data/merged_data/balanced_reviews.csv'
