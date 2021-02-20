@@ -40,7 +40,7 @@ def spark_lsi(input, output):
     display(spark_df)
 
     pandas_df = spark_df.toPandas()
-    pandas_df.to_csv(output)
+    pandas_df.to_csv(output)s
 
 
 if __name__ == 'main':

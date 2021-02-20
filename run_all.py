@@ -99,8 +99,8 @@ if __name__ == "__main__":
     # embedders = ['lsi', 'word2vec', 'fasttext']
     embedders = ['spark_lsi']
     for embedder in embedders:
-        rating_predictor.set_Xy_train(input=embedder)
+        rating_predictor.set_Xy_train(best_params_fp, input=embedder)
         rating_predictor.generate_model()
         print(str(rating_predictor))
-        rating_predictor.train_test_model(epochs=30, batch_size=32, validation_split=0.2, early_stopping_monitor=None)
+        rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
         rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')

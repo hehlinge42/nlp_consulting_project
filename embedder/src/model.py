@@ -11,6 +11,7 @@ import logzero
 import logging
 import os
 import numpy as np
+import json
 
 class RatingPredictor(tf.keras.Model):
 
@@ -25,7 +26,7 @@ class RatingPredictor(tf.keras.Model):
         return str(self.model.summary())
 
     
-    def set_Xy_train(self, input='lsi'):
+    def set_Xy_train(self, best_params_fp, input='lsi'):
 
         print("CWD == ", os.getcwd())
 
@@ -36,6 +37,10 @@ class RatingPredictor(tf.keras.Model):
 
         root_path = os.path.join('embedder', 'embedded_data', input)
         review_id_path = os.path.join('cleaner', 'cleaned_data')
+
+        with open(best_params_fp) as json_file: 
+            self.params = json.load(json_file) 
+
         if input == 'lsi':
             X = pd.read_csv(os.path.join(root_path, 'lsi.csv'), index_col=['review_id'])
         elif input == 'word2vec':
@@ -75,18 +80,19 @@ class RatingPredictor(tf.keras.Model):
 
     def generate_model(self):
 
-        self.model = tf.keras.models.Sequential()
-        self.model.add(Input(shape=(self.input_size,)))
-        self.model.add(Dense(256, activation=tf.nn.relu))
-        self.model.add(Dropout(0.5))
-        self.model.add(Dense(128, activation=tf.nn.relu))
-        self.model.add(Dropout(0.5))
-        self.model.add(Dense(64, activation=tf.nn.relu))
-        self.model.add(Dense(self.output_size, activation=tf.nn.softmax))
-        self.model.compile(loss='categorical_crossentropy', metrics='accuracy', optimizer='adam')
+        model = tf.keras.models.Sequential()
+        model.add(Input(shape=(self.params.get('nb_columns'),)))
+        model.add(Dense(128, activation=tf.nn.relu))
+        if self.params.get('batch_normalization') is True:
+            model.add(tf.keras.layers.BatchNormalization())
+        model.add(Dropout(rate=self.params.get('dropout')))
+        model.add(Dense(64, activation=tf.nn.relu))
+        model.add(Dense(5, activation=tf.nn.softmax))
+        model.compile(loss='categorical_crossentropy', metrics='accuracy', optimizer='adam')
+        return model
         
 
-    def train_test_model(self, epochs, batch_size=32, validation_split=0.2, 
+    def train_test_model(self, validation_split=0.2, 
                          early_stopping_monitor=None, **kwargs):
         """ 
         Creates a given model, fits the data and returns trained model and 
@@ -100,6 +106,9 @@ class RatingPredictor(tf.keras.Model):
         Returns: Trained model, history, and accuracy on train and test sets
         """
         
+        epochs = self.params.get('epochs')
+        batch_size = self.params.get('batch_size')
+
         history = self.model.fit(self.X_train, self.y_train, epochs=epochs, 
                     batch_size=batch_size, validation_split=validation_split, 
                     callbacks=early_stopping_monitor)

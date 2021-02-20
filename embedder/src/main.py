@@ -32,17 +32,15 @@ def embed(cleaned_data_dir, embedded_data_dir):
     logger.critical(f'Ending embedder at {end}')
     logger.critical(f'Embedder took {end - start}')
 
-def classify(reviews_fp, trained_models_dir):
+def classify(reviews_fp, embed_type, best_params_fp, trained_models_dir):
     
     rating_predictor = RatingPredictor(reviews_fp)
-    # embedders = ['lsi', 'word2vec', 'fasttext']
-    embedders = ['spark_lsi']
-    for embedder in embedders:
-        rating_predictor.set_Xy_train(input=embedder)
-        rating_predictor.generate_model()
-        print(str(rating_predictor))
-        rating_predictor.train_test_model(epochs=30, batch_size=32, validation_split=0.2, early_stopping_monitor=None)
-        rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')
+ 
+    rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
+    rating_predictor.generate_model()
+    print(str(rating_predictor))
+    rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
+    rating_predictor.save_model(trained_models_dir, filename=embedder + '.h5')
 
 
 if __name__ == '__main__':
@@ -65,4 +63,6 @@ if __name__ == '__main__':
         embed(args.cleaned_data_dir, args,embedded_data_dir)
     if args.model:
         merged_reviews_fp = './scraper/scraped_data/merged_data/balanced_reviews.csv'
-        classify(merged_reviews_fp, args.trained_models_dir)
+        best_params_fp = './embedder/trained_models/' + str(embed_type) + '_params.json'
+        embed_type = 'spark_lsi'
+        classify(merged_reviews_fp, embed_type, best_params_fp, args.trained_models_dir)
