@@ -12,12 +12,14 @@ The cleaner has the following subfolders:
 
 ## Run from Command Line
 
+From the root of ```cleaner``` folder:
 ```
-python3 src/main.py --files [filenames as str] --debug --early_stop max_reviews as int
+python3 src/main.py --files [filenames as str] --saving_dir --debug --early_stop max_reviews as int
 ```
 
 Usage:
-* --files [str]: provides the paths to all the files to process.
+* --files [str]: provides relative path to files to process (with respect to current position or root of global git repository)
+* --saving_dir [str]: provide sub directory in cleaner folder to save cleaned data
 * --debug: displays intermediary logs.
 * --early_stop int: stops the cleaning process after the review_id reaches the given max_reviews.
 

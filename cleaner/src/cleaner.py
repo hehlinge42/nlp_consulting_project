@@ -69,7 +69,7 @@ class Cleaner():
 
         if isinstance(filepath, str):
             self.filename = filepath.split('/')[-1]
-            print(filepath)
+            print("filepath in cleaner set file:", filepath)
             if filetype == 'csv':
                 self.df = pd.read_csv(filepath, sep='#', index_col=[index_col])
             elif filetype == 'json':

@@ -8,8 +8,18 @@ from collections import Counter
 import logging
 import logzero
 from logzero import logger
+import os
 
 logzero.loglevel(logging.WARNING)
+
+def convert_filepaths(file_paths):
+    abs_fp = []
+    for fp in file_paths:
+        path_list = fp.split(os.sep)
+        path_list = path_list[1:] #remove relative dots
+        path = os.path.join('.', *path_list)
+        abs_fp.append(path)
+    return abs_fp
 
 def character_transformer(document):
     with_accent = ['é', 'è', 'à', "ê", "\u2019"]
