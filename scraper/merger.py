@@ -65,11 +65,14 @@ def offset_ids():
         file_resto.close()
         file_review.close()
 
-def merge_files(directory, output_file):
+def merge_files(list_directory, output_file):
     
-    existing_files = glob.glob(directory + "/*.json")
-    logger.info(f"Merging existing_files {existing_files}")
-    logger.info(f"Output file is {output_file}")
+    existing_files = []
+    for directory in list_directory:
+        jsons = glob.glob(directory + "/*.json")
+        existing_files.extend(jsons)
+        logger.info(f"Merging {len(existing_files)} files")
+
 
     with open(output_file, "w+") as merged_file:
         for existing_file in existing_files:
@@ -86,17 +89,21 @@ def merge_files(directory, output_file):
 # # offset_ids()
 
 scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
+scraped_rooftops_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_rooftops', 'scraped_data')
+
 merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
 
 if not os.path.exists(merged_data_dir):
     logger.warn(f"Creating directory {merged_data_dir}")
     os.makedirs(merged_data_dir)
 
+
+
 logger.info("Merging restaurant files")
-merge_files(os.path.join(scraped_data_dir, 'restaurants'), os.path.join(merged_data_dir, "merged_restaurants.json"))
+merge_files([os.path.join(scraped_data_dir, 'restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_restaurants.json"))
 
 logger.info("Merging reviews files")
-merge_files(os.path.join(scraped_data_dir, 'reviews'), os.path.join(merged_data_dir, "merged_reviews.json"))
+merge_files([os.path.join(scraped_data_dir, 'reviews'), os.path.join(scraped_rooftops_dir, 'reviews')], os.path.join(merged_data_dir, "merged_reviews.json"))
 
 logger.info("Merging users files")
-merge_files(os.path.join(scraped_data_dir, 'users'), os.path.join(merged_data_dir, "merged_users.json"))
+merge_files([os.path.join(scraped_data_dir, 'users'), os.path.join(scraped_rooftops_dir, 'users')], os.path.join(merged_data_dir, "merged_users.json"))
