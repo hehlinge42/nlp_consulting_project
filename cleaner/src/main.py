@@ -25,7 +25,7 @@ if __name__ == '__main__':
     if args.early_stop == -1:
         args.early_stop = None
 
-    cleaner = Cleaner(debug=args.debug, early_stop=args.early_stop)
+    cleaner = Cleaner(debug=int(args.debug), early_stop=args.early_stop)
 
     for file in filenames:
         cleaner.set_file(file, filetype=file.split('.')[-1])

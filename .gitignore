@@ -146,3 +146,4 @@ embedder/embedded_data/spark_lsi/spark_lsi.csv
 embedder/embedded_data/lsi.csv
 embedder/embedded_data/word2vec.csv
 embedder/embedded_data/fastText.csv
+cleaner/cleaned_data/restaurant_tfidf_sparse.txt
