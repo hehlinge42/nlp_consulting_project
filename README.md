@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ### Session 1: TripAdvisor scraper
 
-* Tool to scrap TripAdvisor's UK website (https://www.tripadvisor.co.uk/) for restaurants and their associated reviews made by different users.
+* Tools to scrap TripAdvisor's UK website (https://www.tripadvisor.co.uk/) for restaurants and their associated reviews made by different users.
 * ``` cd scraper ```
 * See dedicated README in the folder.
 

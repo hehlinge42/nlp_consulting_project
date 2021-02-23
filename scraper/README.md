@@ -1,6 +1,6 @@
 # TripAdvisor scraper
 
-First step of the project is to scrap TripAdvisor to gather data regarding Londonese restaurants.
+The first step of the project is to scrap TripAdvisor to gather data regarding Londonese restaurants.
 
 ## Run from Command Line
 
@@ -37,6 +37,15 @@ Running the above command will overwrite the files ``` scraped_data/reviews.json
 Data scraped on 29/01/2021 can be found in the folder ``` scraped_data/* ``` and in the ```scraped_data.zip``` file.
 It contains the data for the first 124 restaurants (maxpage_resto=2), their associated reviews capped at 500 per restaurant (maxpage_reviews=50) and data regarding the authors of these reviews.
 
-## Business Analysis
+## Other scrapers
 
-An 'As-is To-be' analysis is available in the file ``` As-is and To-be analysis.pdf ```
+We developed 2 other scapers available in the folders ``` scraper_restaurants ``` and ``` scraper_roftops ```.
+
+* The ``` scraper_restaurants ``` enables to scrap restaurant information without collecting their associated reviews. We used it to create a quasi-exhaustive database of Londonese restaurants in a reasonable amount of time (more than 13,000 restaurants). This database is available in the file ``` scraper_restaurants/scraped_data/restaurants/restaurants_run_1.json ```.
+
+Usage: inside the ``` scraper_restaurants ``` folder: ```scrapy crawl RestaurantSpider -a debug=1 -a max_resto=15000```
+
+* The ``` scraper_rooftops ``` enables to scrap individual restaurants and their reviews from their TripAdvisor URL. We used it to add a dozen of Londonese rooftops that were missing in our restaurants database.
+
+Usage: inside the ``` scraper_restaurants ``` folder, fill the ```rooftops.txt``` file with the URL to scrap and execute
+```sh scrap_rooftops.sh```. Lines starting with ```#``` are ignored.

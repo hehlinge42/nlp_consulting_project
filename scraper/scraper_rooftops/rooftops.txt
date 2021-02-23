@@ -1,76 +1,25 @@
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d12722463-Reviews-Bar_Elba-London_England.html
-
-{"restaurant_id": 10216, "name": "Roof Top Kitchen", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d7226277-Reviews-Roof_Top_Kitchen-London_England.html", "nb_reviews": "46", "min_price": 2, "max_price": 3, "cuisine": ["Cafe", "British", "Vegetarian Friendly"], "address": "13-25 Church Street Alfies Antique Market, London NW8 8DT England", "phone_number": "+44 20 7258 3300", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "Ranking not found", "rating": "4.5"}
-
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d8444998-Reviews-Roof_East-London_England.html
-
-{"restaurant_id": 13639, "name": "The Prince of Wales", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1867074-Reviews-The_Prince_of_Wales-London_England.html", "nb_reviews": "169", "min_price": 2, "max_price": 3, "cuisine": ["Bar", "British", "Pub"], "address": "92 Wilton Road at Longmoore St. Pimlico, London SW1V 1DW England", "phone_number": "+44 20 7233 8898", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "Ranking not found", "rating": "4.0"}
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d8765453-Reviews-London_Sky_Bar-London_England.html
-unclaimed
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d14411942-Reviews-Bussey_Rooftop_Bar-London_England.html
-unclaimed
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d15043073-Reviews-Savage_Garden-London_England.html
-
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d17724860-Reviews-Netil360-London_England.html
-
-{"restaurant_id": 12755, "name": "Skylark Roof Garden", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d17752743-Reviews-Skylark_Roof_Garden-London_England.html", "nb_reviews": "10", "min_price": 2, "max_price": 3, "cuisine": ["British"], "address": "10th Floor 4 Kingdom Street Paddington, London W2 6BD England", "phone_number": "+44 20 7846 1985", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "Ranking not found", "rating": "4.0"}
-
-{"restaurant_id": 14787, "name": "Madison", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d2218703-Reviews-Madison-London_England.html", "nb_reviews": "2,235", "min_price": 2, "max_price": 3, "cuisine": ["Steakhouse", "Bar", "European"], "address": "One New Change Rooftop Terrace, St Paul\u2019s, London EC4M 9AF England", "phone_number": "+44 20 3693 5160", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "Ranking not found", "rating": "4.0"}
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d10500858-Reviews-Forza_Win-London_England.html
-
-{"restaurant_id": 14657, "name": "Coq d'Argent", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d784899-Reviews-Coq_d_Argent-London_England.html", "nb_reviews": "1,688", "min_price": 4, "max_price": 4, "cuisine": ["French", "European", "Vegetarian Friendly"], "address": "No 1 Poultry, London EC2R 8EJ England", "phone_number": "+44 20 7395 5000", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#1,390 of 16,979 Restaurants in London", "rating": "4.0"}
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d12900577-Reviews-Pergola_on_the_Roof-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d11908107-Reviews-Aviary-London_England.html
-
-{"restaurant_id": 10068, "name": "Alto by San Carlo", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d14085826-Reviews-Alto_by_San_Carlo-London_England.html", "nb_reviews": "510", "min_price": 2, "max_price": 3, "cuisine": ["Italian", "Mediterranean", "European"], "address": "400 Oxford Street The Rooftop, London W1A 1AB England", "phone_number": "+44 20 7318 3287", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#2,595 of 16,979 Restaurants in London", "rating": "4.0"}
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d8366506-Reviews-Radio_Rooftop-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d16385768-Reviews-FEST_Camden-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d11638827-Reviews-Boundary_Rooftop-London_England.html
-
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d13973057-Reviews-Jin_Bo_Law-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d18850403-Reviews-Seabird-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d1391383-Reviews-Queen_of_Hoxton-London_England.html
-
-{"restaurant_id": 13460, "name": "12th Knot", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d7340987-Reviews-12th_Knot-London_England.html", "nb_reviews": "711", "min_price": 4, "max_price": 4, "cuisine": ["American", "Bar", "European"], "address": "20 Upper Ground Mondrian London, London SE1 9PD England", "phone_number": "+44 20 3747 1063", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#1,686 of 16,979 Restaurants in London", "rating": "4.0"}
-
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d4496877-Reviews-Frank_s_Cafe-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d6893599-Reviews-The_Culpeper-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d4295544-Reviews-SUSHISAMBA_Heron_Tower-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d2179907-Reviews-The_Rooftop-London_England.html
-
-https://www.tripadvisor.fr/Attraction_Review-g186338-d8566860-Reviews-Queen_Elizabeth_Roof_Garden_Bar_Cafe-London_England.html
-
-{"restaurant_id": 13836, "name": "John Lewis Roof Garden (The Gardening Society)", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d13272882-Reviews-John_Lewis_Roof_Garden_The_Gardening_Society-London_England.html", "nb_reviews": "93", "min_price": 2, "max_price": 3, "cuisine": ["Street Food"], "address": "300 Oxford Street, London W1C 1DX England", "phone_number": "+44 20 7629 7711", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "Ranking not found", "rating": "4.0"}
-
-{"restaurant_id": 12125, "name": "Angler", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d3534237-Reviews-Angler-London_England.html", "nb_reviews": "1,120", "min_price": 4, "max_price": 4, "cuisine": ["Seafood", "European", "British"], "address": "3 South Place South Place Hotel, London EC2M 2AF England", "phone_number": "+44 20 3215 1260", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#232 of 16,979 Restaurants in London", "rating": "4.5"}
-
-
-{"restaurant_id": 9796, "name": "Aqua Nueva", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d2188446-Reviews-Aqua_Nueva-London_England.html", "nb_reviews": "604", "min_price": 4, "max_price": 4, "cuisine": ["Mediterranean", "European", "Spanish"], "address": "240 Regent Street Fifth Floor, London W1B 2EL England", "phone_number": "+44 20 7478 0540", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#1,719 of 16,979 Restaurants in London", "rating": "4.0"}
-
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d15348913-Reviews-Art_Yard_Bar_Kitchen-London_England.html
-
-https://www.tripadvisor.co.uk/Attraction_Review-g186338-d2695339-Reviews-Icon_Balcony_Bar-London_England.html
-
-{"restaurant_id": 11264, "name": "Oxo Tower Restaurant, Bar and Brasserie", "resto_TA_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d680501-Reviews-Oxo_Tower_Restaurant_Bar_and_Brasserie-London_England.html", "nb_reviews": "9,437", "min_price": 4, "max_price": 4, "cuisine": ["British", "Vegetarian Friendly", "Vegan Options"], "address": "Barge House Street OXO Tower Wharf, London SE1 9PH England", "phone_number": "+44 20 7803 3888", "website": "Website not scraped", "menu": "Menu not scraped", "ranking": "#799 of 16,979 Restaurants in London", "rating": "4.5"}
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d5220272-Reviews-Golden_Bee-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d18719167-Reviews-Allegra-London_England.html
-
 https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d19425651-Reviews-The_Nest_in_Treehouse-London_England.html
-
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d12722463-Reviews-Bar_Elba-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d8444998-Reviews-Roof_East-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d17724860-Reviews-Netil360-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d13973057-Reviews-Jin_Bo_Law-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d8566860-Reviews-Queen_Elizabeth_Roof_Garden_Bar_Cafe-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d2695339-Reviews-Icon_Balcony_Bar-London_England.html
+# https://www.tripadvisor.co.uk/Attraction_Review-g186338-d4496877-Reviews-Frank_s_Cafe-London_England.html

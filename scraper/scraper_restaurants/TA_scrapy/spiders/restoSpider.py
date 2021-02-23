@@ -1,4 +1,3 @@
-
 from logzero import logger
 import logzero
 import logging
@@ -99,15 +98,6 @@ class RestaurantSpider(scrapy.Spider):
             yield response.follow(next_page, callback=self.parse)
 
 
-    # def parse_review_page(self, response, restaurant_id):
-    #     """ SECOND PARSING : Given a review page, gets each review url and get to parse it
-    #         - Usually there are 10 reviews per page
-    #     """
-
-    #     # Parse the restaurant if it has not been parsed yet
-    #     if restaurant_id not in self.restaurants_ids:
-    #         yield self.parse_resto(response, restaurant_id)
-    #         self.restaurants_ids.append(restaurant_id)
 
     def parse_resto(self, response, restaurant_id):
         """ Create Restaurant Item saved in specific JSON file """
