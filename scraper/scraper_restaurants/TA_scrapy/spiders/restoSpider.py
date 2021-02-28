@@ -22,10 +22,10 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 class RestaurantSpider(scrapy.Spider):
     name = "RestaurantSpider"
 
-    def __init__(self, directory='./scraped_data/', 
+    def __init__(self, directory='../../../scraped_data/', 
                 root_url='https://www.tripadvisor.co.uk/Restaurants-g191259-Greater_London_England.html', 
                 debug=0, max_resto=100, scrap_website_menu=0, *args, **kwargs):
-        
+
         super(RestaurantSpider, self).__init__(*args, **kwargs)
 
         # Set logging level
@@ -34,7 +34,7 @@ class RestaurantSpider(scrapy.Spider):
             logging.disable(logging.DEBUG)
 
         # Setting the list of already scraped restaurants
-        existing_jsons = glob.glob("./scraped_data/restaurants/*.json")
+        existing_jsons = glob.glob("../../../scraped_data/bulk_restaurants/*.json")
         logger.warn(f' > FINDING EXISTING JSONS {existing_jsons}')
         self.already_scraped_restaurants = []
         self.next_file_id = len(existing_jsons) + 1

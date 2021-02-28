@@ -6,10 +6,11 @@ import pandas as pd
 import os
 
 logger.info(f"In merger.py, pwd returns {os.getcwd()}")
-
 path_list = os.getcwd().split(os.sep)
 target_index = path_list.index('nlp_consulting_project')
 path_list = path_list[:target_index + 1]
+if os.name=='nt':
+    path_list[0] += '/'
 os.chdir(os.path.join(os.sep, *path_list))
 
 logger.info(f"In merger.py, changing working directory to {os.getcwd()}")
@@ -17,10 +18,12 @@ logger.info(f"In merger.py, changing working directory to {os.getcwd()}")
 def offset_ids():
 
     existing_restaurants = glob.glob("./scraped_data/restaurants/*.json")
+    #existing_bulk_restaurants = glob.glob("./scraped_data/bulk_restaurants/*.json") 
     existing_reviews = glob.glob("./scraped_data/reviews/*.json")
 
     logger.info(f"FINDING RESTAURANTS FILES: {existing_restaurants}")
     output_file_resto = "./scraped_data/restaurants/modified_restaurants_"
+    #output_file_bulk_resto = "./scraped_data/restaurants/modified_bulk_restaurants_"
     output_file_review = "./scraped_data/reviews/modified_reviews_"
 
     resto_offset = 0
@@ -89,15 +92,13 @@ def merge_files(list_directory, output_file):
 # # offset_ids()
 
 scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
+#bulk_scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_restaurants', 'scraped_data')
 scraped_rooftops_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_rooftops', 'scraped_data')
-
 merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
 
 if not os.path.exists(merged_data_dir):
     logger.warn(f"Creating directory {merged_data_dir}")
     os.makedirs(merged_data_dir)
-
-
 
 logger.info("Merging restaurant files")
 merge_files([os.path.join(scraped_data_dir, 'restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_restaurants.json"))
@@ -107,3 +108,6 @@ merge_files([os.path.join(scraped_data_dir, 'reviews'), os.path.join(scraped_roo
 
 logger.info("Merging users files")
 merge_files([os.path.join(scraped_data_dir, 'users'), os.path.join(scraped_rooftops_dir, 'users')], os.path.join(merged_data_dir, "merged_users.json"))
+
+logger.info("Merging bulk restaurant scrapper files")
+merge_files([os.path.join(scraped_data_dir, 'bulk_restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_bulk_restaurants.json"))

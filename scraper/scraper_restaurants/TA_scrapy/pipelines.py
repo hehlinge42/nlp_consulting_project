@@ -21,7 +21,7 @@ from itemadapter import ItemAdapter
 class TaScrapyPipeline(object):
 
     def __init__(self):
-        self.restaurants_folder = 'restaurants/'
+        self.restaurants_folder = 'bulk_restaurants/'
         logger.info(' > Init TaScrapyPipeline')
 
     def open_spider(self, spider):

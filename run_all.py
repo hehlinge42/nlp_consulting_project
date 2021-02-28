@@ -18,6 +18,8 @@ if __name__ == "__main__":
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
     path_list = path_list[:target_index + 1]
+    if os.name=='nt':
+        path_list[0] += '/'
     os.chdir(os.path.join(os.sep, *path_list))
 
     parser = argparse.ArgumentParser(description="Cleaner and tokenizer of raw text stored as json file")
@@ -50,6 +52,7 @@ if __name__ == "__main__":
     merge_files(os.path.join(scraped_data_dir, 'restaurants'), os.path.join(scraped_data_dir, 'merged_data', 'merged_restaurants.json'))
     merge_files(os.path.join(scraped_data_dir, 'reviews'), os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'))
     merge_files(os.path.join(scraped_data_dir, 'users'), os.path.join(scraped_data_dir, 'merged_data', 'merged_users.json'))
+    merge_files(os.path.join(scraped_data_dir, 'bulk_restaurants'), os.path.join(scraped_data_dir, 'merged_data', 'merged_bulk_restaurants.json'))
 
     # Generate balanced dataset
     reviews = pd.read_json(os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'), lines=True)
