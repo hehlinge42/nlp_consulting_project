@@ -2,51 +2,21 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 import nltk
+import tqdm
+import sklearn
+import json
+import itertools
+import os
 
-def stratify_data(original_df, y_column):
-    min_label = original_df[y_column].value_counts().min()
-    df = pd.DataFrame(columns=original_df.columns)
-    for label in original_df[y_column].unique():
-      subdf = original_df[original_df[y_column] == label][:min_label]
-      df = df.append(subdf)
-    return df
+import logzero
+import logging
+from logzero import logger
 
-def review_preprocessing(review, words_maxlen=50, sentences_maxlen=10):
-    """Preprocessing function to build appropriate padded sequences for HAN.
+from helpers import get_reviews, stratify_data, clean_reviews, split_reviews_per_sentence
+from preprocessing import review_preprocessing
+from skipgram import Skipgram
 
-    Parameters
-    ----------
-    review: list.
-        List of sentences (strings) of the review.
-    
-    words_maxlen: int.
-        Maximal length/number of words for a sentence.
-
-    sentences_maxlen: int.
-        Maximal length/number of sentences for a review.
-
-    Returns
-    -------
-    padded_sequences: tf.Tensor.
-        Tensor of shape (sentences_maxlen, words_maxlen)
-    """
-    
-    tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
-    sequences = tokenizer.texts_to_sequences(review)
-    padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequences, maxlen=words_maxlen, padding="post")
-
-    if padded_sequences.shape[0] < sentences_maxlen:
-        padded_sequences = tf.pad(
-            padded_sequences, 
-            paddings=tf.constant([[0, sentences_maxlen-padded_sequences.shape[0]], [0, 0]])
-        )
-    elif padded_sequences.shape[0] > sentences_maxlen:
-        padded_sequences = padded_sequences[:sentences_maxlen]
-
-    assert padded_sequences.shape == (sentences_maxlen, words_maxlen)
-    return padded_sequences
-
-
+BATCH_SIZE, BUFFER_SIZE = 1024, 10000
 
 def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     # Elements of each training example are appended to these lists.
@@ -95,21 +65,78 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     return targets, contexts, labels
 
 
-def get_reviews(filepath, nrows=None):
-    return pd.read_csv(filepath,
-                     compression='gzip', 
-                     low_memory=False, 
-                     nrows=nrows,
-                     parse_dates=['diner_date', 'rating_date'])
+def create_balanced_dataset(filepath, subset=1):
+    
+    file_type = filepath.split('.')[-1]
+    logger.warn(f"Filetype is {file_type}")
+    if file_type == 'gz':
+        reviews = get_reviews(filepath)
+        reviews = clean_reviews(reviews)
+        reviews = split_reviews_per_sentence(reviews)
+    elif file_type == 'json':
+        with open(filepath) as json_file:
+            document = json.load(json_file)
+        reviews = pd.DataFrame(document)
+        logger.warn(f"review has type {type(reviews)} \n {reviews.head()}")
+
+    logger.warn(f"Review original shape = {reviews.shape}")
+
+    if subset != 1:
+        subset_length = int(subset * len(reviews))
+        reviews = reviews.head(subset_length)
+    logger.warn(f"Taking subset {subset} yielding shape = {reviews.shape}")
+    
+    reviews['usable_rating'] = reviews['rating'].apply(lambda r: int(r)-1)
+    stratified_df = stratify_data(reviews, 'usable_rating')
+    padded_preprocessed_reviews = [review_preprocessing(review) for review in tqdm.notebook.tqdm(stratified_df["review_sentences"])]
+    padded_preprocessed_reviews = tf.stack(padded_preprocessed_reviews)
+    rating_labels = tf.keras.utils.to_categorical(stratified_df['usable_rating'], num_classes=5, dtype='float32')
+
+    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
+                                padded_preprocessed_reviews.numpy(), rating_labels, 
+                                test_size=0.3)
+
+    train_ds = tf.data.Dataset.from_tensor_slices((X_train, y_train))
+    test_ds = tf.data.Dataset.from_tensor_slices((X_test, y_test))
+
+    train_ds = train_ds.shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
+    test_ds = test_ds.batch(BATCH_SIZE)
+
+    logger.warn(f"Shape of \n X_train {X_train.shape} \n Shape of X_test {X_test.shape} \n Shape of y_train {y_train.shape} \n Shape of y_test {y_test.shape} \n")
+    
+    return stratified_df, train_ds, test_ds
 
 
-def clean_reviews(reviews):
-    reviews['review'] = reviews.content.apply(lambda x: ' '.join(eval(x)))
-    return reviews
+def pretrain_weights(balanced_df, embedding_dim, file_type):
+    sentences = list(itertools.chain(*balanced_df["review_sentences"]))
+    tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
+    tokenizer.fit_on_texts(sentences)
+    sequences = tokenizer.texts_to_sequences(sentences)
+    vocab_size = max(tokenizer.index_word.keys()) + 1
 
-
-def split_reviews_per_sentence(reviews):
-    reviews["review_sentences"] = reviews.review.progress_apply(
-        lambda rvw: nltk.sent_tokenize(rvw)
+    targets, contexts, labels = generate_training_data(
+        sequences=sequences,
+        window_size=2, 
+        num_ns=4, 
+        vocab_size=vocab_size
     )
-    return reviews
+
+    dataset = tf.data.Dataset.from_tensor_slices(((targets, contexts), labels))
+    dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE, drop_remainder=True)
+
+    word2vec = Skipgram(vocab_size=max(tokenizer.index_word.keys())+1, embedding_dim=embedding_dim)
+    word2vec.compile(
+        optimizer="adam",
+        loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
+        metrics=["accuracy"])
+
+    word2vec.fit(dataset, epochs=1)
+    word2vec.summary()
+
+    pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
+    
+    filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_' + str(file_type) + '_' + str(vocab_size) + '.npy')
+    with open(filepath, 'wb') as f:
+        np.save(f, pretrained_weights)
+    
+    return filepath

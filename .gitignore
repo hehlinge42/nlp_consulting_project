@@ -141,4 +141,5 @@ cleaner/cleaned_data/restaurants_wordclouds/
 cleaner/cleaned_data/restaurants_tfidf/
 
 # Large files
+attention_embedder/pretrained_models/han_reg_1/saved_model.pb
 attention_embedder/data/clean_text_scrapped_data_2021.csv.gz

@@ -1,3 +1,5 @@
+import tensorflow as tf
+
 class Attention(tf.keras.layers.Layer):
     """Attention mechanism used in "Hierarchical Attention Networks for Document Classification" paper.
         

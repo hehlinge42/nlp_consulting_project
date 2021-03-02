@@ -1,4 +1,5 @@
 import tensorflow as tf
+from attention import Attention
 
 class HierarchicalAttentionNetwork(tf.keras.Model):
     """Hierarchical Attention Network implementation.
@@ -30,8 +31,8 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
             vocab_size, 
             embedding_dim, 
             embeddings_initializer=initializer,
-            trainable=True,
-            mask_zero=mask_zero
+            trainable=True
+            # mask_zero=mask_zero
         )
         self.WordGRU = tf.keras.layers.Bidirectional(
             tf.keras.layers.GRU(
@@ -55,8 +56,8 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
         )
         self.SentenceAttention = Attention(units=attention_units)
 
-        self.fc = tf.keras.layers.Dense(units=classifier_units, 
-                                        activity_regularizer=callable(penalty))
+        self.fc = tf.keras.layers.Dense(units=classifier_units) 
+                                        # activity_regularizer=callable(penalty))
 
     def call(self, x):
         """Model forward method.
@@ -74,7 +75,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
         mask = self.embedding.compute_mask(x)
         if self.dropout_embedding > 0.0:
           x = tf.keras.layers.Dropout(self.dropout_embedding)(x)
-        x = tf.keras.layers.TimeDistributed(self.WordGRU(x, mask=mask))
+        x = tf.keras.layers.TimeDistributed(self.WordGRU)(x)
         context_vector, attention_weights = self.WordAttention(x)
 
         return context_vector, attention_weights
