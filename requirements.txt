@@ -14,4 +14,7 @@ gensim
 fasttext
 xgboost
 lightgbm
+seaborn
+plotly
+tqdm
 tensorflow

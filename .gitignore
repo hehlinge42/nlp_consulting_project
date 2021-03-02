@@ -141,9 +141,4 @@ cleaner/cleaned_data/restaurants_wordclouds/
 cleaner/cleaned_data/restaurants_tfidf/
 
 # Large files
-embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
-embedder/embedded_data/spark_lsi/spark_lsi.csv
-embedder/embedded_data/lsi.csv
-embedder/embedded_data/word2vec.csv
-embedder/embedded_data/fastText.csv
-cleaner/cleaned_data/restaurant_tfidf_sparse.txt
+attention_embedder/data/clean_text_scrapped_data_2021.csv.gz
