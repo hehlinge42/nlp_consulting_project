@@ -87,15 +87,17 @@ def get_tf_dataset(filepath, subset=1):
         logger.info(f"Reading balanced dataset csv.")
         balanced_df = pd.read_csv(save_fp, sep='#')
 
+    logger.info("Computed balanced dataset")
     padded_preprocessed_reviews = [review_preprocessing(review) for review in balanced_df["review_sentences"]]
     padded_preprocessed_reviews = tf.stack(padded_preprocessed_reviews)
     rating_labels = tf.keras.utils.to_categorical(balanced_df['usable_rating'], num_classes=5, dtype='float32')
 
+    logger.info("Before split train and test")
     X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
                                 padded_preprocessed_reviews.numpy(), rating_labels, 
                                 test_size=0.3)
 
-
+    logger.info("Split train and test")
     train_ds = tf.data.Dataset.from_tensor_slices((X_train, y_train))
     test_ds = tf.data.Dataset.from_tensor_slices((X_test, y_test))
 
@@ -113,12 +115,14 @@ def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
     logger.critical(review_sentences[0:10])
     review_sentences = [eval(x) for x in review_sentences]
     sentences = list(itertools.chain(review_sentences))
+    logger.info("Preprocessed sentences")
 
     tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
     tokenizer.fit_on_texts(sentences)
     sequences = tokenizer.texts_to_sequences(sentences)
     vocab_size = max(tokenizer.index_word.keys()) + 1
 
+    logger.info("generate_training_data")
     targets, contexts, labels = generate_training_data(
         sequences=sequences,
         window_size=2, 
@@ -126,9 +130,11 @@ def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
         vocab_size=vocab_size
     )
 
+    logger.info("Creates dataset")
     dataset = tf.data.Dataset.from_tensor_slices(((targets, contexts), labels))
     dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE, drop_remainder=True)
 
+    logger.info("Init Skpigram")
     word2vec = Skipgram(vocab_size=max(tokenizer.index_word.keys())+1, embedding_dim=embedding_dim)
     word2vec.compile(
         optimizer="adam",
