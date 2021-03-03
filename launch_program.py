@@ -1,4 +1,8 @@
 
+import logging
+import logzero
+from logzero import logger
+
 import PySimpleGUI as sg
 from json import (load as jsonload, dump as jsondump)
 from os import path

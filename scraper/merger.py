@@ -69,6 +69,7 @@ def merge_files(list_directory, output_file):
         existing_files.extend(jsons)
         logger.info(f"Merging {len(existing_files)} files")
         
+    existing_files = sorted(existing_files)
     with open(output_file, "w+") as merged_file:
         for existing_file in existing_files:
             with open(existing_file, "r+") as child_file:

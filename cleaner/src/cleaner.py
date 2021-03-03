@@ -15,7 +15,6 @@ try:
 except:
     from helpers import unicode_remover, character_remover, character_transformer, contraction_transformer, lemmatize
 
-
 from datetime import datetime
 
 from nltk.tokenize import word_tokenize

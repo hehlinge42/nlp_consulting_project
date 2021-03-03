@@ -1,14 +1,14 @@
 
-import nltk
-import json
-
-from wordcloud import WordCloud
-from collections import Counter
-
 import logging
 import logzero
 from logzero import logger
+
+import nltk
+import json
 import os
+
+from wordcloud import WordCloud
+from collections import Counter
 
 logzero.loglevel(logging.WARNING)
 

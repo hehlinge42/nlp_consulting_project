@@ -1,14 +1,15 @@
 
+from logzero import logger
+import logzero
+import logging
+
 import pandas as pd
-import tensorflow as tf
+import tensorflow as tf # 8 seconds to import
 from tensorflow.keras import Input
 from tensorflow.keras.layers import Dense, Dropout
 
 from sklearn.model_selection import StratifiedShuffleSplit
 
-from logzero import logger
-import logzero
-import logging
 import os
 import numpy as np
 import json

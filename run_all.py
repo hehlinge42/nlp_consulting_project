@@ -8,13 +8,12 @@ from scraper.merger import merge_files
 from cleaner.src.cleaner import Cleaner
 from embedder.src.embedder import Embedder
 from cleaner.src.helpers import save_wordcloud, save_tfidf
-from embedder.src.model import RatingPredictor
+# from embedder.src.model import RatingPredictor # 10 seconds to import
 
 import json
 import os
 import argparse
 import pandas as pd
-
 import PySimpleGUI as sg
 
 def run_all(settings):
@@ -115,9 +114,9 @@ def run_all(settings):
     embed_type = 'spark_lsi'
     best_params_fp = os.path.join('embedder', 'trained_models', str(embed_type) + '_params.json')
 
-    rating_predictor = RatingPredictor(reviews_fp) 
-    rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
-    rating_predictor.generate_model()
-    rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
-    trained_models_dir = os.path.join('embedder', 'trained_models')
-    rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
+    # rating_predictor = RatingPredictor(reviews_fp) 
+    # rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
+    # rating_predictor.generate_model()
+    # rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
+    # trained_models_dir = os.path.join('embedder', 'trained_models')
+    # rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
