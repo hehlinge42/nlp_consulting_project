@@ -81,7 +81,7 @@ class UniversalHPOptimizer():
         all_params['optimizer'] = self.HP_OPTIMIZER.domain.values
         all_params['batch_normalization'] = self.HP_BATCH_NORMALIZATION.domain.values
         all_params['early_stopping'] = self.HP_EARLY_STOPPING.domain.values
-        all_params['nb_columns'] = self.HP_NB_COLUMNS.domain.values
+        # all_params['nb_columns'] = self.HP_NB_COLUMNS.domain.values
 
 
         keys, values = zip(*all_params.items())
