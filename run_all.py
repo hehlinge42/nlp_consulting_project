@@ -1,20 +1,25 @@
 
+import logging
+import logzero
+from logzero import logger
+
 from scraper.merger import merge_files
+
 from cleaner.src.cleaner import Cleaner
 from embedder.src.embedder import Embedder
 from cleaner.src.helpers import save_wordcloud, save_tfidf
 from embedder.src.model import RatingPredictor
 
+import json
 import os
 import argparse
-
-import logging
-import logzero
-from logzero import logger
 import pandas as pd
 
-if __name__ == "__main__":
+import PySimpleGUI as sg
 
+def run_all(settings):
+
+    logger.critical(settings)
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
     path_list = path_list[:target_index + 1]
@@ -22,21 +27,17 @@ if __name__ == "__main__":
         path_list[0] += '/'
     os.chdir(os.path.join(os.sep, *path_list))
 
-    parser = argparse.ArgumentParser(description="Cleaner and tokenizer of raw text stored as json file")
-    parser.add_argument('-w', '--wordcloud_per_restaurant', default=False, type=bool, help="save wordclouds per restaurant")
-    parser.add_argument('-t', '--tfidf_per_restaurant', default=False, type=bool, help='save tfidf matrix per restaurant')
-    parser.add_argument('-e', '--embedding_technique', default="all", type=str, help='chooses embedding technique')
-    args = parser.parse_args()
-
     # Check input args
     embedding_techniques = []
-    if args.embedding_technique not in ['word2vec', 'lsi', 'fasttext', 'all']:
-        logger.error(f"Embedding techniques supported (word2vec, lsi, fasttext), found {args.embedding_technique}")
+    user_embedding = settings['embedding_technique']
+    if user_embedding not in ['word2vec', 'lsi', 'fasttext', 'all']:
+    # if args.embedding_technique not in ['word2vec', 'lsi', 'fasttext', 'all']:
+        logger.error(f"Embedding techniques supported (word2vec, lsi, fasttext), found {user_embedding}")
     else:
-        if args.embedding_technique == 'all':
+        if user_embedding == 'all':
             embedding_techniques = ['word2vec', 'lsi', 'fasttext']
         else:
-            embedding_techniques = [args.embedding_technique]
+            embedding_techniques = [user_embedding]
 
     
     # Merge scraping data from different runs
@@ -55,7 +56,12 @@ if __name__ == "__main__":
     merge_files(os.path.join(scraped_data_dir, 'bulk_restaurants'), os.path.join(scraped_data_dir, 'merged_data', 'merged_bulk_restaurants.json'))
 
     # Generate balanced dataset
-    reviews = pd.read_json(os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'), lines=True)
+    path = os.path.join(os.getcwd(), os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'))
+    logger.critical(f"path = {path}")
+
+    reviews = pd.read_json(path, lines=True)
+    logger.critical(reviews.head())
+
     by_rating = reviews.groupby(by=['rating']).count()
     min_count = min(by_rating['review_id'])
     balanced_reviews = (reviews.groupby("rating")).sample(n=min_count, random_state=0)
@@ -68,9 +74,11 @@ if __name__ == "__main__":
     cleaner.preprocessing(ngram=2)
     cleaner.save_tokenized_corpus(cleaned_data_dir, 'tokenized_corpus.json')
 
-    if args.wordcloud_per_restaurant:
+    if int(settings['wordclouds']) == 1:
+    # if args.wordcloud_per_restaurant:
         cleaner.save_files(os.path.join(cleaned_data_dir, 'restaurants_wordclouds'), save_wordcloud, mask_path=os.path.join('cleaner', 'assets', 'capgemini.jpg'))
-    if args.tfidf_per_restaurant:
+    if int(settings['tfidf']) == 1:
+    # if args.tfidf_per_restaurant:
         cleaner.save_files(os.path.join(cleaned_data_dir, 'restaurants_tfidf'), save_tfidf)
 
     cleaner.save_sparse_matrix(os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.npz'), 

@@ -5,16 +5,6 @@ import logzero
 import pandas as pd
 import os
 
-logger.info(f"In merger.py, pwd returns {os.getcwd()}")
-path_list = os.getcwd().split(os.sep)
-target_index = path_list.index('nlp_consulting_project')
-path_list = path_list[:target_index + 1]
-if os.name=='nt':
-    path_list[0] += '/'
-os.chdir(os.path.join(os.sep, *path_list))
-
-logger.info(f"In merger.py, changing working directory to {os.getcwd()}")
-
 def offset_ids():
 
     existing_restaurants = glob.glob("./scraped_data/restaurants/*.json")
@@ -71,43 +61,56 @@ def offset_ids():
 def merge_files(list_directory, output_file):
     
     existing_files = []
+    if not isinstance(list_directory, list):
+        list_directory = [list_directory]
+
     for directory in list_directory:
         jsons = glob.glob(directory + "/*.json")
         existing_files.extend(jsons)
         logger.info(f"Merging {len(existing_files)} files")
-
-
+        
     with open(output_file, "w+") as merged_file:
         for existing_file in existing_files:
             with open(existing_file, "r+") as child_file:
                 for line in child_file:
                     merged_file.write(line)
 
+if __name__ == '__main__':
 
-# try:
-#     os.mkdir("./scraped_data/merged_data")
-# except OSError:
-#     logger.warn("OSError: directory already exists")
+    logger.info(f"In merger.py, pwd returns {os.getcwd()}")
+    path_list = os.getcwd().split(os.sep)
+    target_index = path_list.index('nlp_consulting_project')
+    path_list = path_list[:target_index + 1]
+    if os.name=='nt':
+        path_list[0] += '/'
+    os.chdir(os.path.join(os.sep, *path_list))
 
-# # offset_ids()
+    logger.info(f"In merger.py, changing working directory to {os.getcwd()}")
 
-scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
-#bulk_scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_restaurants', 'scraped_data')
-scraped_rooftops_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_rooftops', 'scraped_data')
-merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
+    try:
+        os.mkdir("./scraped_data/merged_data")
+    except OSError:
+        logger.warn("OSError: directory already exists")
 
-if not os.path.exists(merged_data_dir):
-    logger.warn(f"Creating directory {merged_data_dir}")
-    os.makedirs(merged_data_dir)
+    # offset_ids()
 
-logger.info("Merging restaurant files")
-merge_files([os.path.join(scraped_data_dir, 'restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_restaurants.json"))
+    scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data')
+    #bulk_scraped_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_restaurants', 'scraped_data')
+    scraped_rooftops_dir = os.path.join(os.getcwd(), 'scraper', 'scraper_rooftops', 'scraped_data')
+    merged_data_dir = os.path.join(os.getcwd(), 'scraper', 'scraped_data', 'merged_data')
 
-logger.info("Merging reviews files")
-merge_files([os.path.join(scraped_data_dir, 'reviews'), os.path.join(scraped_rooftops_dir, 'reviews')], os.path.join(merged_data_dir, "merged_reviews.json"))
+    if not os.path.exists(merged_data_dir):
+        logger.warn(f"Creating directory {merged_data_dir}")
+        os.makedirs(merged_data_dir)
 
-logger.info("Merging users files")
-merge_files([os.path.join(scraped_data_dir, 'users'), os.path.join(scraped_rooftops_dir, 'users')], os.path.join(merged_data_dir, "merged_users.json"))
+    logger.info("Merging restaurant files")
+    merge_files([os.path.join(scraped_data_dir, 'restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_restaurants.json"))
 
-logger.info("Merging bulk restaurant scrapper files")
-merge_files([os.path.join(scraped_data_dir, 'bulk_restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_bulk_restaurants.json"))
+    logger.info("Merging reviews files")
+    merge_files([os.path.join(scraped_data_dir, 'reviews'), os.path.join(scraped_rooftops_dir, 'reviews')], os.path.join(merged_data_dir, "merged_reviews.json"))
+
+    logger.info("Merging users files")
+    merge_files([os.path.join(scraped_data_dir, 'users'), os.path.join(scraped_rooftops_dir, 'users')], os.path.join(merged_data_dir, "merged_users.json"))
+
+    logger.info("Merging bulk restaurant scrapper files")
+    merge_files([os.path.join(scraped_data_dir, 'bulk_restaurants'), os.path.join(scraped_rooftops_dir, 'restaurants')], os.path.join(merged_data_dir, "merged_bulk_restaurants.json"))

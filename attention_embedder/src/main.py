@@ -55,7 +55,7 @@ if __name__ == '__main__':
     if file_type == 'gz':
         data_fp = os.path.join('.', 'attention_embedder', 'data', 'clean_text_scrapped_data_2021.csv.gz')
     elif file_type == 'json':
-        data_fp = os.path.join('.', 'scraper', 'scraped_data', 'reviews', 'reviews_run_8.json')
+        data_fp = os.path.join('.', 'scraper', 'scraped_data', 'merged_data', 'merged_reviews.json')
     else:
         raise NotImplementedError(f"Only gz and json files are supported, found {file_type}")
 
