@@ -136,7 +136,7 @@ def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
         metrics=["accuracy"])
 
     callback = [tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3, verbose=1)]
-    word2vec.fit(dataset, epochs=epochs, callbacks=callback, validation_split=0.2)
+    word2vec.fit(dataset, epochs=epochs, callbacks=callback)
     word2vec.summary()
 
     pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
