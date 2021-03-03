@@ -110,7 +110,7 @@ def get_tf_dataset(filepath, subset=1):
 def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
 
     review_sentences = balanced_df['review_sentences'].tolist()
-    review_sentences = [ast.literal_eval(x) for x in review_sentences]
+    review_sentences = [eval(x) for x in review_sentences]
     sentences = list(itertools.chain(review_sentences))
 
     tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
