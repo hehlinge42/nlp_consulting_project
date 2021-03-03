@@ -12,7 +12,7 @@ import logzero
 import logging
 from logzero import logger
 
-from helpers import get_reviews, stratify_data, clean_reviews, split_reviews_per_sentence
+from helpers import stratify_data, preprocess
 from preprocessing import review_preprocessing
 from skipgram import Skipgram
 
@@ -67,18 +67,8 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
 
 def create_balanced_dataset(filepath, subset=1):
     
-    file_type = filepath.split('.')[-1]
-    logger.warn(f"Filetype is {file_type}")
-    if file_type == 'gz':
-        reviews = get_reviews(filepath)
-        reviews = clean_reviews(reviews)
-        reviews = split_reviews_per_sentence(reviews)
-    elif file_type == 'json':
-        with open(filepath) as json_file:
-            document = json.load(json_file)
-        reviews = pd.DataFrame(document)
-        logger.warn(f"review has type {type(reviews)} \n {reviews.head()}")
-
+    reviews = preprocess(filepath)
+    logger.warn(f"Review has type {type(reviews)} \n {reviews.head()}")
     logger.warn(f"Review original shape = {reviews.shape}")
 
     if subset != 1:
