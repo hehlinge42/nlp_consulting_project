@@ -110,6 +110,7 @@ def get_tf_dataset(filepath, subset=1):
 def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
 
     review_sentences = balanced_df['review_sentences'].tolist()
+    logger.critical(review_sentences[0:10])
     review_sentences = [eval(x) for x in review_sentences]
     sentences = list(itertools.chain(review_sentences))
 
