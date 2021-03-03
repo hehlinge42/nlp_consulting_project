@@ -24,7 +24,7 @@ import sklearn
 from sklearn import decomposition
 import tensorflow as tf
 
-from loading import create_balanced_dataset, pretrain_weights, generate_training_data
+from loading import get_tf_dataset, pretrain_weights, generate_training_data
 from han import HierarchicalAttentionNetwork
 from skipgram import Skipgram
 from preprocessing import review_preprocessing
@@ -35,8 +35,8 @@ if __name__ == '__main__':
 
     ## Setup environment ##
     warnings.filterwarnings('ignore')
-    tqdm.tqdm_notebook()
-    tqdm.notebook.tqdm().pandas()
+    # tqdm.tqdm_notebook()
+    # tqdm.notebook.tqdm().pandas()
 
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
@@ -46,31 +46,36 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Creates Attention Embedder for Review Sentiment Classification')
     parser.add_argument('-f', '--filename', type=str, help='csv of reviews')
+    parser.add_argument('-w', '--weights', type=str, default='none', help='pretrained weights filepath')
     parser.add_argument('-m', '--model_name', type=str, help='name of embedding model saved after training')
     args = parser.parse_args()
 
     ## Load Datasets
-    logger.warn(f"Loading balanced dataset from {args.filename}")
+    logger.info(f"Loading balanced dataset from {args.filename}")
     file_type = args.filename.split('.')[-1]
     if file_type == 'gz':
-        data_fp = os.path.join('.', 'attention_embedder', 'data', 'clean_text_scrapped_data_2021.csv.gz')
+        data_fp = os.path.join('attention_embedder', 'data', 'clean_text_scrapped_data_2021.csv.gz')
     elif file_type == 'json':
-        data_fp = os.path.join('.', 'scraper', 'scraped_data', 'merged_data', 'merged_reviews.json')
+        data_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'merged_reviews.json')
     else:
         raise NotImplementedError(f"Only gz and json files are supported, found {file_type}")
 
-    balanced_df, train_ds, test_ds = create_balanced_dataset(data_fp, 0.05)
-    
-    filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_38390.npy')
+    balanced_df, train_ds, test_ds = get_tf_dataset(data_fp)
+
+    # filepath = os.path.join('attention_embedder', 'data', 'pretrained_weights_.npy')
+    filepath = os.path.join('attention_embedder', 'data', args.weights)
     if not os.path.exists(filepath):
-        logger.warn("Weights have not been pretrained.")
-        filepath = pretrain_weights(balanced_df, 128, file_type=args.filename.split('.')[-1])
+        logger.info(f"Weights have not been pretrained for dataset of size {balanced_df.shape}")
+        filepath = pretrain_weights(balanced_df, 128, file_type=args.filename.split('.')[-1], epochs=1)
+    else:
+        logger.info(f"Weights have already been pretrained for dataset of size {balanced_df.shape}")
 
     pretrained_weights = np.load(filepath)
     vocab_size = int(filepath.split('_')[-1].split('.')[0])
-    logger.warn(f"Vocab size = {vocab_size}")
+    logger.info(f"Vocab size = {vocab_size} & pretrained_weights = {pretrained_weights.shape}") #38 390
 
     ## Run model
+    logger.info(f"Training HAN Model Regularized")
     han_model_reg = HierarchicalAttentionNetwork(vocab_size=vocab_size, embedding_dim=128, 
                     pretrained_weights=pretrained_weights, gru_units=32, attention_units=32, 
                     classifier_units=5, dropout_embedding=0.2, recurrent_dropout=0.2, 
@@ -80,4 +85,6 @@ if __name__ == '__main__':
                            optimizer="adam", metrics=["accuracy"])
 
     han_history_reg = han_model_reg.fit(train_ds, epochs=20, validation_data=test_ds)
+    
+    logger.info(f"{han_model_reg.summary()}")
     han_model_reg.save(os.path.join('.', 'attention_embedder', 'pretrained_models', args.model_name))

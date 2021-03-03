@@ -7,20 +7,26 @@ import logzero
 import logging
 from logzero import logger
 
-def stratify_data(original_df, y_column):
-    min_label = original_df[y_column].value_counts().min()
-    df = pd.DataFrame(columns=original_df.columns)
-    for label in original_df[y_column].unique():
-      subdf = original_df[original_df[y_column] == label][:min_label]
-      df = df.append(subdf)
-    return df
+def get_balanced_dataset(filepath, save_fp, y_column):
+    file_type = filepath.split('.')[-1]
+    logger.warn(f"Filetype is {file_type}")
+    if file_type == 'gz':
+        df = pd.read_csv(filepath, compression=compression, low_memory=False, 
+                     nrows=nrows, parse_dates=['diner_date', 'rating_date'])
+        df = clean_reviews(df)
+    elif file_type == 'json':
+        df = pd.read_json(filepath, lines=True)
+    
+    df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
+    
+    min_label = df[y_column].value_counts().min()
+    balanced_df = (df.groupby(y_column)).sample(n=min_label, random_state=0)
+    balanced_df.set_index(['review_id'], inplace=True)
+    balanced_df.rename(columns={"comment": "review"}, inplace=True)
+    balanced_df = split_reviews_per_sentence(balanced_df)
 
-    # reviews = pd.read_json(os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'), lines=True)
-    # by_rating = reviews.groupby(by=['rating']).count()
-    # min_count = min(by_rating['review_id'])
-    # balanced_reviews = (reviews.groupby("rating")).sample(n=min_count, random_state=0)
-    # balanced_reviews.set_index(['review_id'], inplace=True)
-    # balanced_reviews.to_csv(os.path.join(scraped_data_dir, 'merged_data', 'balanced_reviews.csv'), sep='#', index_label='review_id')
+    balanced_df.to_csv(save_fp, sep='#', index_label='review_id')
+    return balanced_df
 
 # clean_content: ['we', 'are', 'having']
 # review: 'we are having'
@@ -32,8 +38,7 @@ def clean_reviews(reviews, colname='review'):
 
 
 def split_reviews_per_sentence(reviews, colname='review'):
-    reviews['review_sentences'] = reviews[colname].progress_apply(
-        lambda rvw: nltk.sent_tokenize(rvw))
+    reviews['review_sentences'] = reviews[colname].apply(lambda rvw: nltk.sent_tokenize(rvw))
     return reviews
 
 

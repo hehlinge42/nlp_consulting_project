@@ -7,12 +7,13 @@ import sklearn
 import json
 import itertools
 import os
+import ast 
 
 import logzero
 import logging
 from logzero import logger
 
-from helpers import stratify_data, preprocess
+from helpers import get_balanced_dataset
 from preprocessing import review_preprocessing
 from skipgram import Skipgram
 
@@ -26,7 +27,7 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     sampling_table = tf.keras.preprocessing.sequence.make_sampling_table(vocab_size)
 
     # Iterate over all sequences (sentences) in dataset.
-    for sequence in tqdm.notebook.tqdm(sequences):
+    for sequence in sequences:
 
         # Generate positive skip-gram pairs for a sequence (sentence).
         positive_skip_grams, _ = tf.keras.preprocessing.sequence.skipgrams(
@@ -65,26 +66,35 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     return targets, contexts, labels
 
 
-def create_balanced_dataset(filepath, subset=1):
+def get_tf_dataset(filepath, subset=1):
     
-    reviews = preprocess(filepath)
-    logger.warn(f"Review has type {type(reviews)} \n {reviews.head()}")
-    logger.warn(f"Review original shape = {reviews.shape}")
+    save_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'balanced_reviews.csv')
 
-    if subset != 1:
-        subset_length = int(subset * len(reviews))
-        reviews = reviews.head(subset_length)
-    logger.warn(f"Taking subset {subset} yielding shape = {reviews.shape}")
-    
-    reviews['usable_rating'] = reviews['rating'].apply(lambda r: int(r)-1)
-    stratified_df = stratify_data(reviews, 'usable_rating')
-    padded_preprocessed_reviews = [review_preprocessing(review) for review in tqdm.notebook.tqdm(stratified_df["review_sentences"])]
+    if not os.path.exists(save_fp):
+        logger.info(f"Creating balanced dataset in csv.")
+        # reviews = preprocess(filepath)
+        # logger.warn(f"Review has type {type(reviews)} \n {reviews.head()}")
+        # logger.warn(f"Review original shape = {reviews.shape}")
+
+        # if subset != 1:
+        #     subset_length = int(subset * len(reviews))
+        #     reviews = reviews.head(subset_length)
+        # logger.warn(f"Taking subset {subset} yielding shape = {reviews.shape}")
+        
+        # reviews['usable_rating'] = reviews['rating'].apply(lambda r: int(r)-1)
+        balanced_df = get_balanced_dataset(filepath, save_fp, 'usable_rating')
+    else:
+        logger.info(f"Reading balanced dataset csv.")
+        balanced_df = pd.read_csv(save_fp, sep='#')
+
+    padded_preprocessed_reviews = [review_preprocessing(review) for review in balanced_df["review_sentences"]]
     padded_preprocessed_reviews = tf.stack(padded_preprocessed_reviews)
-    rating_labels = tf.keras.utils.to_categorical(stratified_df['usable_rating'], num_classes=5, dtype='float32')
+    rating_labels = tf.keras.utils.to_categorical(balanced_df['usable_rating'], num_classes=5, dtype='float32')
 
     X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
                                 padded_preprocessed_reviews.numpy(), rating_labels, 
                                 test_size=0.3)
+
 
     train_ds = tf.data.Dataset.from_tensor_slices((X_train, y_train))
     test_ds = tf.data.Dataset.from_tensor_slices((X_test, y_test))
@@ -94,11 +104,15 @@ def create_balanced_dataset(filepath, subset=1):
 
     logger.warn(f"Shape of \n X_train {X_train.shape} \n Shape of X_test {X_test.shape} \n Shape of y_train {y_train.shape} \n Shape of y_test {y_test.shape} \n")
     
-    return stratified_df, train_ds, test_ds
+    return balanced_df, train_ds, test_ds
 
 
-def pretrain_weights(balanced_df, embedding_dim, file_type):
-    sentences = list(itertools.chain(*balanced_df["review_sentences"]))
+def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
+
+    review_sentences = balanced_df['review_sentences'].tolist()
+    review_sentences = [ast.literal_eval(x) for x in review_sentences]
+    sentences = list(itertools.chain(review_sentences))
+
     tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
     tokenizer.fit_on_texts(sentences)
     sequences = tokenizer.texts_to_sequences(sentences)
@@ -120,7 +134,7 @@ def pretrain_weights(balanced_df, embedding_dim, file_type):
         loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
         metrics=["accuracy"])
 
-    word2vec.fit(dataset, epochs=1)
+    word2vec.fit(dataset, epochs=epochs)
     word2vec.summary()
 
     pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
