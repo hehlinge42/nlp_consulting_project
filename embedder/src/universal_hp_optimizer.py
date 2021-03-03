@@ -48,7 +48,7 @@ class UniversalHPOptimizer():
         self.HP_OPTIMIZER = self.generate_hp_dict('optimizer', dict_params)
         self.HP_EARLY_STOPPING = self.generate_hp_dict('early_stopping', dict_params)
 
-        self.HP_NB_COLUMNS = dict_params['nb_columns']
+        # self.HP_NB_COLUMNS = dict_params['nb_columns']
 
 
     def generate_hp_dict(self, category_name, dict_params):
