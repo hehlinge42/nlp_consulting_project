@@ -59,7 +59,7 @@ class UniversalHPOptimizer():
             return dict_params[category_name]
 
 
-    def run_all(self, x_train, y_train, x_test, y_test):
+    def run_all(self, x_train, x_test, y_train=None, y_test=None):
         """[summary]
 
         Args:
@@ -121,8 +121,9 @@ class UniversalHPOptimizer():
         model = self.create_model(hparams, self.print_summary)
         log_dir = os.path.join(self.log_dir, datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
 
-        x_train = x_train.iloc[:, 0:hparams['nb_columns']]
-        x_test = x_test.iloc[:, 0:hparams['nb_columns']]
+
+        # x_train = x_train.iloc[:, 0:hparams['nb_columns']]
+        # x_test = x_test.iloc[:, 0:hparams['nb_columns']]
 
         params_callback = {}
         for k, v in hparams.items():
@@ -131,11 +132,17 @@ class UniversalHPOptimizer():
 
         tensorboard_callback = [tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1),
                                 hp.KerasCallback(log_dir, params_callback),
-                                tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=hparams["early_stopping"], verbose=1)]
+                                tf.keras.callbacks.EarlyStopping(monitor='accuracy', patience=hparams["early_stopping"], verbose=1)]
 
-        model.fit(x_train, y_train, batch_size=hparams["batch_size"], epochs=hparams["epochs"],
-                  callbacks=[tensorboard_callback], validation_split=0.2) 
-        _, accuracy = model.evaluate(x_test, y_test)
+        if y_train is None or y_test is None:
+            # Assume batch dataset
+            model.fit(x_train, batch_size=hparams["batch_size"], epochs=hparams["epochs"],
+                callbacks=[tensorboard_callback], validation_data=x_test) 
+            _, accuracy = model.evaluate(x_test)
+        else:
+            model.fit(x_train, y_train, batch_size=hparams["batch_size"], epochs=hparams["epochs"],
+                    callbacks=[tensorboard_callback], validation_split=0.2) 
+            _, accuracy = model.evaluate(x_test, y_test)
 
         if self.best_accuracy is None or accuracy > self.best_accuracy:
             self.best_accuracy = accuracy

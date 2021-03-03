@@ -141,7 +141,7 @@ def pretrain_weights(balanced_df, embedding_dim, file_type, epochs):
         loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
         metrics=["accuracy"])
 
-    callback = [tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3, verbose=1)]
+    callback = [tf.keras.callbacks.EarlyStopping(monitor='accuracy', patience=3, verbose=1)]
     word2vec.fit(dataset, epochs=epochs, callbacks=callback)
     word2vec.summary()
 
