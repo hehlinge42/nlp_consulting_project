@@ -13,6 +13,7 @@ def get_balanced_dataset(filepath, save_fp, y_column):
     if file_type == 'gz':
         df = pd.read_csv(filepath, compression='gzip', low_memory=False, 
                      nrows=20000, parse_dates=['diner_date', 'rating_date'])
+        df.rename(columns={"content": "review"}, inplace=True)
         df = clean_reviews(df)
         return df
     elif file_type == 'json':
