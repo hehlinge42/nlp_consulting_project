@@ -13,7 +13,9 @@ def get_balanced_dataset(filepath, save_fp, y_column):
     if file_type == 'gz':
         df = pd.read_csv(filepath, compression=compression, low_memory=False, 
                      nrows=nrows, parse_dates=['diner_date', 'rating_date'])
+        df = df.head(20000)
         df = clean_reviews(df)
+        return df
     elif file_type == 'json':
         df = pd.read_json(filepath, lines=True)
     

@@ -66,22 +66,12 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     return targets, contexts, labels
 
 
-def get_tf_dataset(filepath, subset=1):
+def get_tf_dataset(filepath=None, save_filename='balanced_reviews', subset=1):
     
-    save_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'balanced_reviews.csv')
+    save_fp = os.path.join('scraper', 'scraped_data', 'merged_data', save_filename)
 
     if not os.path.exists(save_fp):
         logger.info(f"Creating balanced dataset in csv.")
-        # reviews = preprocess(filepath)
-        # logger.warn(f"Review has type {type(reviews)} \n {reviews.head()}")
-        # logger.warn(f"Review original shape = {reviews.shape}")
-
-        # if subset != 1:
-        #     subset_length = int(subset * len(reviews))
-        #     reviews = reviews.head(subset_length)
-        # logger.warn(f"Taking subset {subset} yielding shape = {reviews.shape}")
-        
-        # reviews['usable_rating'] = reviews['rating'].apply(lambda r: int(r)-1)
         balanced_df = get_balanced_dataset(filepath, save_fp, 'usable_rating')
     else:
         logger.info(f"Reading balanced dataset csv.")
