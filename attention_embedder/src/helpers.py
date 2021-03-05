@@ -3,13 +3,56 @@ import numpy as np
 import tensorflow as tf
 import nltk
 
+import os
+
 import logzero
 import logging
 from logzero import logger
 
+
+def character_transformer(document):
+    with_accent = ['é', 'è', 'à', "ê", "\u2019"]
+    without_accent = ['e', 'e', 'a', "e", "'"]
+    transformation_dict = {before:after for before, after in zip(with_accent, without_accent)}
+    return document.translate(str.maketrans(transformation_dict))
+
+
+def unicode_remover(document):
+    encoded = document.encode('ascii', 'replace')
+    return encoded.decode('utf-8')
+
+
+def character_remover(document):
+    characters_to_remove = ["@", "/", "#", ".", ",", "!", "?", 
+                            "(", ")", "-", "_","’","'", "\"", 
+                            ":", "\n", "\t", "\r"]
+    transformation_dict = {initial: " " for initial in characters_to_remove}
+    return document.translate(str.maketrans(transformation_dict))
+
+
+def contraction_transformer(document, filename):
+    with open(filename) as contractions:
+        for word in document.split():
+            if word in contractions:
+                document = document.replace(word, contractions[word])
+    return document
+
+
+def clean_df(df, column, contraction_fp):
+
+    df[column] = df[column].map(lambda x: x.lower())
+    df[column] = df[column].map(lambda x: contraction_transformer(x, contraction_fp))
+    df[column] = df[column].map(lambda x: character_transformer(x))
+    df[column] = df[column].map(lambda x: unicode_remover(x))
+    df[column] = df[column].map(lambda x: character_remover(x))
+
+    return df
+
 def gen_balanced_df(filepath, save_fp, y_column, balance):
     
     file_type = filepath.split('.')[-1]
+    contraction_fp = os.path.join('cleaner', 'assets', 'contractions.json')
+
     logger.warn(f"Filetype is {file_type}")
     if file_type == 'gz':
         df = pd.read_csv(filepath, compression='gzip', low_memory=False, 
@@ -19,6 +62,7 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
     elif file_type == 'json':
         df = pd.read_json(filepath, lines=True)
         df.rename(columns={"comment": "review"}, inplace=True)
+        df = clean_df(df, 'review', contraction_fp)
 
     df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
     df = split_reviews_per_sentence(df)

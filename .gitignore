@@ -146,6 +146,7 @@ attention_embedder/pretrained_models/simple_1/saved_model.pb
 attention_embedder/data/weights_gz.json
 attention_embedder/data/trash/weights.json
 attention_embedder/data/weights_json.json
+attention_embedder/data/light_weights_gz.json
 attention_embedder/data/clean_text_scrapped_data_2021.csv.gz
 attention_embedder/data/light_weights.json
 embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
