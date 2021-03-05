@@ -9,9 +9,9 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
 
     """
     def __init__(self, vocab_size, embedding_dim, gru_units, attention_units, 
-                 classifier_units, 
-                 dropout_embedding, recurrent_dropout, 
-                 callable, penalty, mask_zero=True, pretrained_weights=None):
+                 classifier_units, pretrained_weights=None):
+                 #dropout_embedding=0.0, recurrent_dropout, 
+                 #callable, penalty, mask_zero=True):
         """Hierarchical Attention Network class constructor.
 
         """
@@ -31,7 +31,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
             vocab_size, 
             embedding_dim, 
             embeddings_initializer=initializer,
-            trainable=True
+            trainable=False
             # mask_zero=mask_zero
         )
         self.WordGRU = tf.keras.layers.Bidirectional(
@@ -56,7 +56,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
         )
         self.SentenceAttention = Attention(units=attention_units)
 
-        self.fc = tf.keras.layers.Dense(units=classifier_units) 
+        self.fc = tf.keras.layers.Dense(units=classifier_units, activation=tf.keras.activations.softmax) 
                                         # activity_regularizer=callable(penalty))
 
     def call(self, x):

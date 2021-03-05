@@ -13,30 +13,27 @@ import numpy as np
 import tqdm
 import warnings
 import itertools
+import json
 from ast import literal_eval
 
-# import seaborn as sns
 import matplotlib.pyplot as plt
-# import plotly.express as px
 
 import nltk
 import sklearn
 from sklearn import decomposition
 import tensorflow as tf
 
-from loading import get_tf_dataset, pretrain_weights, generate_training_data
+from loading import pretrain_weights, generate_training_data, gen_dataset, gen_sequences, get_balanced_df, preprocess_per_model, get_train_test_df
 from han import HierarchicalAttentionNetwork
 from skipgram import Skipgram
 from preprocessing import review_preprocessing
+from perform_models import perform_simple_model, perform_han_model
 
 BATCH_SIZE, BUFFER_SIZE, DATASET_SIZE = 1024, 10000, 50000
 
 if __name__ == '__main__':
 
-    ## Setup environment ##
     warnings.filterwarnings('ignore')
-    # tqdm.tqdm_notebook()
-    # tqdm.notebook.tqdm().pandas()
 
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
@@ -45,46 +42,45 @@ if __name__ == '__main__':
     os.chdir(os.path.join(os.sep, *path_list))
 
     parser = argparse.ArgumentParser(description='Creates Attention Embedder for Review Sentiment Classification')
-    parser.add_argument('-f', '--filename', type=str, help='csv of reviews')
+    parser.add_argument('-f', '--filetype', type=str, help='csv of reviews')
     parser.add_argument('-w', '--weights', type=str, default='none', help='pretrained weights filepath')
-    parser.add_argument('-m', '--model_name', type=str, help='name of embedding model saved after training')
+    parser.add_argument('-m', '--model_names', nargs='*', type=str, help='name of embedding model used')
     args = parser.parse_args()
 
     ## Load Datasets
-    logger.info(f"Loading balanced dataset from {args.filename}")
-    file_type = args.filename.split('.')[-1]
-    if file_type == 'gz':
+    if args.filetype == 'gz':
         data_fp = os.path.join('attention_embedder', 'data', 'clean_text_scrapped_data_2021.csv.gz')
-    elif file_type == 'json':
+    elif args.filetype == 'json':
         data_fp = os.path.join('scraper', 'scraped_data', 'merged_data', 'merged_reviews.json')
     else:
-        raise NotImplementedError(f"Only gz and json files are supported, found {file_type}")
+        raise NotImplementedError(f"Only gz and json files are supported, found {args.filetype}")
 
-    balanced_df, train_ds, test_ds = get_tf_dataset(data_fp)
-
-    # filepath = os.path.join('attention_embedder', 'data', 'pretrained_weights_.npy')
     filepath = os.path.join('attention_embedder', 'data', args.weights)
+
+    balanced_df = get_balanced_df(args.filetype, data_fp)
+    logger.debug(f"Balance of dataset: \n{balanced_df['rating'].value_counts() / len(balanced_df)}")
+    sequences, vocab_size, tokenizer = gen_sequences(balanced_df, args.filetype)
+    logger.debug(f"args.model_names = {args.model_names}")
+    preprocessed_reviews_dict = preprocess_per_model(balanced_df, tokenizer, models=args.model_names)
+
     if not os.path.exists(filepath):
         logger.info(f"Weights have not been pretrained for dataset of size {balanced_df.shape}")
-        filepath = pretrain_weights(balanced_df, 128, file_type=args.filename.split('.')[-1], epochs=1)
+        dataset = gen_dataset(sequences, vocab_size)
+        filepath = pretrain_weights(dataset, vocab_size, 128, file_type=args.filetype, epochs=20)
     else:
         logger.info(f"Weights have already been pretrained for dataset of size {balanced_df.shape}")
 
-    pretrained_weights = np.load(filepath)
-    vocab_size = int(filepath.split('_')[-1].split('.')[0])
-    logger.info(f"Vocab size = {vocab_size} & pretrained_weights = {pretrained_weights.shape}") #38 390
-
-    ## Run model
-    logger.info(f"Training HAN Model Regularized")
-    han_model_reg = HierarchicalAttentionNetwork(vocab_size=vocab_size, embedding_dim=128, 
-                    pretrained_weights=pretrained_weights, gru_units=32, attention_units=32, 
-                    classifier_units=5, dropout_embedding=0.2, recurrent_dropout=0.2, 
-                    callable=tf.keras.regularizers.l2, penalty=1e-05)
-
-    han_model_reg.compile(loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
-                           optimizer="adam", metrics=["accuracy"])
-
-    han_history_reg = han_model_reg.fit(train_ds, epochs=20, validation_data=test_ds)
+    with open(filepath, 'r') as weights_file:
+        logger.info(f'Loading pretrained weights from JSON file {filepath}')
+        weights = json.load(weights_file)
+        pretrained_weights = np.array(weights["19"])
     
-    logger.info(f"{han_model_reg.summary()}")
-    han_model_reg.save(os.path.join('.', 'attention_embedder', 'pretrained_models', args.model_name))
+        ## Run model
+        if 'simple' in args.model_names:
+            logger.info(f'Running Simple Model Training')
+            train_ds_simple, test_ds_simple = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'simple')
+            perform_simple_model(train_ds_simple, test_ds_simple, pretrained_weights)
+        if 'han' in args.model_names:
+            logger.info(f'Running HAN Model Training')
+            train_ds_han, test_ds_han = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'han')
+            perform_han_model(train_ds_han, test_ds_han, pretrained_weights)

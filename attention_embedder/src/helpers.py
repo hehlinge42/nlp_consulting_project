@@ -7,7 +7,8 @@ import logzero
 import logging
 from logzero import logger
 
-def get_balanced_dataset(filepath, save_fp, y_column):
+def gen_balanced_df(filepath, save_fp, y_column, balance):
+    
     file_type = filepath.split('.')[-1]
     logger.warn(f"Filetype is {file_type}")
     if file_type == 'gz':
@@ -15,24 +16,21 @@ def get_balanced_dataset(filepath, save_fp, y_column):
                      nrows=20000, parse_dates=['diner_date', 'rating_date'])
         df.rename(columns={"content": "review"}, inplace=True)
         df = clean_reviews(df)
-        return df
     elif file_type == 'json':
         df = pd.read_json(filepath, lines=True)
-    
+        df.rename(columns={"comment": "review"}, inplace=True)
+
     df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
-    
-    min_label = df[y_column].value_counts().min()
-    balanced_df = (df.groupby(y_column)).sample(n=min_label, random_state=0)
-    balanced_df.set_index(['review_id'], inplace=True)
-    balanced_df.rename(columns={"comment": "review"}, inplace=True)
-    balanced_df = split_reviews_per_sentence(balanced_df)
+    df = split_reviews_per_sentence(df)
+    # Balanced dataset
+    if balance is True:
+        min_label = df[y_column].value_counts().min()
+        df = (df.groupby(y_column)).sample(n=min_label, random_state=0)
+        df.set_index(['review_id'], inplace=True)
+        df.to_csv(save_fp, sep='#', index_label='review_id')
 
-    balanced_df.to_csv(save_fp, sep='#', index_label='review_id')
-    return balanced_df
+    return df
 
-# clean_content: ['we', 'are', 'having']
-# review: 'we are having'
-# review_sentences: ['we are.', 'having.']
 
 def clean_reviews(reviews, colname='review'):
     reviews[colname] = reviews[colname].apply(lambda x: ' '.join(eval(x)))
