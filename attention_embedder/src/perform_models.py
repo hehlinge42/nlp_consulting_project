@@ -46,7 +46,7 @@ def perform_han_model(train_ds, test_ds, pretrained_weights):
     han_model_reg.compile(loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True),
                         optimizer="adam", metrics=["accuracy"])
 
-    han_history_reg = han_model_reg.fit(train_ds, epochs=1, validation_data=test_ds)
+    han_history_reg = han_model_reg.fit(train_ds, epochs=5, validation_data=test_ds)
 
     y_true = np.concatenate([y for x, y in test_ds], axis=0)
     x_test = np.concatenate([x for x, y in test_ds], axis=0)

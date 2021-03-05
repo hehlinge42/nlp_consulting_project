@@ -9,9 +9,9 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
 
     """
     def __init__(self, vocab_size, embedding_dim, gru_units, attention_units, 
-                 classifier_units, pretrained_weights=None):
-                 #dropout_embedding=0.0, recurrent_dropout, 
-                 #callable, penalty, mask_zero=True):
+                 classifier_units,
+                 pretrained_weights=None, mask_zero=True,
+                 dropout_embedding=0.0):
         """Hierarchical Attention Network class constructor.
 
         """
@@ -24,7 +24,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
 
         # Regularisation
         self.dropout_embedding = dropout_embedding
-        self.recurrent_dropout = recurrent_dropout
+        # self.recurrent_dropout = recurrent_dropout
 
         # Main Layers
         self.embedding = tf.keras.layers.Embedding(
@@ -39,7 +39,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
                 units=gru_units,
                 activation="tanh",
                 return_sequences=True,
-                recurrent_dropout=self.recurrent_dropout
+                # recurrent_dropout=self.recurrent_dropout
             ), 
             merge_mode='concat',
         )
@@ -50,7 +50,7 @@ class HierarchicalAttentionNetwork(tf.keras.Model):
                 units=gru_units,
                 activation="tanh",
                 return_sequences=True,
-                recurrent_dropout=self.recurrent_dropout
+                # recurrent_dropout=self.recurrent_dropout
             ), 
             merge_mode='concat',
         )

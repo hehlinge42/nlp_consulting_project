@@ -1,4 +1,7 @@
 import tensorflow as tf
+import logzero
+import logging
+from logzero import logger
 
 def review_preprocessing(review, tokenizer, words_maxlen=50, sentences_maxlen=10):
     """Preprocessing function to build appropriate padded sequences for HAN.
@@ -21,8 +24,11 @@ def review_preprocessing(review, tokenizer, words_maxlen=50, sentences_maxlen=10
     """
     
     # tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
+    # logger.critical(f"Review: {review}")
     sequences = tokenizer.texts_to_sequences(review)
+    # logger.warning(f"Sequence: {sequences}")
     padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequences, maxlen=words_maxlen, padding="post")
+    # logger.info(f"Sequence: {padded_sequences}")
 
     if padded_sequences.shape[0] < sentences_maxlen:
         padded_sequences = tf.pad(

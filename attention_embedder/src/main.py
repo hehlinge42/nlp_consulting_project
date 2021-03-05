@@ -62,6 +62,7 @@ if __name__ == '__main__':
     sequences, vocab_size, tokenizer = gen_sequences(balanced_df, args.filetype)
     logger.debug(f"args.model_names = {args.model_names}")
     preprocessed_reviews_dict = preprocess_per_model(balanced_df, tokenizer, models=args.model_names)
+    logger.critical(preprocessed_reviews_dict['han'])
 
     if not os.path.exists(filepath):
         logger.info(f"Weights have not been pretrained for dataset of size {balanced_df.shape}")
@@ -83,4 +84,7 @@ if __name__ == '__main__':
         if 'han' in args.model_names:
             logger.info(f'Running HAN Model Training')
             train_ds_han, test_ds_han = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'han')
+            x = train_ds_han.take(1)
+            for elem in x:
+                logger.critical(elem[0])
             perform_han_model(train_ds_han, test_ds_han, pretrained_weights)

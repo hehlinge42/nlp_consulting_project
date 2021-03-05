@@ -86,7 +86,8 @@ def preprocess_per_model(balanced_df, tokenizer, models=['han', 'simple']):
     preprocessed_reviews_dict = {}
     logger.info(f"Preprocessing reviews for models {models}")
     if 'han' in models:
-        padded_preprocessed_reviews = [review_preprocessing(review, tokenizer) for review in balanced_df["review_sentences"]]
+        padded_preprocessed_reviews = [review_preprocessing(eval(review), tokenizer) for review in balanced_df["review_sentences"]]
+        # logger.critical(padded_preprocessed_reviews)
         padded_preprocessed_reviews = tf.stack(padded_preprocessed_reviews)
         preprocessed_reviews_dict['han'] = padded_preprocessed_reviews
 
@@ -130,6 +131,7 @@ def gen_sequences(balanced_df, filetype):
     sentences = list(itertools.chain(*review_sentences))
     logger.info("Preprocessed sentences")
 
+    # logger.info(f"sentences: {sentences}")
     tokenizer = tf.keras.preprocessing.text.Tokenizer(filters=' ', char_level=False)
     tokenizer.fit_on_texts(sentences)
     sequences = tokenizer.texts_to_sequences(sentences)
