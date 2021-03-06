@@ -36,17 +36,25 @@ pip install -r requirements.txt
 * ``` cd embedder ```
 * See dedicated README in the folder.
 
-## Run from Command Line
+### Session 4: Feature Embedder with Attention Mechanism
 
-```
-python3 run_all.py --embedding_technique all --re_embed False --wordcloud_per_restaurant --tfidf_per_restaurant
-```
+* Tool to embed tokenized reviews into numerical vector and predict associated ratings using a Hierarchical Attention Network (HAN).
+* ``` cd attention_embedder ```
+* See dedicated README in the folder.
 
-Usage:
-* --embedding_technique [str]: define embedding technique (lsi, word2vec, fasttext) supported.
-* --re_embed [bool]: option to rerun embedding, otherwise uses zip files provided in ./embedded_data/zip
-* --wordcloud_per_restaurant [bool]: option to create wordclouds per restaurants.
-* --tfidf_per_restaurant [bool]: option to create TFIDF embedding per restaurants.
+## Run Application from Command Line
+
+* As seen from image below simply run the following command and set user defined parameters via GUI:
+```
+python3 launch_program.py
+```
+<img width="506" alt="Screenshot 2021-03-06 at 16 00 30" src="https://user-images.githubusercontent.com/41548545/110211065-1b689e00-7e95-11eb-85d0-f35656ca9212.png">
+
+
+GUI User defined settings:
+* --Save Wordcloud: option to create wordclouds per restaurants.
+* --Save TFIDF: option to create TFIDF embedding per restaurants.
+* --Embedding Technique: define embedding technique (lsi, word2vec, fasttext) supported.
 
 Script to merge data from multiple scrapping runs, create a balanced dataset of reviews (ratings 1-5), clean selected reviews and embed words into vectors depending on user defined embedding technique (lsi, word2vec, fasttext and all are supported).
 

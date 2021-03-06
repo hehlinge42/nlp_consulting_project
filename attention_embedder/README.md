@@ -1,22 +1,25 @@
-# Word embedder
+# Attention Word Embedder and Ratings Classifier
 
-This session aims at embedding the words resulting from the tokenization of the TripAdvisor's reviews. Preliminary ML techniques are applied to classify the ratings in order to assess the efficiency of the different embedding techniques.
+This session aims at embedding the words resulting from the tokenization of the TripAdvisor's reviews. Embedding is done using Skipgram to pretrain weights that are later used in a Hierarchical Attention Network (HAN) to predict the ratings associated to each review.
 
 
 ## Architecture
 
-The embedder has the following subfolders:
+The attention embedder has the following subfolders:
 * ``` src ``` : contains all the ```.py``` files.
-* ``` data ```: contains the input data (clean_text_scrapped_data_2021.csv.gz for now) as well as saved pretrained weights for w2v embedding using a balanced dataset of 137 105 entries. 
-
+* ``` data ```: contains the input data (Capgemini dataset or reviews scraped using our own TripAdvisor scraper) as well as saved pretrained weights for skipgram embedding using a balanced dataset (40k entries for Capgemini and 20k for our scraped data).
+* ``` notebooks ```: contains notebook used to assess impact of hyper-parameters on HAN and evaluates predictions.
+* ``` pretrained models ```: Saved best HAN models.
 
 ## Run from Command Line
 
 From the root of ```attention_embedder``` folder:
 ```
-python3 src/main.py --filename
+python3 src/main.py --filetype gz -weights weights_folder_name.json -model_names han 
 ```
 
 Usage:
-* --filename [str]: filename of stored data. For now found in data folder under clean_text_scrapped_data_2021.csv.gz
+* --filetype [str]: 'gz' to load Capgemini data and 'json' to load data from TripAdvisor scraper.
+* --weights [str]: filename for pretrained weights file.
+* --model_names [list(str)]: names of models used to predict ratings ('han' and 'simple' supported).
 
