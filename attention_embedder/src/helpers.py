@@ -55,8 +55,7 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
 
     logger.warn(f"Filetype is {file_type}")
     if file_type == 'gz':
-        df = pd.read_csv(filepath, compression='gzip', low_memory=False, 
-                     nrows=20000, parse_dates=['diner_date', 'rating_date'])
+        df = pd.read_csv(filepath, compression='gzip', low_memory=False, parse_dates=['diner_date', 'rating_date'])
         df.rename(columns={"content": "review"}, inplace=True)
         df = clean_reviews(df)
     elif file_type == 'json':
@@ -66,12 +65,17 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
 
     df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
     df = split_reviews_per_sentence(df)
+
     # Balanced dataset
     if balance is True:
         min_label = df[y_column].value_counts().min()
+        min_label = min(min_label, 8000)
         df = (df.groupby(y_column)).sample(n=min_label, random_state=0)
-        df.set_index(['review_id'], inplace=True)
-        df.to_csv(save_fp, sep='#', index_label='review_id')
+        try:
+            df.set_index(['review_id'], inplace=True)
+        except:
+            logger.error("No review id")
+        df.to_csv(save_fp, sep='#', index=True)
 
     return df
 

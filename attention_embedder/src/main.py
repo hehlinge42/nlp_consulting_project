@@ -59,6 +59,7 @@ if __name__ == '__main__':
 
     balanced_df = get_balanced_df(args.filetype, data_fp)
     logger.debug(f"Balance of dataset: \n{balanced_df['rating'].value_counts() / len(balanced_df)}")
+    logger.debug(f"Len of dataset: {len(balanced_df)}")
     sequences, vocab_size, tokenizer = gen_sequences(balanced_df, args.filetype)
     logger.debug(f"vocab_size = {vocab_size}")
     logger.debug(f"args.model_names = {args.model_names}")
@@ -68,24 +69,26 @@ if __name__ == '__main__':
     if not os.path.exists(filepath):
         logger.info(f"Weights have not been pretrained for dataset of size {balanced_df.shape}")
         dataset = gen_dataset(sequences, vocab_size)
-        filepath = pretrain_weights(dataset, vocab_size, 128, file_type=args.filetype, epochs=20)
+        filepath = pretrain_weights(dataset, vocab_size, 128, file_type=args.filetype, epochs=10)
     else:
         logger.info(f"Weights have already been pretrained for dataset of size {balanced_df.shape}")
 
-    with open(filepath, 'r') as weights_file:
-        logger.info(f'Loading pretrained weights from JSON file {filepath}')
-        weights = json.load(weights_file)
-        pretrained_weights = np.array(weights["19"])
+    # with open(filepath, 'r') as weights_file:
+
+    #     logger.info(f'Loading pretrained weights from JSON file {filepath}')
+    #     weights = json.load(weights_file)
+    #     pretrained_weights = np.array(weights["20"])
     
-        ## Run model
-        if 'simple' in args.model_names:
-            logger.info(f'Running Simple Model Training')
-            train_ds_simple, test_ds_simple = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'simple')
-            perform_simple_model(train_ds_simple, test_ds_simple, pretrained_weights)
-        if 'han' in args.model_names:
-            logger.info(f'Running HAN Model Training')
-            train_ds_han, test_ds_han = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'han')
-            x = train_ds_han.take(1)
-            for elem in x:
-                logger.critical(elem[0])
-            perform_han_model(train_ds_han, test_ds_han, pretrained_weights)
+    pretrained_weights = np.load(os.path.join("..", "data", "pretrained_weights_gz_109375.npy"))
+    ## Run model
+    if 'simple' in args.model_names:
+        logger.info(f'Running Simple Model Training')
+        train_ds_simple, test_ds_simple = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'simple')
+        perform_simple_model(train_ds_simple, test_ds_simple, pretrained_weights)
+    if 'han' in args.model_names:
+        logger.info(f'Running HAN Model Training')
+        train_ds_han, test_ds_han = get_train_test_df(balanced_df, preprocessed_reviews_dict, 'han')
+        x = train_ds_han.take(1)
+        for elem in x:
+            logger.critical(elem[0])
+        perform_han_model(train_ds_han, test_ds_han, pretrained_weights)

@@ -139,17 +139,15 @@ embedder/embedded_data/word2vec/
 embedder/embedded_data/spark_lsi/
 cleaner/cleaned_data/restaurants_wordclouds/
 cleaner/cleaned_data/restaurants_tfidf/
+attention_embedder/data/weights_gz.json
+attention_embedder/data/weights_json.json
+
 
 # Large files
+scraper/scraped_data/merged_data/balanced_dataset_gz.csv
 attention_embedder/pretrained_models/simple_1/variables/variables.data-00000-of-00001
 attention_embedder/pretrained_models/simple_1/saved_model.pb
 attention_embedder/data/weights_gz.json
-attention_embedder/data/light_weights_json.json
-attention_embedder/data/trash/weights.json
-attention_embedder/data/weights_unclean_json.json
-attention_embedder/data/weights_json.json
-attention_embedder/data/light_weights_gz.json
-attention_embedder/data/light_weights_uncleaned_json.json
 attention_embedder/data/clean_text_scrapped_data_2021.csv.gz
 embedder/embedded_data/spark_lsi/X_train_spark_lsi.csv
 embedder/embedded_data/spark_lsi/spark_lsi.csv

@@ -71,8 +71,8 @@ def get_balanced_df(filetype, filepath=None):
     logger.info(f'Looks for save_fp: {save_fp}')
     if not os.path.exists(save_fp):
         logger.info(f"Creating balanced dataset in csv as {save_fp} not found.")
-        balance = False if filetype == 'gz' else True
-        balanced_df = gen_balanced_df(filepath, save_fp, 'usable_rating', balance)
+        # balance = False if filetype == 'gz' else True
+        balanced_df = gen_balanced_df(filepath, save_fp, 'usable_rating', True)
     else:
         logger.info(f"Reading balanced dataset csv as {save_fp} found.")
         balanced_df = pd.read_csv(save_fp, sep='#')
@@ -128,8 +128,9 @@ def get_train_test_df(balanced_df, preprocessed_reviews_dict, model_type):
 def gen_sequences(balanced_df, filetype):
 
     review_sentences = balanced_df['review_sentences'].tolist()
-    if filetype == 'json':
-        review_sentences = [eval(x) for x in review_sentences]
+    logger.critical(f"review_sentences = {review_sentences[0:5]}")
+    # if filetype == 'json':
+    review_sentences = [eval(x) for x in review_sentences]
     sentences = list(itertools.chain(*review_sentences))
     logger.info("Preprocessed sentences")
 
@@ -181,14 +182,17 @@ def pretrain_weights(dataset, vocab_size, embedding_dim, file_type, epochs):
     history = word2vec.fit(dataset, epochs=epochs, callbacks=weight_callback)
 
     logger.info("Writing weights")
-    json.dump(weights_dict, open(os.path.join("attention_embedder", "data", "weights_" + str(file_type) + ".json"),"w+"))
-    logger.info("Wrote weights")
+    try:
+        json.dump(weights_dict[9], open(os.path.join("attention_embedder", "data", "weights_" + str(file_type) + ".json"),"w+"))
+        logger.critical("Succeeded with index as int")
+    except:
+        pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
+
+        filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_' + str(file_type) + '_' + str(vocab_size) + '.npy')
+        with open(filepath, 'wb') as f:
+            np.save(f, pretrained_weights)
+
+    # logger.info("Wrote weights")
     word2vec.summary()
 
-    pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
-    
-    filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_' + str(file_type) + '_' + str(vocab_size) + '.npy')
-    with open(filepath, 'wb') as f:
-        np.save(f, pretrained_weights)
-    
     return filepath
