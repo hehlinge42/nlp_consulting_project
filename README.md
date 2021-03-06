@@ -48,7 +48,8 @@ pip install -r requirements.txt
 ```
 python3 launch_program.py
 ```
-<img width="509" alt="Screenshot 2021-03-06 at 15 41 07" src="https://user-images.githubusercontent.com/41548545/110210535-603f0580-7e92-11eb-87d7-a87537f601bf.png">
+<img width="506" alt="Screenshot 2021-03-06 at 16 00 30" src="https://user-images.githubusercontent.com/41548545/110211065-1b689e00-7e95-11eb-85d0-f35656ca9212.png">
+
 
 GUI User defined settings:
 * --Save Wordcloud: option to create wordclouds per restaurants.
