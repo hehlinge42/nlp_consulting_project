@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 import nltk
-import tqdm
+from tqdm import tqdm
 import sklearn
 import json
 import itertools
@@ -27,7 +27,7 @@ def generate_training_data(sequences, window_size, num_ns, vocab_size, seed=42):
     sampling_table = tf.keras.preprocessing.sequence.make_sampling_table(vocab_size)
 
     # Iterate over all sequences (sentences) in dataset.
-    for sequence in sequences:
+    for sequence in tqdm(sequences):
 
         # Generate positive skip-gram pairs for a sequence (sentence).
         positive_skip_grams, _ = tf.keras.preprocessing.sequence.skipgrams(
@@ -130,6 +130,7 @@ def gen_sequences(balanced_df, filetype):
     review_sentences = balanced_df['review_sentences'].tolist()
     logger.critical(f"review_sentences = {review_sentences[0:5]}")
     # if filetype == 'json':
+    logger.info(type(review_sentences[0]))
     review_sentences = [eval(x) for x in review_sentences]
     sentences = list(itertools.chain(*review_sentences))
     logger.info("Preprocessed sentences")
@@ -183,14 +184,17 @@ def pretrain_weights(dataset, vocab_size, embedding_dim, file_type, epochs):
 
     logger.info("Writing weights")
     try:
-        json.dump(weights_dict[9], open(os.path.join("attention_embedder", "data", "weights_" + str(file_type) + ".json"),"w+"))
+        filepath = os.path.join("attention_embedder", "data", "weights_" + str(file_type) + ".json")
+        print(f'Type of weights_dict: {type(weights_dict[9])}')
+        json.dump(weights_dict[9], open(filepath,"w+"))
         logger.critical("Succeeded with index as int")
     except:
-        pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0]
-
-        filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_' + str(file_type) + '_' + str(vocab_size) + '.npy')
-        with open(filepath, 'wb') as f:
-            np.save(f, pretrained_weights)
+        pretrained_weights = word2vec.get_layer('w2v_embedding').get_weights()[0].tolist()
+        print(pretrained_weights.shape)
+        filepath = os.path.join('.', 'attention_embedder', 'data', 'pretrained_weights_' + str(file_type) + '_' + str(vocab_size) + '.json')
+        json.dump(pretrained_weights, open(filepath,"w+"))
+        # with open(filepath, 'wb') as f:
+        #     np.save(f, pretrained_weights)
 
     # logger.info("Wrote weights")
     word2vec.summary()
