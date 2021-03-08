@@ -62,6 +62,10 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
         df = pd.read_json(filepath, lines=True)
         df.rename(columns={"comment": "review"}, inplace=True)
         df = clean_df(df, 'review', contraction_fp)
+    elif file_type == 'csv':
+        df = pd.read_csv(filepath, low_memory=False, parse_dates=['diner_date', 'rating_date'])
+        df.rename(columns={"content": "review"}, inplace=True)
+        df = clean_reviews(df)
 
     df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
     df = split_reviews_per_sentence(df)

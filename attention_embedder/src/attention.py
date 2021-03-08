@@ -23,7 +23,7 @@ class Attention(tf.keras.layers.Layer):
         """Layer forward method.
         """
         attention_logits = self.u(tf.nn.tanh(self.W(sequence)))
-        attention_weights = tf.nn.softmax(attention_logits)
+        attention_weights = tf.nn.softmax(attention_logits, axis=-2)
 
         weighted_vectors = attention_weights * sequence
         context_vector = tf.reduce_sum(weighted_vectors, axis=-2)
