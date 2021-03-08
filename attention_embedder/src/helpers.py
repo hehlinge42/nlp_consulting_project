@@ -65,9 +65,10 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
     elif file_type == 'csv':
         df = pd.read_csv(filepath, low_memory=False, parse_dates=['diner_date', 'rating_date'], sep='#')
         df.rename(columns={"content": "review"}, inplace=True)
-        df = clean_reviews(df)
 
+    logger.info("Usable rating")
     df['usable_rating'] = df['rating'].apply(lambda r: int(r)-1)
+    logger.info("Splitting reviews")
     df = split_reviews_per_sentence(df)
 
     # Balanced dataset
@@ -85,6 +86,7 @@ def gen_balanced_df(filepath, save_fp, y_column, balance):
 
 
 def clean_reviews(reviews, colname='review'):
+    logger.info("Cleaning reviews")
     reviews[colname] = reviews[colname].apply(lambda x: ' '.join(eval(x)))
     return reviews
 
