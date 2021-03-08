@@ -39,6 +39,8 @@ if __name__ == '__main__':
     target_index = path_list.index('nlp_consulting_project')
     running_dir = os.path.join('.', path_list[target_index + 1])
     path_list = path_list[:target_index + 1]
+    if os.name=='nt':
+        path_list[0] += '/'
     os.chdir(os.path.join(os.sep, *path_list))
 
     parser = argparse.ArgumentParser(description='Creates Attention Embedder for Review Sentiment Classification')
@@ -69,17 +71,20 @@ if __name__ == '__main__':
     if not os.path.exists(filepath):
         logger.info(f"Weights have not been pretrained for dataset of size {balanced_df.shape}")
         dataset = gen_dataset(sequences, vocab_size)
-        filepath = pretrain_weights(dataset, vocab_size, 128, file_type=args.filetype, epochs=10)
+        filepath = pretrain_weights(dataset, vocab_size, 128, file_type=args.filetype, epochs=1)
     else:
         logger.info(f"Weights have already been pretrained for dataset of size {balanced_df.shape}")
 
-    # with open(filepath, 'r') as weights_file:
 
+    weights = json.load(filepath)
+    print(weights)
+    pretrained_weights = np.array(weights["20"])
+    # with open(filepath, 'r') as weights_file:
     #     logger.info(f'Loading pretrained weights from JSON file {filepath}')
-    #     weights = json.load(weights_file)
-    #     pretrained_weights = np.array(weights["20"])
+    #     pretrained_weights = json.load(weights_file)
+        #pretrained_weights = np.array(weights["20"])
     
-    pretrained_weights = np.load(os.path.join("..", "data", "pretrained_weights_gz_109375.npy"))
+    #pretrained_weights = np.load(os.path.join("..", "data", "pretrained_weights_gz_109375.npy"))
     ## Run model
     if 'simple' in args.model_names:
         logger.info(f'Running Simple Model Training')
