@@ -11,15 +11,6 @@ The attention embedder has the following subfolders:
 * ``` notebooks ```: contains notebook used to assess impact of hyper-parameters on HAN and evaluates predictions.
 * ``` pretrained models ```: Saved best HAN models.
 
-## Run from Command Line
+## Run Notebook
 
-From the root of ```attention_embedder``` folder:
-```
-python3 src/main.py --filetype gz -weights weights_folder_name.json -model_names han 
-```
-
-Usage:
-* --filetype [str]: 'gz' to load Capgemini data and 'json' to load data from TripAdvisor scraper.
-* --weights [str]: filename for pretrained weights file.
-* --model_names [list(str)]: names of models used to predict ratings ('han' and 'simple' supported).
-
+From the root of ```attention_embedder/notebooks``` folder, import the ```attention_embedder_regularized.ipynb``` notebook in Google Colab and run all.
