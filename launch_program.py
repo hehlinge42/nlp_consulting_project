@@ -78,8 +78,10 @@ def create_settings_window(settings):
 def create_main_window(settings):
     sg.theme(settings['theme'])
 
-    layout = [[sg.T('Tripadvisor Run All Application')],
-              [sg.T('This is amazing')],
+    layout = [[sg.T('\t\tTripadvisor Run All Application')],
+              [sg.T('Change settings via button to specify user defined parameters.')],
+              [sg.T('Run application to clean, tokenize a balanced dataset of reviews')],
+              [sg.T('Predict associated ratings (ratings 1 to 5')],
               [sg.B('Run Application'), sg.B('Exit'), sg.B('Change Settings')]]
 
     return sg.Window('Main Application', layout, size=(500, 200))

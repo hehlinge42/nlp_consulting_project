@@ -18,3 +18,4 @@ seaborn
 plotly
 tqdm
 tensorflow
+PySimpleGUI

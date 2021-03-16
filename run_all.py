@@ -8,7 +8,7 @@ from scraper.merger import merge_files
 from cleaner.src.cleaner import Cleaner
 from embedder.src.embedder import Embedder
 from cleaner.src.helpers import save_wordcloud, save_tfidf
-# from embedder.src.model import RatingPredictor # 10 seconds to import
+from embedder.src.model import RatingPredictor
 
 import json
 import os
@@ -18,7 +18,6 @@ import PySimpleGUI as sg
 
 def run_all(settings):
 
-    logger.critical(settings)
     path_list = os.getcwd().split(os.sep)
     target_index = path_list.index('nlp_consulting_project')
     path_list = path_list[:target_index + 1]
@@ -56,10 +55,7 @@ def run_all(settings):
 
     # Generate balanced dataset
     path = os.path.join(os.getcwd(), os.path.join(scraped_data_dir, 'merged_data', 'merged_reviews.json'))
-    logger.critical(f"path = {path}")
-
     reviews = pd.read_json(path, lines=True)
-    logger.critical(reviews.head())
 
     by_rating = reviews.groupby(by=['rating']).count()
     min_count = min(by_rating['review_id'])
@@ -74,10 +70,8 @@ def run_all(settings):
     cleaner.save_tokenized_corpus(cleaned_data_dir, 'tokenized_corpus.json')
 
     if int(settings['wordclouds']) == 1:
-    # if args.wordcloud_per_restaurant:
         cleaner.save_files(os.path.join(cleaned_data_dir, 'restaurants_wordclouds'), save_wordcloud, mask_path=os.path.join('cleaner', 'assets', 'capgemini.jpg'))
     if int(settings['tfidf']) == 1:
-    # if args.tfidf_per_restaurant:
         cleaner.save_files(os.path.join(cleaned_data_dir, 'restaurants_tfidf'), save_tfidf)
 
     cleaner.save_sparse_matrix(os.path.join(cleaned_data_dir, 'restaurant_tfidf_sparse.npz'), 
@@ -114,9 +108,9 @@ def run_all(settings):
     embed_type = 'spark_lsi'
     best_params_fp = os.path.join('embedder', 'trained_models', str(embed_type) + '_params.json')
 
-    # rating_predictor = RatingPredictor(reviews_fp) 
-    # rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
-    # rating_predictor.generate_model()
-    # rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
-    # trained_models_dir = os.path.join('embedder', 'trained_models')
-    # rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
+    rating_predictor = RatingPredictor(reviews_fp) 
+    rating_predictor.set_Xy_train(best_params_fp, input=embed_type)
+    rating_predictor.generate_model()
+    rating_predictor.train_test_model(validation_split=0.2, early_stopping_monitor=None)
+    trained_models_dir = os.path.join('embedder', 'trained_models')
+    rating_predictor.save_model(trained_models_dir, filename=embed_type + '.h5')
